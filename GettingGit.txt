@@ -124,8 +124,26 @@ Stap 14: ssh -T git@github.com
 
 --------------------------  Go back to the local repository folder ----------------------
 
+Stap 15: Pull Add commit Push, from local to remote to local
 
----
+From remote to local
+$ git pull origin main 
+
+From untracked files to tracked files
+$ git add <file.txt>
+$ git add <folder/>
+
+From local to staging
+$ git commit -m "reason commit"
+
+Check status
+$ git status
+
+From local staging to remote
+$ git push origin main
 
 
-Stap 2: (in git prompt) git clone git@github.com:Marlinity1457/PythonNote.git
+
+-- clone repository
+
+(in git prompt) git clone git@github.com:Marlinity1457/PythonNote.git

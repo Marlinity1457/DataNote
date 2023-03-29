@@ -143,6 +143,32 @@ $ git push origin main
 
 
 
--- clone repository
+---------------------------- clone repository --------------------------
 
+Stap 1: Go to the <Git_it_a_try
+$ cd ~/Git_it_a_try
+
+Stap 2: Make a local repository
+$ git init 
+
+Stap 3: Public key and Private key and call the ssh file <github_mvd_pc>
+$ ssh-keygen -t ed25519 -C "mc.marleen@hotmail.com"
+
+Stap 4: Check public key
+$ cat -/.ssh.pub
+
+Stap 5: Copy public key, go to github and make a new ssh connection with the public key.
+Tip: Give it the same name as the public key ID
+
+stap 6:
+$ git remote add git@github.com:marlinity1457/DataNote.git
+
+stap 7: unset proxy
+$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
+
+stap 8: make the true connection with remote by ssh key
+$ ssh -T git@github.com
+
+stap 9: clone repository
 (in git prompt) git clone git@github.com:Marlinity1457/PythonNote.git

@@ -1,0 +1,19 @@
+Functions
+Python Data Science Toolbox (Part 1)
+https://app.datacamp.com/learn/courses/python-data-science-toolbox-part-1
+
+Iterators_Generators
+Python Data Science Toolbox (Part 2)
+https://app.datacamp.com/learn/courses/python-data-science-toolbox-part-2
+
+Functions
+Writing Functions in Python
+https://app.datacamp.com/learn/courses/writing-functions-in-python
+
+PackageDev
+Developing Python Packages
+https://app.datacamp.com/learn/courses/developing-python-packages
+
+
+call the import statement
+from package import class

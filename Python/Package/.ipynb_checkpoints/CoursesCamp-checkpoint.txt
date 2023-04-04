@@ -15,5 +15,6 @@ Developing Python Packages
 https://app.datacamp.com/learn/courses/developing-python-packages
 
 
-call the import statement
-from package import class
+-- use function --
+from package import function/class
+from folder.package import function/class

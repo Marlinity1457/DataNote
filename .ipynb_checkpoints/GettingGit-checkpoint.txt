@@ -1,5 +1,7 @@
 Start
 
+$ git init 
+
 $ git config --global user.name "Marleen van Doorn"
 $ git config --global user.email "mc.marleen@hotmail.com"
 $ git config --global user.email "m.c.vandoorn@erasmusmc.nl"
@@ -39,14 +41,15 @@ $ git config --global init.defaultBranch main
 Track changes
 
 $ git add <file1> <file2> <filex>
+$ git add -A
 $ git commit -m "Note what is changed"
-$ git log				-- track changes
-$ git log -n				-- with n: nth nr of change before
-$ git log --oneline			-- short notation of all changes
-$ git log --oneline --graph		-- short notation of all changes with *
-$ git diff				-- identify changes in files
-$ git diff --staged			-- identify changes in staging
-$ git log --patch <file>		-- combine git diff + git log
+$ git log							-- track changes
+$ git log -n						-- with n: nth nr of change before
+$ git log --oneline					-- short notation of all changes
+$ git log --oneline --graph			-- short notation of all changes with *
+$ git diff							-- identify changes in files
+$ git diff --staged					-- identify changes in staging
+$ git log --patch <file>			-- combine git diff + git log
 $ git touch <file1> <file2> <filex>	-- FIXME
 
 

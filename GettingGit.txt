@@ -102,27 +102,33 @@ $ git remote -v
 Stap 8: Check if there is anywhere already a key
 $ ls -al ~/.ssh
 
+--------------------------  Generate the key-pair  ----------------------
+
 Stap 9: Public key and Private key and call the ssh file <github_mvd_pc>
+
 $ ssh-keygen -t ed25519 -C "mc.marleen@hotmail.com"
+Generating public/private ed25519 key pair.
 
---------------------------  Go to ~/.ssh folder ----------------------
-
-the key is saved in /c/Users/mcMar/.ssh
-as hidden files with the name <github_mvd_pc>
+$ ssh-keygen -o
+Generating public/private rsa key pair.
 
 Stap 10: Check the if the keys are at the just location
 $ ls -al
 
 Stap 11: Check private key
 $ cat ssh
+$ cat id_rsa
 
 Stap 12: Check public key
-$ cat ssh.pub
+$ cat ~/.ssh/ssh.pub
+$ cat ~/.ssh/id_rsa.pub
 
 Stap 13: Copy public key, go to github and make a new ssh connection with the public key.
 Tip: Give it the same name as the public key ID
 
-Stap 14: ssh -T git@github.com
+Stap 14: Activate the key-pair
+$ ssh -T git@github.com
+$ ssh -T git@ssh.dev.azure.com
 
 --------------------------  Go back to the local repository folder ----------------------
 

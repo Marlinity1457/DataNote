@@ -1,0 +1,141 @@
+INTRODUCTION
+-----------------
+Virtual environments prevent dependency version conflicts. 
+You can install different versions of the same dependency in different virtual environments.
+
+
+
+VERSIONS
+-----------------
+Show versions of Python
+$ pyenv versions
+
+Set global python version (example with version 3.8.6)
+$ pyenv global 3.8.6
+
+Set python for a current folder
+$ pyenv local 3.10.2
+
+Show local/global python versions
+$ python -V
+
+
+
+ENVIRONMENTS
+-----------------
+
+Different dependency environments
+1. venv + pip (generally installed with python)
+2. poetry
+3. pipenv
+
+Venv + pip is the most easiest to work with.
+
+venv and pip know nothing about the version of Python it's working with. 
+You have to:
+* manage all dependencies and virtual environments by hand. 
+* create and manage the requirements.txt file yourself. 
+* manually separate development (pytest, black, isort, ...) dependencies using a requirements-dev.txt file.
+* manually separate production (Flask, Django, FastAPI, ..) dependencies using a requirements-dev.txt file.
+
+Poetry en Pipenv 
+* addess the same problems, so it comes down to personal preferences.
+* combine the functionality of venv and pip. 
+* work well with pyenv
+In general, Poetry is easier and faster when publishing your packages to PyPI. 
+
+
+1. VENV + PIP
+-----------------
+
+Create a new virtual environment (VE)
+$ python -m venv my_venv
+
+Activate or Re-activate VE
+$ source my_venv/bin/activate 
+--> the comment plane starts with: (my_venv)$ -- indicating you are in the VE
+
+De-activate VE
+$ source my_venv/bin/activate 
+
+Return the path to the Python interpreter inside the VE
+(my_venv)$ which python
+
+Install packages local to your project
+$ pip install <package-name>
+
+Activate installed package into the VE
+(my_venv)$ python -m pip install requests
+
+Generate reproducibility list by comment
+(my_venv)$ python -m pip freeze > requirements.txt
+(my_venv)$ cat requirements.txt
+
+
+2. POETRY
+-----------------
+
+Install Poetry
+Step 1: $ pip intall pyenv
+Step 2: $ pyenv global <version>
+Step 3: $ pyenv local <version>
+Step 4: $ pip install poetry
+--------- Downloading has begun, wait till installation is completed
+
+
+Create a new virtual environment (VE)
+$ poetry new <project_name>
+
+Or in an already existing package
+$ poetry init
+
+--> Dependencies are managed inside the pyproject.toml file
+
+If you want to install all required packages, now or later:
+$ poetry install
+
+Check poetry info (for example the path)
+$ poetry env info 
+$ poetry env info --path
+
+Check poetry by another more general way
+$ poetry check
+
+See the available comments for poetry
+$ poetry config
+$ poetry
+
+Add new a dependency in both dev and XXX, dev only, or in XXX only, respectively.
+$ poetry add <package name>
+$ poetry add [--dev] <package name>
+$ poetry add [--XXX] <package name>
+
+Update dependencies
+$ poetry lock
+
+Run command inside the VE
+$ poetry run python -m pytest
+
+Activate VE
+$ poetry shell
+
+De-activate VE
+$ exit
+
+You can activate your virtual environment before working on the project 
+You can deactivate once you're done 
+You can deactivate once you can use poetry run <command> throughout development.
+
+Poetry.lock file lists all their projects and their specific versions so that projects dependencies are reproducible. 
+Users can use poetry to install the exact same requirements with the exact same dependencies. 
+
+
+
+
+
+
+
+
+
+
+

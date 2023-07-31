@@ -91,7 +91,8 @@ $ poetry init
 
 --> Dependencies are managed inside the pyproject.toml file
 
-If you want to install all required packages, now or later:
+If you want to install all required packages, now or later, of for new user:
+$ cd <path to package>
 $ poetry install
 
 Check poetry info (for example the path)
@@ -105,19 +106,19 @@ See the available comments for poetry
 $ poetry config
 $ poetry
 
-Add new a dependency in both dev and XXX, dev only, or in XXX only, respectively.
+Add new a dependency in both the project and development, or only for development, respectively.
 $ poetry add <package name>
 $ poetry add [--dev] <package name>
-$ poetry add [--XXX] <package name>
+
 
 Update dependencies
 $ poetry lock
 
-Run command inside the VE
-$ poetry run python -m pytest
-
 Activate VE
 $ poetry shell
+
+Run command inside the VE
+$ poetry run python -m pytest
 
 De-activate VE
 $ exit
@@ -128,14 +129,5 @@ You can deactivate once you can use poetry run <command> throughout development.
 
 Poetry.lock file lists all their projects and their specific versions so that projects dependencies are reproducible. 
 Users can use poetry to install the exact same requirements with the exact same dependencies. 
-
-
-
-
-
-
-
-
-
 
 

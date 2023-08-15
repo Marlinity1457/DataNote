@@ -1,0 +1,183 @@
+Start
+
+$ git init 
+
+$ git config --global user.name "Marleen van Doorn"
+$ git config --global user.email "mc.marleen@hotmail.com"
+$ git config --global user.email "m.c.vandoorn@erasmusmc.nl"
+
+$ git config --global core.editor "c:/Windows/System32/notepad.exe"
+% git config --list
+$ git config -h
+$ git config --help
+$ git help
+
+$ git config --global http.proxy proxy-url
+$ git config --global https.proxy proxy-url
+$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
+
+$ git config --global init.defaultBranch mai
+
+
+Basic codes
+
+$ cd /<dir>/<folder> 			-- go to <folder>
+$ ls					-- show the directory's content
+$ ls -a					-- show everything (incl hidden files)
+$ git status
+$ cat <file.txt>			-- example to see what is the content of the file
+
+
+Create a repository (local)
+
+$ cd ~/Desktop/<folder>
+$ mkdir planets
+$ cd planets
+$ git init
+$ git checkout -b main			-- default branch called main instead master
+$ git config --global init.defaultBranch main
+
+Track changes
+
+$ git add <file1> <file2> <filex>
+$ git add -A
+$ git commit -m "Note what is changed"
+$ git log							-- track changes
+$ git log -n						-- with n: nth nr of change before
+$ git log --oneline					-- short notation of all changes
+$ git log --oneline --graph			-- short notation of all changes with *
+$ git diff							-- identify changes in files
+$ git diff --staged					-- identify changes in staging
+$ git log --patch <file>			-- combine git diff + git log
+$ git touch <file1> <file2> <filex>	-- FIXME
+
+
+Exploring history
+
+$ git diff HEAD <file>			-- Get same old version as $ git diff <head>
+$ git diff HEAD~1 <file>		-- Get 1 older version 
+$ git diff HEAD~x <file>		-- Get nth older version
+$ git diff ff2b25e.... <file>		-- Get diff of change with ID f2b25e....
+$ git diff ff2b25e <file>		-- Get diff of change with ID f2b25e.... Short notation
+$ git checkout HEAD <file>		-- Restores verison 
+$ git checkout HEAD~n <file>		-- Restores verison nth older version
+$ git checkout ff2b25e <file>		-- Restores verison ff2b25e 
+
+
+Ignoring things
+
+$
+
+
+
+
+
+From local to remote
+
+Stap 1: Make local folder with the name <Git_it_a_try>
+
+Stap 2: Go to the <Git_it_a_try
+$ cd Documents/Werk/EMC/Git_it_a_try
+
+Stap 2: Make a local repository
+$ git init 
+
+Stap 3: Check if the folder is indeed a local repository
+$ ls -a
+Output: . .. .git
+
+Stap 4: Change name master branch to main
+$ git checkout -b main
+
+Stap 5: Check status of the main branch
+$ git status
+
+Stap 6: 
+$ git remote add origin git@github.com:marlinity1457/PyNote.git
+
+Stap 7: Check if the command has worked
+$ git remote -v
+
+Stap 8: Check if there is anywhere already a key
+$ ls -al ~/.ssh
+
+--------------------------  Generate the key-pair  ----------------------
+
+Stap 9: Public key and Private key and call the ssh file <github_mvd_pc>
+
+$ ssh-keygen -t ed25519 -C "mc.marleen@hotmail.com"
+Generating public/private ed25519 key pair.
+
+$ ssh-keygen -o
+Generating public/private rsa key pair.
+
+Stap 10: Check the if the keys are at the just location
+$ ls -al
+
+Stap 11: Check private key
+$ cat ssh
+$ cat id_rsa
+
+Stap 12: Check public key
+$ cat ~/.ssh/ssh.pub
+$ cat ~/.ssh/id_rsa.pub
+
+Stap 13: Copy public key, go to github and make a new ssh connection with the public key.
+Tip: Give it the same name as the public key ID
+
+Stap 14: Activate the key-pair
+$ ssh -T git@github.com
+$ ssh -T git@ssh.dev.azure.com
+
+--------------------------  Go back to the local repository folder ----------------------
+
+Stap 15: Pull Add commit Push, from local to remote to local
+
+From remote to local
+$ git pull origin main 
+
+From untracked files to tracked files
+$ git add <file.txt>
+$ git add <folder/>
+
+From local to staging
+$ git commit -m "reason commit"
+
+Check status
+$ git status
+
+From local staging to remote
+$ git push origin main
+
+
+
+---------------------------- clone repository --------------------------
+
+Stap 1: Go to the <Git_it_a_try
+$ cd ~/Git_it_a_try
+
+Stap 2: Make a local repository
+$ git init 
+
+Stap 3: Public key and Private key and call the ssh file <github_mvd_pc>
+$ ssh-keygen -t ed25519 -C "mc.marleen@hotmail.com"
+
+Stap 4: Check public key
+$ cat -/.ssh.pub
+
+Stap 5: Copy public key, go to github and make a new ssh connection with the public key.
+Tip: Give it the same name as the public key ID
+
+stap 6:
+$ git remote add git@github.com:marlinity1457/DataNote.git
+
+stap 7: unset proxy
+$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
+
+stap 8: make the true connection with remote by ssh key
+$ ssh -T git@github.com
+
+stap 9: clone repository
+(in git prompt) git clone git@github.com:Marlinity1457/PythonNote.git

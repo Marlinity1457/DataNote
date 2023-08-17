@@ -1,0 +1,113 @@
+.  -> refers to your current locations
+.. -> refers to the directory above your current locations
+
+Absolute path
+$ pwd
+
+List files in directory
+$ ls
+$ ls -R -F
+
+List home directory
+$ ls .
+
+List of home directory
+$ ls ~
+
+Move around a file
+$ cd
+
+Move to current dir (no effect)
+$ cd .
+
+Move to home directory
+$ cd ~
+
+Copy
+$ cp to_copy.txt name_copy.txt
+
+Copy all files in dir 'not_exist' if 'not_exist' does not yet exist
+$ cp dir/to_copy.csv not_exist/name_copy.csv exist
+
+Copy all files in dir 'exist' if 'exist' already exist
+$ cp dir/to_copy.csv dir/name_copy.csv exist
+
+Move a file
+$ mv file1.csv file2.csv ..
+$ mv dir_cur/file1.csv dir/curfile2.csv dir_new
+
+Rename file (if old-course.txt already exist, then cource.txt will be replaced)
+$ mv course.txt old-course.txt
+
+Remove a file
+$ mv file1.csv file2.csv
+
+Remove a dir (only if it is empty, for safety)
+$ rmdir dir
+$ rm -r dir
+
+Make a directory
+$ mkdir dir_name
+
+Look at the content of a file
+$ cat file.txt
+
+Scroll through a page
+$ more file.txt
+
+Display 1 page at a time
+$ less file.txt
+-> page up:   $ :?
+-> page down: $ :n
+-> quit page: $ :q
+
+Show only the first n lines (default n = 10)(eg. 4 gives 4)
+$ head text.txt
+$ head -n 4 text.txt
+
+Show only the last n lines (default n = 10)(eg. +7 gives 10+7=17)
+$ tail text.txt
+$ tail-n +7 text.txt
+
+Help of a command
+$ man command
+$ man head
+$ man less
+-> quit page: $ :q
+
+select columns 2 through 5 and columns 8, using comma as the separator" (f -> fields, d -> delimiter)
+$ cut -f 2-5,8 -d , values.csv
+
+list of commands you have run recently
+$ history
+
+Re-run command line 55 or command
+$ !55
+$ !head
+$ !cut
+
+Select lines according to what they contain
+$ grep <containing>
+-c: print a count of matching lines rather than the lines themselves
+-h: do not print the names of files when searching multiple files
+-i: ignore case (e.g., treat "Regression" and "regression" as matches)
+-l: print the names of files that contain matches, not the matches
+-n: print line numbers for matching lines
+-v: invert the match, i.e., only show lines that don't match
+
+Combine data files
+$ paste file1.csv file2.csv
+
+
+
+
+
+
+
+
+
+
+
+
+
+

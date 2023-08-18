@@ -94,16 +94,30 @@ $ grep <containing>
 -l: print the names of files that contain matches, not the matches
 -n: print line numbers for matching lines
 -v: invert the match, i.e., only show lines that don't match
+<content> : just say what you are searching for
 
 Combine data files
 $ paste file1.csv file2.csv
 
+Output a new file
+$ head -n 5 dir/file.csv > new_file.csv
 
+Selection output a new file
+$ head -n 5 dir/file.csv | tail-n 3
 
+Pipe the output 
+eg $ cut -d , -f 2 seasonal/summer.csv | grep -v Tooth
 
+Count the record (word count: characters (c), word (w), lines (l))
+eg $ grep 2017-07 seasonal/spring.csv | wc -l
 
-
-
+Wildcards
+match zero or more characters	$ *	  eg $ cut -d , -f 1 seasonal/*.csv
+match a single character	$ ?	  eg $ 201?.txt will match 2017.txt or 2018.txt, but not 2017-01.txt 
+match characters 		$ [...]   eg $ 201[78].txt matches 2017.txt or 2018.txt, but not 2016.txt
+match comma-separated patterns	$ {...}   eg $ {*.txt, *.csv} matches any file whose name ends with .txt or .csv, but not files whose names end with .pdf.
+$ 
+$ 
 
 
 

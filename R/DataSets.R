@@ -1,3 +1,13 @@
+
+# %% SUMMARY OF FUNCTIONS () ---------------------------
+
+# head
+# str
+# subset
+# order
+
+# %% DataSet Basics ---------------------------
+
 # Make dataset
 name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
 type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 

@@ -2,6 +2,27 @@
 # Run line: Ctrl + Enter
 # Run line: Alt + Enter
 
+
+# %% SUMMARY OF FUNCTIONS () ---------------------------
+
+# c
+# list
+# matrix
+
+# class
+# sum
+# mean
+# colnames
+# rownames
+# rowSums
+# colSums
+# cbind
+# rbind
+# factors
+# levels
+# summary
+# is.numeric
+
 # %% MATHEMATICAL NOTATIONS ----------------------------
 
 # Addition

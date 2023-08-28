@@ -22,6 +22,7 @@
 # levels
 # summary
 # is.numeric
+# identical
 
 # %% MATHEMATICAL NOTATIONS ----------------------------
 
@@ -212,6 +213,7 @@ link <- c(16,1,9,6,2,17,14)
 combi <- c(7,4,5,14,21,28,3)
 link > 7
 link <= combi # value comparison one by one
+identical(link, combi)
 
 combi > 5 & combi < 15
 combi > 15 | combi < 5

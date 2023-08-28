@@ -226,4 +226,3 @@ c(TRUE, TRUE, FALSE) || c(TRUE, FALSE, FALSE)
 is.numeric(5) # TRUE
 !is.numeric('hello') # TRUE
 
-

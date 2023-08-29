@@ -6,6 +6,15 @@
 # sapply
 # vapply
 
+#--- functions which are available ---
+# sort
+# print
+# identical
+# round
+# abs
+# sum
+# mean
+
 # %% Help -------------------------------------------
 
 # Example with function: print()
@@ -114,6 +123,16 @@ sapply(cities, first_and_last)
 
 
 # %% vapply -----------------------------------------
+cities <- c("New York","Paris","Amsterdam","London","Cape Town","Vienna")
+vapply(cities, first_and_last, character(2))
+vapply(cities, first_and_last, character(1)) # Error
+vapply(cities, first_and_last, numberic(2)) # Error
+
+# So you have really to think what your function would return.
+# More save than sapply
+
+
+# %% Function -----------------------------------------
 
 
 

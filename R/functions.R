@@ -7,6 +7,11 @@
 # sapply
 # vapply
 
+# as.Date
+# as.POSIXct
+# format
+# diff
+
 #--- functions which are available ---
 # print
 # identical
@@ -179,6 +184,7 @@ sub(".*\\s([0-9]+)\\snomination.*$", "\\1", awards)
 
 # extra packages : lubridate, zoo, xts
 
+# ---- as.Date(input, format)
 # %Y: 4-digit year (1982)
 # %y: 2-digit year (82)
 # %m: 2-digit month (01)
@@ -188,6 +194,15 @@ sub(".*\\s([0-9]+)\\snomination.*$", "\\1", awards)
 # %B: month (January)
 # %b: abbreviated month (Jan)
 
+# ---- as.POSICxt(input, format)
+# %H: hours as a decimal number (00-23)
+# %I: hours as a decimal number (01-12)
+# %M: minutes as a decimal number
+# %S: seconds as a decimal number
+# %T: shorthand notation for the typical format %H:%M:%S
+# %p: AM/PM indicator
+
+# Date and Time
 today <- Sys.Date()
 today
 
@@ -206,12 +221,25 @@ my_date
 my_time <- as.POSIXct('1995-05-24 10:01:07')
 my_time
 
-add_day <- my_date + 1
-diff_day <- my_date - add_day
-
 unclass(my_date) # date to numeric
 unclass(my_time) # time to numeric
 attr(my_time, 'tzone')
 
+# Formatting
+format(Sys.Date(), format = "Today is a %A!")
 
+# Addings
+add_day <- my_date + 1
+diff_day <- my_date - add_day
 
+# Example
+day1 = Sys.Date()
+day2 = Sys.Date() + 2
+day3 = Sys.Date() + 7
+day4 = Sys.Date() + 11 
+day5 = Sys.Date() + 18
+
+day5-day1 # Difference between last and first pizza day
+
+pizza <- c(day1, day2, day3, day4, day5)
+day_diff = diff(pizza) # Differences between consecutive pizza days: day_diff

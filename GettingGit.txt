@@ -1,6 +1,7 @@
 Start
 
 $ git init 
+$ git --version
 
 $ git config --global user.name "Marleen van Doorn"
 $ git config --global user.email "mc.marleen@hotmail.com"
@@ -27,6 +28,10 @@ $ ls					-- show the directory's content
 $ ls -a					-- show everything (incl hidden files)
 $ git status
 $ cat <file.txt>			-- example to see what is the content of the file
+$ pwd					-- show the dict where you are
+$ echo "message" > filename.txt		-- create a new file
+$ echo "message" >> filename.txt	-- Add content to the existing filename.txt file 
+$ nana file.md				-- open file --> save with: Ctrl + 0, or Ctrl + X
 
 
 Create a repository (local)
@@ -40,17 +45,17 @@ $ git config --global init.defaultBranch main
 
 Track changes
 
-$ git add <file1> <file2> <filex>
-$ git add -A
+$ git add <file1> <file2> <filex>		-- get the specified file to the staging phase
+$ git add -A					-- get all the file to the staging phase
 $ git commit -m "Note what is changed"
-$ git log							-- track changes
-$ git log -n						-- with n: nth nr of change before
-$ git log --oneline					-- short notation of all changes
+$ git log					-- track changes
+$ git log -n					-- with n: nth nr of change before
+$ git log --oneline				-- short notation of all changes
 $ git log --oneline --graph			-- short notation of all changes with *
-$ git diff							-- identify changes in files
-$ git diff --staged					-- identify changes in staging
+$ git diff					-- identify changes in files
+$ git diff --staged				-- identify changes in staging
 $ git log --patch <file>			-- combine git diff + git log
-$ git touch <file1> <file2> <filex>	-- FIXME
+$ git touch <file1> <file2> <filex>		-- FIXME
 
 
 Exploring history

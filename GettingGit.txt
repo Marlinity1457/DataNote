@@ -2,6 +2,9 @@
 --------------------------- CONFIGURATION -----------------------------------------------
 $ git init 
 
+$ git config --local setting_value 	(for specific programs)
+$ git config --global setting_value	(for all programs)
+
 $ git config --global user.name "Marleen van Doorn"
 $ git config --global user.email "mc.marleen@hotmail.com"
 $ git config --global user.email "m.c.vandoorn@erasmusmc.nl"
@@ -18,6 +21,12 @@ $ git config --global --unset http.proxy
 $ git config --global --unset https.proxy
 
 $ git config --global init.defaultBranch mai
+
+Create an alias
+$ git commit --global alias.ci 'commit -m'  	(made an alieas, ci, for committing files)
+
+Track aliases / see updates
+$ git config --global --list
 
 
 ----------------------------------- BASIC CODES -----------------------------------------------
@@ -64,7 +73,8 @@ $ git show <hashcode6-8>			-- Show the commit information
 $ git touch <file1> <file2> <filex>		-- FIXME
 
 $ git log					-- track changes
-$ git log -n					-- with n: nth nr of changes before are shown
+$ git log -n					-- Show the commits of the file. With n: nth nr of changes before are shown
+$ git log -n <file>				-- Show the last n commits of the file
 $ git log --oneline				-- short notation of all changes
 $ git log --oneline --graph			-- short notation of all changes with *
 $ git log --since='Month Day Year'		-- shows only the commit since the specified date, e.g. Apri 2 2022
@@ -73,15 +83,15 @@ $ git log --patch <file>			-- combine git diff + git log
 
 ----------------------------------- RESTORE VERSION --------------------------------------------
 
-From to be commited (=staged) to unstaged
+Bring changes back from to-be-be commited (=staged) to unstaged.
 $ git reset HEAD <file>				-- Unstage a single file 
 $ git reset HEAD				-- Unstage all files
 
-From unstaged to unadded
+To discard the changes in the working repository
 $ git checkout .				-- Undo changes to all unstaged files
-$ git checkout -- <file>			-- Restores verison to a file in the repository
-$ git checkout HEAD <file>			-- Restores verison to a file in the repository
-$ git checkout HEAD~n <file>			-- Restores nth verison to a file in the repository
+$ git checkout -- <file>			-- Restores verison of a specific file
+$ git checkout HEAD <file>			-- Restores verison of a specific file
+$ git checkout HEAD~n <file>			-- Restores nth verison to a file 
 $ git checkout ff2b25e <file>			-- Restores verison ff2b25e of a file
 
 List all untracked files
@@ -93,11 +103,21 @@ $ git clean -f					-- Delete untracked files. CANNOT be undone
 
 ----------------------------------- IGNORE THINGS -----------------------------------------------
 
-$
+Ignore specific files
+$ nano .gitignore
 
 
 
+----------------------------------- BRANCHES ----------------------------------------------------
 
+Create a new branch
+$ git checkout -b filename
+
+Show current branch
+$ git branch
+
+Branches to compare the differences
+$ git diff main other_branchname
 
 -------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------- WORKING PROTOCOLS -------------------------------------------------------------------------

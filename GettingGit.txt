@@ -1,5 +1,6 @@
 
 --------------------------- CONFIGURATION -----------------------------------------------
+
 $ git init 
 
 $ git config --local setting_value 	(for specific programs)
@@ -111,13 +112,60 @@ $ nano .gitignore
 ----------------------------------- BRANCHES ----------------------------------------------------
 
 Create a new branch
-$ git checkout -b filename
+$ git checkout -b new_branch
+
+Switch from branch
+$ git checkout branch_to_go
 
 Show current branch
 $ git branch
 
 Branches to compare the differences
 $ git diff main other_branchname
+
+Merging branches
+$ git merge source destination
+eg $ git merge branchname main
+
+Handling conflict
+$ nano to_fix_file.txt			
+	--- Git has added context to indicate the difference between the branches
+	<<< HEAD (current branch) 
+	>>> update (update branch) 
+	=== (center of the conflict)
+	to do: remove all between === and >>> update
+
+
+----------------------------------- REMOTE REPOSITORY ----------------------------------------------------
+
+Initiate a new repo 
+$ git init					-- not-existing project
+$ git init reponame				-- existing project
+
+Clone locally
+$ git clone path-to-project-dir 
+$ git clone path-to-project-dir <new-repo-name>
+$ git clone [URL]
+
+Get remote for collaboration
+$
+
+Get the name of the remote repo
+$ git remote					-- default name: origin
+$ git remote add reponame <dir>
+$ git remote add reponame [URL]			-- Tip: the reponame can be used as shortcut during merging
+
+Get info about the remote repo 			
+$ git remote -v					-- list all remotes incl. URL(s)
+
+From local to remote
+1. $ git fetch origin main			-- fetch versions from the remote
+2. $ git merge origin main			-- synchronizing content
+3. $ git pull origin main			-- fetch + merge, pulling from a remote
+
+Local changes to remote repos
+$ git push remote local_branch			-- push INTO remote FROM local_branch
+eg $ git push origin main
 
 -------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------- WORKING PROTOCOLS -------------------------------------------------------------------------

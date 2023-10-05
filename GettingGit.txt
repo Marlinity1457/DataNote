@@ -1,5 +1,5 @@
-Start
 
+--------------------------- CONFIGURATION -----------------------------------------------
 $ git init 
 
 $ git config --global user.name "Marleen van Doorn"
@@ -20,52 +20,59 @@ $ git config --global --unset https.proxy
 $ git config --global init.defaultBranch mai
 
 
-Basic codes
+----------------------------------- BASIC CODES -----------------------------------------------
 
-$ cd /<dir>/<folder> 			-- go to <folder>
-$ ls					-- show the directory's content
-$ ls -a					-- show everything (incl hidden files)
+$ cd /<dir>/<folder> 				-- go to <folder>
+$ ls						-- show the directory's content
+$ ls -a						-- show everything (incl hidden files)
 $ git status
-$ cat <file.txt>			-- example to see what is the content of the file
+$ cat <file.txt>				-- example to see what is the content of the file
 
 
-Create a repository (local)
+----------------------------------- CREATE A REPOSITORY (LOCAL) --------------------------------
 
 $ cd ~/Desktop/<folder>
 $ mkdir planets
 $ cd planets
 $ git init
-$ git checkout -b main			-- default branch called main instead master
+$ git checkout -b main				-- default branch called main instead master
 $ git config --global init.defaultBranch main
 
-Track changes
 
-$ git add <file1> <file2> <filex>
-$ git add -A
+----------------------------------- TRACK CHANGES -----------------------------------------------
+
+$ git add <file1> <file2>			-- Add mentioned files to staging area
+$ git add -A					-- All all files in folder to staging area
 $ git commit -m "Note what is changed"
-$ git log							-- track changes
-$ git log -n						-- with n: nth nr of change before
-$ git log --oneline					-- short notation of all changes
+
+$ git diff <file>				-- identify changes in files
+$ git diff -r HEAD <file>			-- identify changes, at a particular revision of the file
+$ git diff -r HEAD 				-- identify changes, at a directory
+$ git diff --staged				-- identify changes in staging
+
+$ git show <hashcode6-8>			-- Show the commit information
+$ git touch <file1> <file2> <filex>		-- FIXME
+
+$ git log					-- track changes
+$ git log -n					-- with n: nth nr of change before
+$ git log --oneline				-- short notation of all changes
 $ git log --oneline --graph			-- short notation of all changes with *
-$ git diff							-- identify changes in files
-$ git diff --staged					-- identify changes in staging
 $ git log --patch <file>			-- combine git diff + git log
-$ git touch <file1> <file2> <filex>	-- FIXME
+
+----------------------------------- EXPLORING HISTORY --------------------------------------------
+
+$ git diff HEAD <file>				-- Get same old version as $ git diff <head>
+$ git diff HEAD~1 <file>			-- Get 1 older version 
+$ git diff HEAD~x <file>			-- Get nth older version
+$ git diff ff2b25e.... <file>			-- Get diff of change with ID f2b25e....
+$ git diff ff2b25e <file>			-- Get diff of change with ID f2b25e.... Short notation
+
+$ git checkout HEAD <file>			-- Restores verison 
+$ git checkout HEAD~n <file>			-- Restores verison nth older version
+$ git checkout ff2b25e <file>			-- Restores verison ff2b25e 
 
 
-Exploring history
-
-$ git diff HEAD <file>			-- Get same old version as $ git diff <head>
-$ git diff HEAD~1 <file>		-- Get 1 older version 
-$ git diff HEAD~x <file>		-- Get nth older version
-$ git diff ff2b25e.... <file>		-- Get diff of change with ID f2b25e....
-$ git diff ff2b25e <file>		-- Get diff of change with ID f2b25e.... Short notation
-$ git checkout HEAD <file>		-- Restores verison 
-$ git checkout HEAD~n <file>		-- Restores verison nth older version
-$ git checkout ff2b25e <file>		-- Restores verison ff2b25e 
-
-
-Ignoring things
+----------------------------------- IGNORE THINGS -----------------------------------------------
 
 $
 
@@ -73,7 +80,14 @@ $
 
 
 
-From local to remote
+-------------------------------------------------------------------------------------------------------------------------------
+----------------------------------- WORKING PROTOCOLS -------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+----------------------------------- FROM LOCAL TO REMOTE -----------------------------------------
 
 Stap 1: Make local folder with the name <Git_it_a_try>
 
@@ -102,7 +116,8 @@ $ git remote -v
 Stap 8: Check if there is anywhere already a key
 $ ls -al ~/.ssh
 
---------------------------  Generate the key-pair  ----------------------
+
+----------------------------------- GENERATE KEY-PAIR  -----------------------------------------
 
 Stap 9: Public key and Private key and call the ssh file <github_mvd_pc>
 
@@ -130,9 +145,12 @@ Stap 14: Activate the key-pair
 $ ssh -T git@github.com
 $ ssh -T git@ssh.dev.azure.com
 
---------------------------  Go back to the local repository folder ----------------------
+Step 15: Go back to the local repository folder
 
-Stap 15: Pull Add commit Push, from local to remote to local
+Stap 16: Pull Add commit Push, from local to remote to local
+
+
+----------------------------------- GENERAL WORKFLOW -----------------------------------------------
 
 From remote to local
 $ git pull origin main 
@@ -152,7 +170,7 @@ $ git push origin main
 
 
 
----------------------------- clone repository --------------------------
+----------------------------------- CLONE REPOSITORY ----------------------------------------------
 
 Stap 1: Go to the <Git_it_a_try
 $ cd ~/Git_it_a_try

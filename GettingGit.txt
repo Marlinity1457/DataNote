@@ -39,37 +39,56 @@ $ git checkout -b main				-- default branch called main instead master
 $ git config --global init.defaultBranch main
 
 
------------------------------------ TRACK CHANGES -----------------------------------------------
+----------------------------------- TRACK CHANGES / EXPLORING HISTORY --------------------------------
 
 $ git add <file1> <file2>			-- Add mentioned files to staging area
 $ git add -A					-- All all files in folder to staging area
 $ git commit -m "Note what is changed"
 
 $ git diff <file>				-- identify changes in files
+$ git diff <file3> <file2>			-- identify changes between file3 and file2
+$ git diff HEAD~3 HEAD~2			-- identify changes between file3 and file2
 $ git diff -r HEAD <file>			-- identify changes, at a particular revision of the file
 $ git diff -r HEAD 				-- identify changes, at a directory
+$ git diff HEAD					-- Find differences between commits
+$ git diff HEAD <file>				-- Get same old version as $ git diff <head>
+$ git diff HEAD~1 <file>			-- Get 1 older version 
+$ git diff HEAD~n <file>			-- Get nth older version
+$ git diff ff2b25e.... <file>			-- Get diff of change with ID f2b25e....
+$ git diff ff2b25e <file>			-- Get diff of change with ID f2b25e.... Short notation
 $ git diff --staged				-- identify changes in staging
+
+$ git annotate <file>				-- Who/when did made the change?
 
 $ git show <hashcode6-8>			-- Show the commit information
 $ git touch <file1> <file2> <filex>		-- FIXME
 
 $ git log					-- track changes
-$ git log -n					-- with n: nth nr of change before
+$ git log -n					-- with n: nth nr of changes before are shown
 $ git log --oneline				-- short notation of all changes
 $ git log --oneline --graph			-- short notation of all changes with *
+$ git log --since='Month Day Year'		-- shows only the commit since the specified date, e.g. Apri 2 2022
+$ git log --until='Month Day Year'		-- shows only the commit untill the specified date, e.g. Apri 2 2022
 $ git log --patch <file>			-- combine git diff + git log
 
------------------------------------ EXPLORING HISTORY --------------------------------------------
+----------------------------------- RESTORE VERSION --------------------------------------------
 
-$ git diff HEAD <file>				-- Get same old version as $ git diff <head>
-$ git diff HEAD~1 <file>			-- Get 1 older version 
-$ git diff HEAD~x <file>			-- Get nth older version
-$ git diff ff2b25e.... <file>			-- Get diff of change with ID f2b25e....
-$ git diff ff2b25e <file>			-- Get diff of change with ID f2b25e.... Short notation
+From to be commited (=staged) to unstaged
+$ git reset HEAD <file>				-- Unstage a single file 
+$ git reset HEAD				-- Unstage all files
 
-$ git checkout HEAD <file>			-- Restores verison 
-$ git checkout HEAD~n <file>			-- Restores verison nth older version
-$ git checkout ff2b25e <file>			-- Restores verison ff2b25e 
+From unstaged to unadded
+$ git checkout .				-- Undo changes to all unstaged files
+$ git checkout -- <file>			-- Restores verison to a file in the repository
+$ git checkout HEAD <file>			-- Restores verison to a file in the repository
+$ git checkout HEAD~n <file>			-- Restores nth verison to a file in the repository
+$ git checkout ff2b25e <file>			-- Restores verison ff2b25e of a file
+
+List all untracked files
+$ git clean -n					-- See what files are not being tracked
+
+Delete all untracked files
+$ git clean -f					-- Delete untracked files. CANNOT be undone
 
 
 ----------------------------------- IGNORE THINGS -----------------------------------------------

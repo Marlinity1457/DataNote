@@ -1,7 +1,11 @@
-Start
+
+--------------------------- CONFIGURATION -----------------------------------------------
 
 $ git init 
 $ git --version
+
+$ git config --local setting_value 	(for specific programs)
+$ git config --global setting_value	(for all programs)
 
 $ git config --global user.name "Marleen van Doorn"
 $ git config --global user.email "mc.marleen@hotmail.com"
@@ -20,31 +24,41 @@ $ git config --global --unset https.proxy
 
 $ git config --global init.defaultBranch mai
 
+Create an alias
+$ git commit --global alias.ci 'commit -m'  	(made an alieas, ci, for committing files)
 
-Basic codes
+Track aliases / see updates
+$ git config --global --list
 
-$ cd /<dir>/<folder> 			-- go to <folder>
-$ ls					-- show the directory's content
-$ ls -a					-- show everything (incl hidden files)
+
+----------------------------------- BASIC CODES -----------------------------------------------
+
+$ cd /<dir>/<folder> 				-- go to <folder>
+$ ls						-- show the directory's content
+$ ls -a						-- show everything (incl hidden files)
 $ git status
+<<<<<<< HEAD
 $ cat <file.txt>			-- example to see what is the content of the file
 $ pwd					-- show the dict where you are
 $ echo "message" > filename.txt		-- create a new file
 $ echo "message" >> filename.txt	-- Add content to the existing filename.txt file 
 $ nana file.md				-- open file --> save with: Ctrl + 0, or Ctrl + X
+=======
+$ cat <file.txt>				-- example to see what is the content of the file
+>>>>>>> 5f9c3dfd5d01cf68fb051acbb1788cc2f053187f
 
 
-Create a repository (local)
+----------------------------------- CREATE A REPOSITORY (LOCAL) --------------------------------
 
 $ cd ~/Desktop/<folder>
 $ mkdir planets
 $ cd planets
 $ git init
-$ git checkout -b main			-- default branch called main instead master
+$ git checkout -b main				-- default branch called main instead master
 $ git config --global init.defaultBranch main
 
-Track changes
 
+<<<<<<< HEAD
 $ git add <file1> <file2> <filex>		-- get the specified file to the staging phase
 $ git add -A					-- get all the file to the staging phase
 $ git commit -m "Note what is changed"
@@ -56,29 +70,136 @@ $ git diff					-- identify changes in files
 $ git diff --staged				-- identify changes in staging
 $ git log --patch <file>			-- combine git diff + git log
 $ git touch <file1> <file2> <filex>		-- FIXME
+=======
+----------------------------------- TRACK CHANGES / EXPLORING HISTORY --------------------------------
+
+$ git add <file1> <file2>			-- Add mentioned files to staging area
+$ git add -A					-- All all files in folder to staging area
+$ git commit -m "Note what is changed"
+
+$ git diff <file>				-- identify changes in files
+$ git diff <file3> <file2>			-- identify changes between file3 and file2
+$ git diff HEAD~3 HEAD~2			-- identify changes between file3 and file2
+$ git diff -r HEAD <file>			-- identify changes, at a particular revision of the file
+$ git diff -r HEAD 				-- identify changes, at a directory
+$ git diff HEAD					-- Find differences between commits
+$ git diff HEAD <file>				-- Get same old version as $ git diff <head>
+$ git diff HEAD~1 <file>			-- Get 1 older version 
+$ git diff HEAD~n <file>			-- Get nth older version
+$ git diff ff2b25e.... <file>			-- Get diff of change with ID f2b25e....
+$ git diff ff2b25e <file>			-- Get diff of change with ID f2b25e.... Short notation
+$ git diff --staged				-- identify changes in staging
+
+$ git annotate <file>				-- Who/when did made the change?
+
+$ git show <hashcode6-8>			-- Show the commit information
+$ git touch <file1> <file2> <filex>		-- FIXME
+
+$ git log					-- track changes
+$ git log -n					-- Show the commits of the file. With n: nth nr of changes before are shown
+$ git log -n <file>				-- Show the last n commits of the file
+$ git log --oneline				-- short notation of all changes
+$ git log --oneline --graph			-- short notation of all changes with *
+$ git log --since='Month Day Year'		-- shows only the commit since the specified date, e.g. Apri 2 2022
+$ git log --until='Month Day Year'		-- shows only the commit untill the specified date, e.g. Apri 2 2022
+$ git log --patch <file>			-- combine git diff + git log
+
+----------------------------------- RESTORE VERSION --------------------------------------------
+
+Bring changes back from to-be-be commited (=staged) to unstaged.
+$ git reset HEAD <file>				-- Unstage a single file 
+$ git reset HEAD				-- Unstage all files
+
+To discard the changes in the working repository
+$ git checkout .				-- Undo changes to all unstaged files
+$ git checkout -- <file>			-- Restores verison of a specific file
+$ git checkout HEAD <file>			-- Restores verison of a specific file
+$ git checkout HEAD~n <file>			-- Restores nth verison to a file 
+$ git checkout ff2b25e <file>			-- Restores verison ff2b25e of a file
+
+List all untracked files
+$ git clean -n					-- See what files are not being tracked
+
+Delete all untracked files
+$ git clean -f					-- Delete untracked files. CANNOT be undone
+>>>>>>> 5f9c3dfd5d01cf68fb051acbb1788cc2f053187f
 
 
-Exploring history
+----------------------------------- IGNORE THINGS -----------------------------------------------
 
-$ git diff HEAD <file>			-- Get same old version as $ git diff <head>
-$ git diff HEAD~1 <file>		-- Get 1 older version 
-$ git diff HEAD~x <file>		-- Get nth older version
-$ git diff ff2b25e.... <file>		-- Get diff of change with ID f2b25e....
-$ git diff ff2b25e <file>		-- Get diff of change with ID f2b25e.... Short notation
-$ git checkout HEAD <file>		-- Restores verison 
-$ git checkout HEAD~n <file>		-- Restores verison nth older version
-$ git checkout ff2b25e <file>		-- Restores verison ff2b25e 
+Ignore specific files
+$ nano .gitignore
 
 
-Ignoring things
 
+----------------------------------- BRANCHES ----------------------------------------------------
+
+Create a new branch
+$ git checkout -b new_branch
+
+Switch from branch
+$ git checkout branch_to_go
+
+Show current branch
+$ git branch
+
+Branches to compare the differences
+$ git diff main other_branchname
+
+Merging branches
+$ git merge source destination
+eg $ git merge branchname main
+
+Handling conflict
+$ nano to_fix_file.txt			
+	--- Git has added context to indicate the difference between the branches
+	<<< HEAD (current branch) 
+	>>> update (update branch) 
+	=== (center of the conflict)
+	to do: remove all between === and >>> update
+
+
+----------------------------------- REMOTE REPOSITORY ----------------------------------------------------
+
+Initiate a new repo 
+$ git init					-- not-existing project
+$ git init reponame				-- existing project
+
+Clone locally
+$ git clone path-to-project-dir 
+$ git clone path-to-project-dir <new-repo-name>
+$ git clone [URL]
+
+Get remote for collaboration
 $
 
+Get the name of the remote repo
+$ git remote					-- default name: origin
+$ git remote add reponame <dir>
+$ git remote add reponame [URL]			-- Tip: the reponame can be used as shortcut during merging
 
-
-
+Get info about the remote repo 			
+$ git remote -v					-- list all remotes incl. URL(s)
 
 From local to remote
+1. $ git fetch origin main			-- fetch versions from the remote
+2. $ git merge origin main			-- synchronizing content
+3. $ git pull origin main			-- fetch + merge, pulling from a remote
+
+Local changes to remote repos
+$ git push remote local_branch			-- push INTO remote FROM local_branch
+eg $ git push origin main
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+----------------------------------- WORKING PROTOCOLS -------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+----------------------------------- FROM LOCAL TO REMOTE -----------------------------------------
 
 Stap 1: Make local folder with the name <Git_it_a_try>
 
@@ -107,7 +228,8 @@ $ git remote -v
 Stap 8: Check if there is anywhere already a key
 $ ls -al ~/.ssh
 
---------------------------  Generate the key-pair  ----------------------
+
+----------------------------------- GENERATE KEY-PAIR  -----------------------------------------
 
 Stap 9: Public key and Private key and call the ssh file <github_mvd_pc>
 
@@ -135,9 +257,12 @@ Stap 14: Activate the key-pair
 $ ssh -T git@github.com
 $ ssh -T git@ssh.dev.azure.com
 
---------------------------  Go back to the local repository folder ----------------------
+Step 15: Go back to the local repository folder
 
-Stap 15: Pull Add commit Push, from local to remote to local
+Stap 16: Pull Add commit Push, from local to remote to local
+
+
+----------------------------------- GENERAL WORKFLOW -----------------------------------------------
 
 From remote to local
 $ git pull origin main 
@@ -157,7 +282,7 @@ $ git push origin main
 
 
 
----------------------------- clone repository --------------------------
+----------------------------------- CLONE REPOSITORY ----------------------------------------------
 
 Stap 1: Go to the <Git_it_a_try
 $ cd ~/Git_it_a_try

@@ -1,0 +1,227 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+-   *Run section* by pressing *Ctrl+Enter*.
+-   *Run line* by pressing *Shift+Enter*.
+-   *Insert Chunk* by pressing *Ctrl+i*.
+-   *Pipe operator* press *Ctrl+p* to filter or select conditions `%>%`
+-   *Copy text* press *Ctrl+c*
+-   *open file* press *Ctrl+o*
+-   *save file* press *Ctrl+s*
+-   *paste all* press *Ctrl+a*
+
+# Functions overview
+
+-   `head` = ...
+-   `str` = ...
+-   `subset` = ...
+-   `order` = ...
+-   `select` = ...
+-   `filter` = ...
+-   `arrange` = Sort columns
+-   `mutate` = Add new feature
+-   `transmutate` = ...
+-   `count` = ...
+-   `group_by` = ...
+-   `ungroup` = ...
+-   `summarize` = mean, sum, median, min, max
+-   `rename` = ...
+-   `glimpse` = ...
+-   `slice_max` = ...
+-   `slice_min` = ...
+-   `top_n` = ...
+-   `lag` = ...
+
+```{r}
+# Install packages
+install.packages("gapminder")
+
+# Load packages
+library('gapminder')
+library('dplyr')
+```
+
+```{r}
+# Get explaination of a function
+glimpse(dataset)
+?select_helpers
+```
+
+# Dataset
+
+## Make a dataset
+
+```{r}
+# Give  headers a name
+name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+
+# Data to store
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.382, 0.949, 1, 0.532, 1.209, 9.449, 4.007, 3.883)
+rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+
+# Create a data frame from the vectors
+planets_df <- data.frame(name, type, diameter, rotation, rings)
+mars <- planets_df[4,]
+```
+
+## Basic information
+
+```{r}
+# Make general name
+dataset <- planets_df
+```
+
+```{r}
+# head dataset
+head(dataset)
+
+```
+
+```{r}
+# structure dataset
+str(dataset)
+```
+
+And other general notations to sort and to order a list
+
+```{r}
+# Example 1 - numeric
+a <- c(100, 10, 1000)
+order(a)
+
+# Example 2 - strings
+az <- c('a', 'F', 'f', 'A', 'z')
+order(az)
+```
+
+```{r}
+# Example 3 - order based on a column
+positions <- order(planets_df$diameter)
+planets_df[positions,]
+```
+
+## Select columns
+
+Selecting a column can be done by tree different notations
+
+```{r}
+
+# Option 1
+diameter <- planets_df[,3]
+
+# Option 2
+diameter <- planets_df[,"diameter"]
+
+# Option 3: short-cut
+planets_df$diameter 
+```
+
+## Filter by conditions
+
+Selecting columns with condition can also be applied in different ways
+
+```{r}
+# Select columns with False-True list
+rings_vector <- planets_df$rings
+
+# Show 'name' with True rings
+planets_df[rings_vector, "name"]
+
+# Show all columns with True rings
+planets_df[rings_vector, TRUE]
+```
+
+```{r}
+# Setting a condition
+subset(planets_df, subset = (diameter < 1))
+```
+
+# Pipe operations
+
+Below, different pipe operations are presented as general expression.
+
+## select
+
+```{r}
+dataset %>%
+  select(column1, column2, column4:column7, new_name = old_name)
+
+dataset %>%
+  select(contains('word'), starts_with('letter'), ends_with('letter'), matches('letter'), last_col() )
+
+dataset %>%
+  select(-column_to_remove)
+```
+
+## filter
+
+```{r}
+dataset %>%
+  filter(column1 == value1, column2 = value2)
+
+dataset %>%
+  filter(column1 == value1) %>%
+  arrange(desc(value2))
+
+dataset %>%
+  filter(value1 %in% c('value1', 'value2'))
+```
+
+## group_by
+
+```{r}
+dataset %>%
+  group_by(column1_to_group, column2_to_group) %>%
+  summarize(column_name1 = mean(column1), column_name2 = sum(column2))
+  ungroup() # Make it able to do other aggregations on the same dataset. 
+
+dataset %>%
+  group_by(column1_to_group, column2_to_group) %>%
+  slice_max(column1, n = int)
+  slice_min(column2, n = int)
+  
+dataset %>%
+  group_by(column1_to_group) %>%
+  mutate(new_col = sum(column2))
+```
+
+## Others
+
+```{r}
+dataset %>%
+  rename(new_name = old_name)
+
+dataset %>%
+  arrange(column1, desc(column2)) # default is ascending
+
+dataset %>%
+  mutate(column1 = value1/10) # overwrite column
+
+dataset %>%
+  mutate(column_name = value1/10) # add column
+
+dataset %>%
+  transmute(column1, column2 = column2/10) # select + mutate in once
+
+variable_name <- dataset %>%
+  filter(column1 == value1)
+
+dataset %>%
+  summarize(column_name1 = mean(column1), column_name2 = sum(column2))
+
+dataset %>%
+  count(column1, wt = column2, sort = TRUE)
+```
+
+## Intermezzo: lag
+
+```{r}
+v <- c(1,3,6,14)
+sub_the_previous <- lag(v)
+diff_consecative <- v - lag(v)
+```

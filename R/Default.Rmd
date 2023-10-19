@@ -1,0 +1,31 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+-   *Run section* by pressing *Ctrl+Enter*.
+-   *Run line* by pressing *Shift+Enter*.
+-   *Insert Chunk* by pressing *Ctrl+i*.
+-   *Pipe operator* press *Ctrl+p* to filter or select conditions `%>%`
+-   *Copy text* press *Ctrl+c*
+-   *open file* press *Ctrl+o*
+-   *save file* press *Ctrl+s*
+-   *paste all* press *Ctrl+a*
+
+# Functions overview
+
+-   `function` = ...
+
+
+# Start
+
+```{r}
+
+```
+
+# Title
+
+```{r}
+
+```
+

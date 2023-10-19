@@ -37,11 +37,15 @@ output: html_notebook
 ```{r}
 # Install packages
 install.packages("gapminder")
+install.packages("tidyverse")
 
 # Load packages
 library('gapminder')
 library('dplyr')
+library("tidyverse")
 ```
+
+The tidyverse package automatically loads in the packages ggplot2, dplyr, and readr.
 
 ```{r}
 # Get explaination of a function

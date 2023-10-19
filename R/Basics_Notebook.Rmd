@@ -1,0 +1,459 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+-   *Run section* by pressing *Ctrl+Enter*.
+-   *Run line* by pressing *Shift+Enter*.
+-   *Insert Chunk* by pressing *Ctrl+i*.
+-   *Pipe operator* press *Ctrl+p* to filter or select conditions `%>%`
+-   *Copy text* press *Ctrl+c*
+-   *open file* press *Ctrl+o*
+-   *save file* press *Ctrl+s*
+-   *paste all* press *Ctrl+a*
+
+# Functions overview
+
+-   `c` = ...
+-   `list` = ...
+-   `matrix` = ...
+-   `class` = ...
+-   `sum` = ...
+-   `mean` = ...
+-   `colnames` = ...
+-   \`rownames\`\` = ...
+-   \`colSums\`\` = ...
+-   \`rowSums\`\` = ...
+-   `cbind` = ...
+-   \`rbind\`\` = ...
+-   `factors` = ...
+-   `levels` = ...
+-   `summary` = ...
+-   `is.numeric` = ...
+-   `identical` = ...
+
+# Start
+
+```{r}
+
+```
+
+# Basics
+
+```{r}
+# Addition
+5 + 5 
+
+# Subtraction
+5 - 5 
+
+# Multiplication
+3 * 5
+
+# Division
+(5 + 5) / 2 
+
+# Exponentiation
+2^5
+
+# Modulo
+28 %% 6
+```
+
+# Variables
+
+Assign the value to a variable
+
+```{r}
+# Assign
+my_numeric <- 42
+my_character <- "universe"
+my_logical <- FALSE
+```
+
+Print out the value of the variable x
+
+```{r}
+# Print
+my_numeric
+my_character
+my_logical
+```
+
+Check the class/type of the variable
+
+```{r}
+# Check class
+class(my_numeric)
+class(my_character)
+class(my_logical)
+```
+
+# Vectors
+
+## Construct a vector
+
+Filling a new vector
+
+```{r}
+# Vectors
+numeric_vector <- c(1, 10, 49)
+character_vector <- c("a", "b", "c")
+boolean_vector <- c(TRUE, FALSE, TRUE)
+
+# Print
+numeric_vector
+character_vector
+boolean_vector
+```
+
+Give the vector header names
+
+```{r}
+# Vector names
+poker_vector <- c(140, -50, 20, -120, 240)
+names(poker_vector) <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
+# Print
+poker_vector
+```
+
+## Manipulating a Vector
+
+Summation with vectors
+
+```{r}
+# Vector sum
+A_vector <- c(1, 2, 3)
+B_vector <- c(4, 5, 6)
+total_vector <- A_vector + B_vector
+total_sum <- sum(total_vector)
+
+# Print
+total_vector
+total_sum
+```
+
+Slicing a vector
+
+```{r}
+# Slicing
+poker_wednesday <- poker_vector[3]
+poker_midweek1 <- poker_vector[c(2,3,4)]
+poker_midweek2 <- poker_vector[2:4]
+poker_start <- poker_vector[c("Monday","Tuesday","Wednesday")]
+
+# Print
+poker_wednesday
+poker_midweek1
+poker_midweek2
+poker_start
+```
+
+Selection by condition
+
+```{r}
+# Selection
+selection_vector <- poker_vector > 0
+poker_winning_days <- poker_vector[selection_vector]
+
+# Print
+selection_vector
+poker_winning_days
+```
+
+## Calculations
+
+Calculating the mean
+
+```{r}
+# Stats
+mean(poker_start)
+```
+
+# Matrices
+
+## Construct a Matrix
+
+Template for filing a matrix
+
+```{r}
+# Construct a matrix with 3 rows that contain the numbers 1 up to 9
+matrix(1:9, byrow = TRUE, nrow = 3)
+```
+
+Define column values
+
+```{r}
+# Construct star_wars_matrix
+new_hope <- c(460.998, 314.4)
+empire_strikes <- c(290.475, 247.900)
+return_jedi <- c(309.306, 165.8)
+box_office <- c(new_hope, empire_strikes, return_jedi)
+```
+
+Fill the matrix
+
+```{r}
+# Option 1: Adding column and row names
+star_wars_matrix_1 <- matrix(box_office, byrow = TRUE, nrow = 3)
+
+region <- c("US", "non-US")
+titles <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
+
+colnames(star_wars_matrix_1) <- region
+rownames(star_wars_matrix_1) <- titles
+
+star_wars_matrix_1
+```
+
+```{r}
+# Option 2: Adding column and row names
+star_wars_matrix_2 <- matrix(box_office
+                           , byrow = TRUE
+                           , nrow = 3
+                           , dimnames = list(titles, region))
+
+star_wars_matrix_2
+```
+
+## Manipulating the matrix
+
+Summation
+
+```{r}
+# Stats
+worldwide_vector <- rowSums(star_wars_matrix_1)
+worldwide_vector
+```
+
+```{r}
+# Stats
+total_revenue_vector <- colSums(star_wars_matrix_1)
+total_revenue_vector
+```
+
+Binding of columns and rows
+
+```{r}
+# Bind COLUMNS in a single matrix
+all_wars_cmatrix <- cbind(star_wars_matrix_1, worldwide_vector)
+all_wars_cmatrix
+```
+
+```{r}
+# Bind ROWS in a single matrix
+all_wars_rmatrix <- rbind(star_wars_matrix_1, star_wars_matrix_2)
+all_wars_rmatrix
+```
+
+Slicing and calculating the mean
+
+```{r}
+# Slicing
+non_us_all <- all_wars_rmatrix[,2] # Second column
+non_us_all
+```
+
+```{r}
+non_us_some <- all_wars_rmatrix[1:2, 2] # First two rows, of the second column
+non_us_some
+```
+
+```{r}
+# Stats
+mean(non_us_some)
+```
+
+## Calculations
+
+Matrix multiplication is usually done with: %\*% (standard).
+
+Multiplication of every element by each relating element is done with: \*
+
+```{r}
+# Mathematical: Multiplication
+twice_non_us_some <- non_us_some *2 
+```
+
+Similarly is for applying a division
+
+```{r}
+# Mathematical: Division (as example)
+halfe_non_us_some <- non_us_some / 2 
+```
+
+# Factors
+
+## Construct a Factor
+
+A Factor defines the unique values in a list.
+
+```{r}
+# Convert sex_vector to a factor
+sex_vector <- c("Male", "Female", "Female", "Male", "Male")
+factor_sex_vector <- factor(sex_vector)
+factor_sex_vector
+```
+
+## Calculations
+
+Example with temperatures
+
+```{r}
+# Temperature (indicate vector is of ORDINAL type, levels give you the values in the correct order)
+temperature_vector <- c("High", "Low", "High","Low", "Medium")
+factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+
+# Print
+factor_temperature_vector
+
+# Calculation
+temp_day1 = factor_temperature_vector[1] # High
+temp_day4 = factor_temperature_vector[4] # Low
+temp_day1 > temp_day4 # Was day 1 warmer than day 4? -> TRUE
+```
+
+The names of the factors can be changed
+
+```{r}
+# Code to build factor_survey_vector
+survey_vector <- c("M", "F", "F", "M", "M")
+factor_survey_vector <- factor(survey_vector)
+factor_survey_vector
+```
+
+Now, apply the change of the 'F' and 'M' levels of above code
+
+```{r}
+# Change variable names of the whole vector
+# F becomes Female, M becomes 
+levels(factor_survey_vector) <- c("Female", "Male")
+
+# Male
+factor_survey_vector
+```
+
+Generate a summary of a vector. This summary provides the length, class and mode of the vector.
+
+```{r}
+# Summrize the vector
+summary(survey_vector)
+```
+
+Generate a summary of a factor. This summary provides a number of observations for each factor
+
+```{r}
+# Summrize the factors
+summary(factor_survey_vector)
+```
+
+# List of vectors and matrices
+
+## Construct a list
+
+Separated vectors and matrices defined:
+
+```{r}
+# Define vectors and matrices
+my_vector <- 1:10 
+my_matrix <- matrix(1:9, ncol = 3)
+my_df <- mtcars[1:10,]
+```
+
+Constructing a list step by step:
+
+```{r}
+# Make list of vector and matix
+my_list <- list(my_vector, my_matrix, my_df) # create list
+names(my_list) <- c('vec','mat','my_df') # give names to lists in my_list
+
+my_list
+```
+
+All notations at once:
+
+```{r}
+# Shortcut
+my_list2 <- list(vec = my_vector, mat = my_matrix, my_df = my_df) # all at once
+my_list2
+```
+
+## Manipulating a list
+
+Selecting a single object in the list can be done by multiple options
+
+```{r}
+# Selecting only my_vector
+
+# Option 1
+my_list[1]
+
+# Option 2
+my_list['vec']
+
+# Option 3 (shortcut)
+my_list$vec
+
+# Option 3 (elaborated filter)
+my_list$vec[2]
+```
+
+# Boolean
+
+TRUE or FALSE?
+
+```{r}
+# Basics
+TRUE == TRUE
+'hello' != 'goodbye'
+2 != 22
+70 > 7
+70 >= 7
+'hello' > 'goodbye' # Alphabetical order
+TRUE > FALSE # 1 > 0
+```
+
+Comparisions
+
+```{r}
+# vectors
+link <- c(16,1,9,6,2,17,14)
+combi <- c(7,4,5,14,21,28,3)
+
+# Calculations
+link > 7
+link <= combi # value comparison one by one
+identical(link, combi)
+```
+
+```{r}
+combi <- c(7,4,5,14,21,28,3)
+
+# Range calculations
+combi > 5 & combi < 15
+combi > 15 | combi < 5
+```
+
+Relations:
+
+```{r}
+# Relations 'AND'
+c(TRUE, TRUE, FALSE) & c(TRUE, FALSE, FALSE) # elementwise
+c(TRUE, TRUE, FALSE) && c(TRUE, FALSE, FALSE) # all
+```
+
+```{r}
+# Relations 'OR'
+c(TRUE, TRUE, FALSE) | c(TRUE, FALSE, FALSE) # elementwise
+c(TRUE, TRUE, FALSE) || c(TRUE, FALSE, FALSE) # all
+```
+
+Is correct type?
+
+```{r}
+# Numeric check
+!TRUE
+is.numeric(5) # TRUE
+!is.numeric('hello') # TRUE
+```

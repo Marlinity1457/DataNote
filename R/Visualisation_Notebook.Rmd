@@ -1,0 +1,99 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+-   *Run section* by pressing *Ctrl+Enter*.
+-   *Run line* by pressing *Shift+Enter*.
+-   *Insert Chunk* by pressing *Ctrl+i*.
+-   *Pipe operator* press *Ctrl+p* to filter or select conditions `%>%`
+-   *Copy text* press *Ctrl+c*
+-   *open file* press *Ctrl+o*
+-   *save file* press *Ctrl+s*
+-   *paste all* press *Ctrl+a*
+
+# Functions overview
+
+-   `function` = ...
+
+# Start
+
+```{r}
+# Install packages
+install.packages("ggplot2")
+
+# Load packages
+library('ggplot2')
+```
+
+# Visualisations
+
+## Scatterplot
+
+Single plot
+
+```{r}
+# Basics
+ggplot(data, aes(x = column_x, y = column_y)) + # aes = aesthetic
+  geom_point() # adding a layer/ type_of_graph, point --> scatter
+```
+
+```{r}
+# Designing 
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_point() +
+  scale_x_log10() +                         # x-axis on a log scale
+  scale_y_log10() +                         # y-axis on a log scale
+  expand_limits(y=0) +                      # set limits
+  ggtitle("Title") +
+  labs(x = "label_x", y = "label_y")
+```
+
+Multiple plots by subplots (=faceting)
+
+```{r}
+# Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_point() +
+  facet_wrap(~ column_to_facet)
+```
+
+## Lineplot
+
+single plot
+
+```{r}
+# Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_line()
+```
+
+## Barplot
+
+single plot
+
+```{r}
+# Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_col()
+```
+
+## Histogram
+
+single plot
+
+```{r}
+# Basics
+ggplot(data, aes(x = column_x,  color = column_col, size = column_size)) + 
+  geom_histogram(binwidth = int, bins = int)
+```
+
+## Boxplot
+
+single plot
+
+```{r}
+# Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_boxplot()
+```

@@ -1766,285 +1766,117 @@ conditions <code>%&gt;%</code></li>
 <div id="functions-overview" class="section level1">
 <h1>Functions overview</h1>
 <ul>
-<li><code>head</code> = …</li>
-<li><code>str</code> = …</li>
-<li><code>subset</code> = …</li>
-<li><code>order</code> = …</li>
-<li><code>select</code> = …</li>
-<li><code>filter</code> = …</li>
-<li><code>arrange</code> = Sort columns</li>
-<li><code>mutate</code> = Add new feature</li>
-<li><code>transmutate</code> = …</li>
-<li><code>count</code> = …</li>
-<li><code>group_by</code> = …</li>
-<li><code>ungroup</code> = …</li>
-<li><code>summarize</code> = mean, sum, median, min, max</li>
-<li><code>rename</code> = …</li>
-<li><code>glimpse</code> = …</li>
-<li><code>slice_max</code> = …</li>
-<li><code>slice_min</code> = …</li>
-<li><code>top_n</code> = …</li>
-<li><code>lag</code> = …</li>
+<li><code>function</code> = …</li>
 </ul>
+</div>
+<div id="start" class="section level1">
+<h1>Start</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBJbnN0YWxsIHBhY2thZ2VzXG5pbnN0YWxsLnBhY2thZ2VzKFwiZ2FwbWluZGVyXCIpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBJbnN0YWxsIHBhY2thZ2VzXG5pbnN0YWxsLnBhY2thZ2VzKFwiZ2dwbG90MlwiKVxuXG4jIExvYWQgcGFja2FnZXNcbmxpYnJhcnkoJ2dncGxvdDInKVxuYGBgIn0= -->
 <pre class="r"><code># Install packages
-install.packages(&quot;gapminder&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaW5zdGFsbC5wYWNrYWdlcyA6IFVwZGF0aW5nIGxvYWRlZCBwYWNrYWdlc1xuIn0= -->
-<pre><code>Error in install.packages : Updating loaded packages</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcInRpZHl2ZXJzZVwiKVxuYGBgIn0= -->
-<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5SZXN0YXJ0aW5nIFIgc2Vzc2lvbi4uLlxuIn0= -->
-<pre><code>
-Restarting R session...</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The tidyverse package automatically loads in the packages ggplot2,
-dplyr, and readr.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHZXQgZXhwbGFpbmF0aW9uIG9mIGEgZnVuY3Rpb25cbmdsaW1wc2UoZGF0YXNldClcbj9zZWxlY3RfaGVscGVyc1xuYGBgIn0= -->
-<pre class="r"><code># Get explaination of a function
-glimpse(dataset)
-?select_helpers</code></pre>
+install.packages(&quot;ggplot2&quot;)
+
+# Load packages
+library(&#39;ggplot2&#39;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="dataset" class="section level1">
-<h1>Dataset</h1>
-<div id="make-a-dataset" class="section level2">
-<h2>Make a dataset</h2>
+<div id="visualisations" class="section level1">
+<h1>Visualisations</h1>
+<div id="scatterplot" class="section level2">
+<h2>Scatterplot</h2>
+<p>Single plot</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHaXZlICBoZWFkZXJzIGEgbmFtZVxubmFtZSA8LSBjKFwiTWVyY3VyeVwiLCBcIlZlbnVzXCIsIFwiRWFydGhcIiwgXCJNYXJzXCIsIFwiSnVwaXRlclwiLCBcIlNhdHVyblwiLCBcIlVyYW51c1wiLCBcIk5lcHR1bmVcIilcblxuIyBEYXRhIHRvIHN0b3JlXG50eXBlIDwtIGMoXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXG4gICAgICAgICAgXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXCJHYXMgZ2lhbnRcIiwgXCJHYXMgZ2lhbnRcIiwgXCJHYXMgZ2lhbnRcIiwgXCJHYXMgZ2lhbnRcIilcbmRpYW1ldGVyIDwtIGMoMC4zODIsIDAuOTQ5LCAxLCAwLjUzMiwgMS4yMDksIDkuNDQ5LCA0LjAwNywgMy44ODMpXG5yb3RhdGlvbiA8LSBjKDU4LjY0LCAtMjQzLjAyLCAxLCAxLjAzLCAwLjQxLCAwLjQzLCAtMC43MiwgMC42NylcbnJpbmdzIDwtIGMoRkFMU0UsIEZBTFNFLCBGQUxTRSwgRkFMU0UsIFRSVUUsIFRSVUUsIFRSVUUsIFRSVUUpXG5cbiMgQ3JlYXRlIGEgZGF0YSBmcmFtZSBmcm9tIHRoZSB2ZWN0b3JzXG5wbGFuZXRzX2RmIDwtIGRhdGEuZnJhbWUobmFtZSwgdHlwZSwgZGlhbWV0ZXIsIHJvdGF0aW9uLCByaW5ncylcbm1hcnMgPC0gcGxhbmV0c19kZls0LF1cbmBgYCJ9 -->
-<pre class="r"><code># Give  headers a name
-name &lt;- c(&quot;Mercury&quot;, &quot;Venus&quot;, &quot;Earth&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;, &quot;Saturn&quot;, &quot;Uranus&quot;, &quot;Neptune&quot;)
-
-# Data to store
-type &lt;- c(&quot;Terrestrial planet&quot;, &quot;Terrestrial planet&quot;, &quot;Terrestrial planet&quot;, 
-          &quot;Terrestrial planet&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;)
-diameter &lt;- c(0.382, 0.949, 1, 0.532, 1.209, 9.449, 4.007, 3.883)
-rotation &lt;- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
-rings &lt;- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
-
-# Create a data frame from the vectors
-planets_df &lt;- data.frame(name, type, diameter, rotation, rings)
-mars &lt;- planets_df[4,]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCYXNpY3NcbmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCB5ID0gY29sdW1uX3kpKSArICMgYWVzID0gYWVzdGhldGljXG4gIGdlb21fcG9pbnQoKSAjIGFkZGluZyBhIGxheWVyLyB0eXBlX29mX2dyYXBoLCBwb2ludCAtLT4gc2NhdHRlclxuYGBgIn0= -->
+<pre class="r"><code># Basics
+ggplot(data, aes(x = column_x, y = column_y)) + # aes = aesthetic
+  geom_point() # adding a layer/ type_of_graph, point --&gt; scatter</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBEZXNpZ25pbmcgXG5nZ3Bsb3QoZGF0YSwgYWVzKHggPSBjb2x1bW5feCwgeSA9IGNvbHVtbl95LCBjb2xvciA9IGNvbHVtbl9jb2wsIHNpemUgPSBjb2x1bW5fc2l6ZSkpICsgXG4gIGdlb21fcG9pbnQoKSArXG4gIHNjYWxlX3hfbG9nMTAoKSArICAgICAgICAgICAgICAgICAgICAgICAgICMgeC1heGlzIG9uIGEgbG9nIHNjYWxlXG4gIHNjYWxlX3lfbG9nMTAoKSArICAgICAgICAgICAgICAgICAgICAgICAgICMgeS1heGlzIG9uIGEgbG9nIHNjYWxlXG4gIGV4cGFuZF9saW1pdHMoeT0wKSArICAgICAgICAgICAgICAgICAgICAgICMgc2V0IGxpbWl0c1xuICBnZ3RpdGxlKFwiVGl0bGVcIikgK1xuICBsYWJzKHggPSBcImxhYmVsX3hcIiwgeSA9IFwibGFiZWxfeVwiKVxuYGBgIn0= -->
+<pre class="r"><code># Designing 
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_point() +
+  scale_x_log10() +                         # x-axis on a log scale
+  scale_y_log10() +                         # y-axis on a log scale
+  expand_limits(y=0) +                      # set limits
+  ggtitle(&quot;Title&quot;) +
+  labs(x = &quot;label_x&quot;, y = &quot;label_y&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Multiple plots by subplots (=faceting)</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCYXNpY3NcbmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCB5ID0gY29sdW1uX3ksIGNvbG9yID0gY29sdW1uX2NvbCwgc2l6ZSA9IGNvbHVtbl9zaXplKSkgKyBcbiAgZ2VvbV9wb2ludCgpICtcbiAgZmFjZXRfd3JhcCh+IGNvbHVtbl90b19mYWNldClcbmBgYCJ9 -->
+<pre class="r"><code># Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_point() +
+  facet_wrap(~ column_to_facet)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="basic-information" class="section level2">
-<h2>Basic information</h2>
+<div id="lineplot" class="section level2">
+<h2>Lineplot</h2>
+<p>single plot</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBNYWtlIGdlbmVyYWwgbmFtZVxuZGF0YXNldCA8LSBwbGFuZXRzX2RmXG5gYGAifQ== -->
-<pre class="r"><code># Make general name
-dataset &lt;- planets_df</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBoZWFkIGRhdGFzZXRcbmhlYWQoZGF0YXNldClcblxuYGBgIn0= -->
-<pre class="r"><code># head dataset
-head(dataset)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzdHJ1Y3R1cmUgZGF0YXNldFxuc3RyKGRhdGFzZXQpXG5gYGAifQ== -->
-<pre class="r"><code># structure dataset
-str(dataset)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>And other general notations to sort and to order a list</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBFeGFtcGxlIDEgLSBudW1lcmljXG5hIDwtIGMoMTAwLCAxMCwgMTAwMClcbm9yZGVyKGEpXG5cbiMgRXhhbXBsZSAyIC0gc3RyaW5nc1xuYXogPC0gYygnYScsICdGJywgJ2YnLCAnQScsICd6Jylcbm9yZGVyKGF6KVxuYGBgIn0= -->
-<pre class="r"><code># Example 1 - numeric
-a &lt;- c(100, 10, 1000)
-order(a)
-
-# Example 2 - strings
-az &lt;- c(&#39;a&#39;, &#39;F&#39;, &#39;f&#39;, &#39;A&#39;, &#39;z&#39;)
-order(az)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBFeGFtcGxlIDMgLSBvcmRlciBiYXNlZCBvbiBhIGNvbHVtblxucG9zaXRpb25zIDwtIG9yZGVyKHBsYW5ldHNfZGYkZGlhbWV0ZXIpXG5wbGFuZXRzX2RmW3Bvc2l0aW9ucyxdXG5gYGAifQ== -->
-<pre class="r"><code># Example 3 - order based on a column
-positions &lt;- order(planets_df$diameter)
-planets_df[positions,]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCYXNpY3NcbmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCB5ID0gY29sdW1uX3ksIGNvbG9yID0gY29sdW1uX2NvbCwgc2l6ZSA9IGNvbHVtbl9zaXplKSkgKyBcbiAgZ2VvbV9saW5lKClcbmBgYCJ9 -->
+<pre class="r"><code># Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_line()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="select-columns" class="section level2">
-<h2>Select columns</h2>
-<p>Selecting a column can be done by tree different notations</p>
+<div id="barplot" class="section level2">
+<h2>Barplot</h2>
+<p>single plot</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jIE9wdGlvbiAxXG5kaWFtZXRlciA8LSBwbGFuZXRzX2RmWywzXVxuXG4jIE9wdGlvbiAyXG5kaWFtZXRlciA8LSBwbGFuZXRzX2RmWyxcImRpYW1ldGVyXCJdXG5cbiMgT3B0aW9uIDM6IHNob3J0LWN1dFxucGxhbmV0c19kZiRkaWFtZXRlciBcbmBgYCJ9 -->
-<pre class="r"><code>
-# Option 1
-diameter &lt;- planets_df[,3]
-
-# Option 2
-diameter &lt;- planets_df[,&quot;diameter&quot;]
-
-# Option 3: short-cut
-planets_df$diameter </code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCYXNpY3NcbmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCB5ID0gY29sdW1uX3ksIGNvbG9yID0gY29sdW1uX2NvbCwgc2l6ZSA9IGNvbHVtbl9zaXplKSkgKyBcbiAgZ2VvbV9jb2woKVxuYGBgIn0= -->
+<pre class="r"><code># Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_col()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="filter-by-conditions" class="section level2">
-<h2>Filter by conditions</h2>
-<p>Selecting columns with condition can also be applied in different
-ways</p>
+<div id="histogram" class="section level2">
+<h2>Histogram</h2>
+<p>single plot</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZWxlY3QgY29sdW1ucyB3aXRoIEZhbHNlLVRydWUgbGlzdFxucmluZ3NfdmVjdG9yIDwtIHBsYW5ldHNfZGYkcmluZ3NcblxuIyBTaG93ICduYW1lJyB3aXRoIFRydWUgcmluZ3NcbnBsYW5ldHNfZGZbcmluZ3NfdmVjdG9yLCBcIm5hbWVcIl1cblxuIyBTaG93IGFsbCBjb2x1bW5zIHdpdGggVHJ1ZSByaW5nc1xucGxhbmV0c19kZltyaW5nc192ZWN0b3IsIFRSVUVdXG5gYGAifQ== -->
-<pre class="r"><code># Select columns with False-True list
-rings_vector &lt;- planets_df$rings
-
-# Show &#39;name&#39; with True rings
-planets_df[rings_vector, &quot;name&quot;]
-
-# Show all columns with True rings
-planets_df[rings_vector, TRUE]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZXR0aW5nIGEgY29uZGl0aW9uXG5zdWJzZXQocGxhbmV0c19kZiwgc3Vic2V0ID0gKGRpYW1ldGVyIDwgMSkpXG5gYGAifQ== -->
-<pre class="r"><code># Setting a condition
-subset(planets_df, subset = (diameter &lt; 1))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCYXNpY3NcbmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCAgY29sb3IgPSBjb2x1bW5fY29sLCBzaXplID0gY29sdW1uX3NpemUpKSArIFxuICBnZW9tX2hpc3RvZ3JhbShiaW53aWR0aCA9IGludCwgYmlucyA9IGludClcbmBgYCJ9 -->
+<pre class="r"><code># Basics
+ggplot(data, aes(x = column_x,  color = column_col, size = column_size)) + 
+  geom_histogram(binwidth = int, bins = int)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-</div>
-<div id="pipe-operations" class="section level1">
-<h1>Pipe operations</h1>
-<p>Below, different pipe operations are presented as general
-expression.</p>
-<div id="select" class="section level2">
-<h2>select</h2>
+<div id="boxplot" class="section level2">
+<h2>Boxplot</h2>
+<p>single plot</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgc2VsZWN0KGNvbHVtbjEsIGNvbHVtbjIsIGNvbHVtbjQ6Y29sdW1uNywgbmV3X25hbWUgPSBvbGRfbmFtZSlcblxuZGF0YXNldCAlPiVcbiAgc2VsZWN0KGNvbnRhaW5zKCd3b3JkJyksIHN0YXJ0c193aXRoKCdsZXR0ZXInKSwgZW5kc193aXRoKCdsZXR0ZXInKSwgbWF0Y2hlcygnbGV0dGVyJyksIGxhc3RfY29sKCkgKVxuXG5kYXRhc2V0ICU+JVxuICBzZWxlY3QoLWNvbHVtbl90b19yZW1vdmUpXG5gYGAifQ== -->
-<pre class="r"><code>dataset %&gt;%
-  select(column1, column2, column4:column7, new_name = old_name)
-
-dataset %&gt;%
-  select(contains(&#39;word&#39;), starts_with(&#39;letter&#39;), ends_with(&#39;letter&#39;), matches(&#39;letter&#39;), last_col() )
-
-dataset %&gt;%
-  select(-column_to_remove)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="filter" class="section level2">
-<h2>filter</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgZmlsdGVyKGNvbHVtbjEgPT0gdmFsdWUxLCBjb2x1bW4yID0gdmFsdWUyKVxuXG5kYXRhc2V0ICU+JVxuICBmaWx0ZXIoY29sdW1uMSA9PSB2YWx1ZTEpICU+JVxuICBhcnJhbmdlKGRlc2ModmFsdWUyKSlcblxuZGF0YXNldCAlPiVcbiAgZmlsdGVyKHZhbHVlMSAlaW4lIGMoJ3ZhbHVlMScsICd2YWx1ZTInKSlcbmBgYCJ9 -->
-<pre class="r"><code>dataset %&gt;%
-  filter(column1 == value1, column2 = value2)
-
-dataset %&gt;%
-  filter(column1 == value1) %&gt;%
-  arrange(desc(value2))
-
-dataset %&gt;%
-  filter(value1 %in% c(&#39;value1&#39;, &#39;value2&#39;))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="group_by" class="section level2">
-<h2>group_by</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgZ3JvdXBfYnkoY29sdW1uMV90b19ncm91cCwgY29sdW1uMl90b19ncm91cCkgJT4lXG4gIHN1bW1hcml6ZShjb2x1bW5fbmFtZTEgPSBtZWFuKGNvbHVtbjEpLCBjb2x1bW5fbmFtZTIgPSBzdW0oY29sdW1uMikpXG4gIHVuZ3JvdXAoKSAjIE1ha2UgaXQgYWJsZSB0byBkbyBvdGhlciBhZ2dyZWdhdGlvbnMgb24gdGhlIHNhbWUgZGF0YXNldC4gXG5cbmRhdGFzZXQgJT4lXG4gIGdyb3VwX2J5KGNvbHVtbjFfdG9fZ3JvdXAsIGNvbHVtbjJfdG9fZ3JvdXApICU+JVxuICBzbGljZV9tYXgoY29sdW1uMSwgbiA9IGludClcbiAgc2xpY2VfbWluKGNvbHVtbjIsIG4gPSBpbnQpXG4gIFxuZGF0YXNldCAlPiVcbiAgZ3JvdXBfYnkoY29sdW1uMV90b19ncm91cCkgJT4lXG4gIG11dGF0ZShuZXdfY29sID0gc3VtKGNvbHVtbjIpKVxuYGBgIn0= -->
-<pre class="r"><code>dataset %&gt;%
-  group_by(column1_to_group, column2_to_group) %&gt;%
-  summarize(column_name1 = mean(column1), column_name2 = sum(column2))
-  ungroup() # Make it able to do other aggregations on the same dataset. 
-
-dataset %&gt;%
-  group_by(column1_to_group, column2_to_group) %&gt;%
-  slice_max(column1, n = int)
-  slice_min(column2, n = int)
-  
-dataset %&gt;%
-  group_by(column1_to_group) %&gt;%
-  mutate(new_col = sum(column2))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="others" class="section level2">
-<h2>Others</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgcmVuYW1lKG5ld19uYW1lID0gb2xkX25hbWUpXG5cbmRhdGFzZXQgJT4lXG4gIGFycmFuZ2UoY29sdW1uMSwgZGVzYyhjb2x1bW4yKSkgIyBkZWZhdWx0IGlzIGFzY2VuZGluZ1xuXG5kYXRhc2V0ICU+JVxuICBtdXRhdGUoY29sdW1uMSA9IHZhbHVlMS8xMCkgIyBvdmVyd3JpdGUgY29sdW1uXG5cbmRhdGFzZXQgJT4lXG4gIG11dGF0ZShjb2x1bW5fbmFtZSA9IHZhbHVlMS8xMCkgIyBhZGQgY29sdW1uXG5cbmRhdGFzZXQgJT4lXG4gIHRyYW5zbXV0ZShjb2x1bW4xLCBjb2x1bW4yID0gY29sdW1uMi8xMCkgIyBzZWxlY3QgKyBtdXRhdGUgaW4gb25jZVxuXG52YXJpYWJsZV9uYW1lIDwtIGRhdGFzZXQgJT4lXG4gIGZpbHRlcihjb2x1bW4xID09IHZhbHVlMSlcblxuZGF0YXNldCAlPiVcbiAgc3VtbWFyaXplKGNvbHVtbl9uYW1lMSA9IG1lYW4oY29sdW1uMSksIGNvbHVtbl9uYW1lMiA9IHN1bShjb2x1bW4yKSlcblxuZGF0YXNldCAlPiVcbiAgY291bnQoY29sdW1uMSwgd3QgPSBjb2x1bW4yLCBzb3J0ID0gVFJVRSlcbmBgYCJ9 -->
-<pre class="r"><code>dataset %&gt;%
-  rename(new_name = old_name)
-
-dataset %&gt;%
-  arrange(column1, desc(column2)) # default is ascending
-
-dataset %&gt;%
-  mutate(column1 = value1/10) # overwrite column
-
-dataset %&gt;%
-  mutate(column_name = value1/10) # add column
-
-dataset %&gt;%
-  transmute(column1, column2 = column2/10) # select + mutate in once
-
-variable_name &lt;- dataset %&gt;%
-  filter(column1 == value1)
-
-dataset %&gt;%
-  summarize(column_name1 = mean(column1), column_name2 = sum(column2))
-
-dataset %&gt;%
-  count(column1, wt = column2, sort = TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="intermezzo-lag" class="section level2">
-<h2>Intermezzo: lag</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBjKDEsMyw2LDE0KVxuc3ViX3RoZV9wcmV2aW91cyA8LSBsYWcodilcbmRpZmZfY29uc2VjYXRpdmUgPC0gdiAtIGxhZyh2KVxuYGBgIn0= -->
-<pre class="r"><code>v &lt;- c(1,3,6,14)
-sub_the_previous &lt;- lag(v)
-diff_consecative &lt;- v - lag(v)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCYXNpY3NcbmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCB5ID0gY29sdW1uX3ksIGNvbG9yID0gY29sdW1uX2NvbCwgc2l6ZSA9IGNvbHVtbl9zaXplKSkgKyBcbiAgZ2VvbV9ib3hwbG90KClcbmBgYCJ9 -->
+<pre class="r"><code># Basics
+ggplot(data, aes(x = column_x, y = column_y, color = column_col, size = column_size)) + 
+  geom_boxplot()</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQotICAgKlJ1biBzZWN0aW9uKiBieSBwcmVzc2luZyAqQ3RybCtFbnRlciouDQotICAgKlJ1biBsaW5lKiBieSBwcmVzc2luZyAqU2hpZnQrRW50ZXIqLg0KLSAgICpJbnNlcnQgQ2h1bmsqIGJ5IHByZXNzaW5nICpDdHJsK2kqLg0KLSAgICpQaXBlIG9wZXJhdG9yKiBwcmVzcyAqQ3RybCtwKiB0byBmaWx0ZXIgb3Igc2VsZWN0IGNvbmRpdGlvbnMgYCU+JWANCi0gICAqQ29weSB0ZXh0KiBwcmVzcyAqQ3RybCtjKg0KLSAgICpvcGVuIGZpbGUqIHByZXNzICpDdHJsK28qDQotICAgKnNhdmUgZmlsZSogcHJlc3MgKkN0cmwrcyoNCi0gICAqcGFzdGUgYWxsKiBwcmVzcyAqQ3RybCthKg0KDQojIEZ1bmN0aW9ucyBvdmVydmlldw0KDQotICAgYGhlYWRgID0gLi4uDQotICAgYHN0cmAgPSAuLi4NCi0gICBgc3Vic2V0YCA9IC4uLg0KLSAgIGBvcmRlcmAgPSAuLi4NCi0gICBgc2VsZWN0YCA9IC4uLg0KLSAgIGBmaWx0ZXJgID0gLi4uDQotICAgYGFycmFuZ2VgID0gU29ydCBjb2x1bW5zDQotICAgYG11dGF0ZWAgPSBBZGQgbmV3IGZlYXR1cmUNCi0gICBgdHJhbnNtdXRhdGVgID0gLi4uDQotICAgYGNvdW50YCA9IC4uLg0KLSAgIGBncm91cF9ieWAgPSAuLi4NCi0gICBgdW5ncm91cGAgPSAuLi4NCi0gICBgc3VtbWFyaXplYCA9IG1lYW4sIHN1bSwgbWVkaWFuLCBtaW4sIG1heA0KLSAgIGByZW5hbWVgID0gLi4uDQotICAgYGdsaW1wc2VgID0gLi4uDQotICAgYHNsaWNlX21heGAgPSAuLi4NCi0gICBgc2xpY2VfbWluYCA9IC4uLg0KLSAgIGB0b3BfbmAgPSAuLi4NCi0gICBgbGFnYCA9IC4uLg0KDQpgYGB7cn0NCiMgSW5zdGFsbCBwYWNrYWdlcw0KaW5zdGFsbC5wYWNrYWdlcygiZ2FwbWluZGVyIikNCmluc3RhbGwucGFja2FnZXMoInRpZHl2ZXJzZSIpDQoNCiMgTG9hZCBwYWNrYWdlcw0KbGlicmFyeSgnZ2FwbWluZGVyJykNCmxpYnJhcnkoJ2RwbHlyJykNCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpgYGANCg0KVGhlIHRpZHl2ZXJzZSBwYWNrYWdlIGF1dG9tYXRpY2FsbHkgbG9hZHMgaW4gdGhlIHBhY2thZ2VzIGdncGxvdDIsIGRwbHlyLCBhbmQgcmVhZHIuDQoNCmBgYHtyfQ0KIyBHZXQgZXhwbGFpbmF0aW9uIG9mIGEgZnVuY3Rpb24NCmdsaW1wc2UoZGF0YXNldCkNCj9zZWxlY3RfaGVscGVycw0KYGBgDQoNCiMgRGF0YXNldA0KDQojIyBNYWtlIGEgZGF0YXNldA0KDQpgYGB7cn0NCiMgR2l2ZSAgaGVhZGVycyBhIG5hbWUNCm5hbWUgPC0gYygiTWVyY3VyeSIsICJWZW51cyIsICJFYXJ0aCIsICJNYXJzIiwgIkp1cGl0ZXIiLCAiU2F0dXJuIiwgIlVyYW51cyIsICJOZXB0dW5lIikNCg0KIyBEYXRhIHRvIHN0b3JlDQp0eXBlIDwtIGMoIlRlcnJlc3RyaWFsIHBsYW5ldCIsICJUZXJyZXN0cmlhbCBwbGFuZXQiLCAiVGVycmVzdHJpYWwgcGxhbmV0IiwgDQogICAgICAgICAgIlRlcnJlc3RyaWFsIHBsYW5ldCIsICJHYXMgZ2lhbnQiLCAiR2FzIGdpYW50IiwgIkdhcyBnaWFudCIsICJHYXMgZ2lhbnQiKQ0KZGlhbWV0ZXIgPC0gYygwLjM4MiwgMC45NDksIDEsIDAuNTMyLCAxLjIwOSwgOS40NDksIDQuMDA3LCAzLjg4MykNCnJvdGF0aW9uIDwtIGMoNTguNjQsIC0yNDMuMDIsIDEsIDEuMDMsIDAuNDEsIDAuNDMsIC0wLjcyLCAwLjY3KQ0KcmluZ3MgPC0gYyhGQUxTRSwgRkFMU0UsIEZBTFNFLCBGQUxTRSwgVFJVRSwgVFJVRSwgVFJVRSwgVFJVRSkNCg0KIyBDcmVhdGUgYSBkYXRhIGZyYW1lIGZyb20gdGhlIHZlY3RvcnMNCnBsYW5ldHNfZGYgPC0gZGF0YS5mcmFtZShuYW1lLCB0eXBlLCBkaWFtZXRlciwgcm90YXRpb24sIHJpbmdzKQ0KbWFycyA8LSBwbGFuZXRzX2RmWzQsXQ0KYGBgDQoNCiMjIEJhc2ljIGluZm9ybWF0aW9uDQoNCmBgYHtyfQ0KIyBNYWtlIGdlbmVyYWwgbmFtZQ0KZGF0YXNldCA8LSBwbGFuZXRzX2RmDQpgYGANCg0KYGBge3J9DQojIGhlYWQgZGF0YXNldA0KaGVhZChkYXRhc2V0KQ0KDQpgYGANCg0KYGBge3J9DQojIHN0cnVjdHVyZSBkYXRhc2V0DQpzdHIoZGF0YXNldCkNCmBgYA0KDQpBbmQgb3RoZXIgZ2VuZXJhbCBub3RhdGlvbnMgdG8gc29ydCBhbmQgdG8gb3JkZXIgYSBsaXN0DQoNCmBgYHtyfQ0KIyBFeGFtcGxlIDEgLSBudW1lcmljDQphIDwtIGMoMTAwLCAxMCwgMTAwMCkNCm9yZGVyKGEpDQoNCiMgRXhhbXBsZSAyIC0gc3RyaW5ncw0KYXogPC0gYygnYScsICdGJywgJ2YnLCAnQScsICd6JykNCm9yZGVyKGF6KQ0KYGBgDQoNCmBgYHtyfQ0KIyBFeGFtcGxlIDMgLSBvcmRlciBiYXNlZCBvbiBhIGNvbHVtbg0KcG9zaXRpb25zIDwtIG9yZGVyKHBsYW5ldHNfZGYkZGlhbWV0ZXIpDQpwbGFuZXRzX2RmW3Bvc2l0aW9ucyxdDQpgYGANCg0KIyMgU2VsZWN0IGNvbHVtbnMNCg0KU2VsZWN0aW5nIGEgY29sdW1uIGNhbiBiZSBkb25lIGJ5IHRyZWUgZGlmZmVyZW50IG5vdGF0aW9ucw0KDQpgYGB7cn0NCg0KIyBPcHRpb24gMQ0KZGlhbWV0ZXIgPC0gcGxhbmV0c19kZlssM10NCg0KIyBPcHRpb24gMg0KZGlhbWV0ZXIgPC0gcGxhbmV0c19kZlssImRpYW1ldGVyIl0NCg0KIyBPcHRpb24gMzogc2hvcnQtY3V0DQpwbGFuZXRzX2RmJGRpYW1ldGVyIA0KYGBgDQoNCiMjIEZpbHRlciBieSBjb25kaXRpb25zDQoNClNlbGVjdGluZyBjb2x1bW5zIHdpdGggY29uZGl0aW9uIGNhbiBhbHNvIGJlIGFwcGxpZWQgaW4gZGlmZmVyZW50IHdheXMNCg0KYGBge3J9DQojIFNlbGVjdCBjb2x1bW5zIHdpdGggRmFsc2UtVHJ1ZSBsaXN0DQpyaW5nc192ZWN0b3IgPC0gcGxhbmV0c19kZiRyaW5ncw0KDQojIFNob3cgJ25hbWUnIHdpdGggVHJ1ZSByaW5ncw0KcGxhbmV0c19kZltyaW5nc192ZWN0b3IsICJuYW1lIl0NCg0KIyBTaG93IGFsbCBjb2x1bW5zIHdpdGggVHJ1ZSByaW5ncw0KcGxhbmV0c19kZltyaW5nc192ZWN0b3IsIFRSVUVdDQpgYGANCg0KYGBge3J9DQojIFNldHRpbmcgYSBjb25kaXRpb24NCnN1YnNldChwbGFuZXRzX2RmLCBzdWJzZXQgPSAoZGlhbWV0ZXIgPCAxKSkNCmBgYA0KDQojIFBpcGUgb3BlcmF0aW9ucw0KDQpCZWxvdywgZGlmZmVyZW50IHBpcGUgb3BlcmF0aW9ucyBhcmUgcHJlc2VudGVkIGFzIGdlbmVyYWwgZXhwcmVzc2lvbi4NCg0KIyMgc2VsZWN0DQoNCmBgYHtyfQ0KZGF0YXNldCAlPiUNCiAgc2VsZWN0KGNvbHVtbjEsIGNvbHVtbjIsIGNvbHVtbjQ6Y29sdW1uNywgbmV3X25hbWUgPSBvbGRfbmFtZSkNCg0KZGF0YXNldCAlPiUNCiAgc2VsZWN0KGNvbnRhaW5zKCd3b3JkJyksIHN0YXJ0c193aXRoKCdsZXR0ZXInKSwgZW5kc193aXRoKCdsZXR0ZXInKSwgbWF0Y2hlcygnbGV0dGVyJyksIGxhc3RfY29sKCkgKQ0KDQpkYXRhc2V0ICU+JQ0KICBzZWxlY3QoLWNvbHVtbl90b19yZW1vdmUpDQpgYGANCg0KIyMgZmlsdGVyDQoNCmBgYHtyfQ0KZGF0YXNldCAlPiUNCiAgZmlsdGVyKGNvbHVtbjEgPT0gdmFsdWUxLCBjb2x1bW4yID0gdmFsdWUyKQ0KDQpkYXRhc2V0ICU+JQ0KICBmaWx0ZXIoY29sdW1uMSA9PSB2YWx1ZTEpICU+JQ0KICBhcnJhbmdlKGRlc2ModmFsdWUyKSkNCg0KZGF0YXNldCAlPiUNCiAgZmlsdGVyKHZhbHVlMSAlaW4lIGMoJ3ZhbHVlMScsICd2YWx1ZTInKSkNCmBgYA0KDQojIyBncm91cF9ieQ0KDQpgYGB7cn0NCmRhdGFzZXQgJT4lDQogIGdyb3VwX2J5KGNvbHVtbjFfdG9fZ3JvdXAsIGNvbHVtbjJfdG9fZ3JvdXApICU+JQ0KICBzdW1tYXJpemUoY29sdW1uX25hbWUxID0gbWVhbihjb2x1bW4xKSwgY29sdW1uX25hbWUyID0gc3VtKGNvbHVtbjIpKQ0KICB1bmdyb3VwKCkgIyBNYWtlIGl0IGFibGUgdG8gZG8gb3RoZXIgYWdncmVnYXRpb25zIG9uIHRoZSBzYW1lIGRhdGFzZXQuIA0KDQpkYXRhc2V0ICU+JQ0KICBncm91cF9ieShjb2x1bW4xX3RvX2dyb3VwLCBjb2x1bW4yX3RvX2dyb3VwKSAlPiUNCiAgc2xpY2VfbWF4KGNvbHVtbjEsIG4gPSBpbnQpDQogIHNsaWNlX21pbihjb2x1bW4yLCBuID0gaW50KQ0KICANCmRhdGFzZXQgJT4lDQogIGdyb3VwX2J5KGNvbHVtbjFfdG9fZ3JvdXApICU+JQ0KICBtdXRhdGUobmV3X2NvbCA9IHN1bShjb2x1bW4yKSkNCmBgYA0KDQojIyBPdGhlcnMNCg0KYGBge3J9DQpkYXRhc2V0ICU+JQ0KICByZW5hbWUobmV3X25hbWUgPSBvbGRfbmFtZSkNCg0KZGF0YXNldCAlPiUNCiAgYXJyYW5nZShjb2x1bW4xLCBkZXNjKGNvbHVtbjIpKSAjIGRlZmF1bHQgaXMgYXNjZW5kaW5nDQoNCmRhdGFzZXQgJT4lDQogIG11dGF0ZShjb2x1bW4xID0gdmFsdWUxLzEwKSAjIG92ZXJ3cml0ZSBjb2x1bW4NCg0KZGF0YXNldCAlPiUNCiAgbXV0YXRlKGNvbHVtbl9uYW1lID0gdmFsdWUxLzEwKSAjIGFkZCBjb2x1bW4NCg0KZGF0YXNldCAlPiUNCiAgdHJhbnNtdXRlKGNvbHVtbjEsIGNvbHVtbjIgPSBjb2x1bW4yLzEwKSAjIHNlbGVjdCArIG11dGF0ZSBpbiBvbmNlDQoNCnZhcmlhYmxlX25hbWUgPC0gZGF0YXNldCAlPiUNCiAgZmlsdGVyKGNvbHVtbjEgPT0gdmFsdWUxKQ0KDQpkYXRhc2V0ICU+JQ0KICBzdW1tYXJpemUoY29sdW1uX25hbWUxID0gbWVhbihjb2x1bW4xKSwgY29sdW1uX25hbWUyID0gc3VtKGNvbHVtbjIpKQ0KDQpkYXRhc2V0ICU+JQ0KICBjb3VudChjb2x1bW4xLCB3dCA9IGNvbHVtbjIsIHNvcnQgPSBUUlVFKQ0KYGBgDQoNCiMjIEludGVybWV6em86IGxhZw0KDQpgYGB7cn0NCnYgPC0gYygxLDMsNiwxNCkNCnN1Yl90aGVfcHJldmlvdXMgPC0gbGFnKHYpDQpkaWZmX2NvbnNlY2F0aXZlIDwtIHYgLSBsYWcodikNCmBgYA0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQotICAgKlJ1biBzZWN0aW9uKiBieSBwcmVzc2luZyAqQ3RybCtFbnRlciouDQotICAgKlJ1biBsaW5lKiBieSBwcmVzc2luZyAqU2hpZnQrRW50ZXIqLg0KLSAgICpJbnNlcnQgQ2h1bmsqIGJ5IHByZXNzaW5nICpDdHJsK2kqLg0KLSAgICpQaXBlIG9wZXJhdG9yKiBwcmVzcyAqQ3RybCtwKiB0byBmaWx0ZXIgb3Igc2VsZWN0IGNvbmRpdGlvbnMgYCU+JWANCi0gICAqQ29weSB0ZXh0KiBwcmVzcyAqQ3RybCtjKg0KLSAgICpvcGVuIGZpbGUqIHByZXNzICpDdHJsK28qDQotICAgKnNhdmUgZmlsZSogcHJlc3MgKkN0cmwrcyoNCi0gICAqcGFzdGUgYWxsKiBwcmVzcyAqQ3RybCthKg0KDQojIEZ1bmN0aW9ucyBvdmVydmlldw0KDQotICAgYGZ1bmN0aW9uYCA9IC4uLg0KDQojIFN0YXJ0DQoNCmBgYHtyfQ0KIyBJbnN0YWxsIHBhY2thZ2VzDQppbnN0YWxsLnBhY2thZ2VzKCJnZ3Bsb3QyIikNCg0KIyBMb2FkIHBhY2thZ2VzDQpsaWJyYXJ5KCdnZ3Bsb3QyJykNCmBgYA0KDQojIFZpc3VhbGlzYXRpb25zDQoNCiMjIFNjYXR0ZXJwbG90DQoNClNpbmdsZSBwbG90DQoNCmBgYHtyfQ0KIyBCYXNpY3MNCmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCB5ID0gY29sdW1uX3kpKSArICMgYWVzID0gYWVzdGhldGljDQogIGdlb21fcG9pbnQoKSAjIGFkZGluZyBhIGxheWVyLyB0eXBlX29mX2dyYXBoLCBwb2ludCAtLT4gc2NhdHRlcg0KYGBgDQoNCmBgYHtyfQ0KIyBEZXNpZ25pbmcgDQpnZ3Bsb3QoZGF0YSwgYWVzKHggPSBjb2x1bW5feCwgeSA9IGNvbHVtbl95LCBjb2xvciA9IGNvbHVtbl9jb2wsIHNpemUgPSBjb2x1bW5fc2l6ZSkpICsgDQogIGdlb21fcG9pbnQoKSArDQogIHNjYWxlX3hfbG9nMTAoKSArICAgICAgICAgICAgICAgICAgICAgICAgICMgeC1heGlzIG9uIGEgbG9nIHNjYWxlDQogIHNjYWxlX3lfbG9nMTAoKSArICAgICAgICAgICAgICAgICAgICAgICAgICMgeS1heGlzIG9uIGEgbG9nIHNjYWxlDQogIGV4cGFuZF9saW1pdHMoeT0wKSArICAgICAgICAgICAgICAgICAgICAgICMgc2V0IGxpbWl0cw0KICBnZ3RpdGxlKCJUaXRsZSIpICsNCiAgbGFicyh4ID0gImxhYmVsX3giLCB5ID0gImxhYmVsX3kiKQ0KYGBgDQoNCk11bHRpcGxlIHBsb3RzIGJ5IHN1YnBsb3RzICg9ZmFjZXRpbmcpDQoNCmBgYHtyfQ0KIyBCYXNpY3MNCmdncGxvdChkYXRhLCBhZXMoeCA9IGNvbHVtbl94LCB5ID0gY29sdW1uX3ksIGNvbG9yID0gY29sdW1uX2NvbCwgc2l6ZSA9IGNvbHVtbl9zaXplKSkgKyANCiAgZ2VvbV9wb2ludCgpICsNCiAgZmFjZXRfd3JhcCh+IGNvbHVtbl90b19mYWNldCkNCmBgYA0KDQojIyBMaW5lcGxvdA0KDQpzaW5nbGUgcGxvdA0KDQpgYGB7cn0NCiMgQmFzaWNzDQpnZ3Bsb3QoZGF0YSwgYWVzKHggPSBjb2x1bW5feCwgeSA9IGNvbHVtbl95LCBjb2xvciA9IGNvbHVtbl9jb2wsIHNpemUgPSBjb2x1bW5fc2l6ZSkpICsgDQogIGdlb21fbGluZSgpDQpgYGANCg0KIyMgQmFycGxvdA0KDQpzaW5nbGUgcGxvdA0KDQpgYGB7cn0NCiMgQmFzaWNzDQpnZ3Bsb3QoZGF0YSwgYWVzKHggPSBjb2x1bW5feCwgeSA9IGNvbHVtbl95LCBjb2xvciA9IGNvbHVtbl9jb2wsIHNpemUgPSBjb2x1bW5fc2l6ZSkpICsgDQogIGdlb21fY29sKCkNCmBgYA0KDQojIyBIaXN0b2dyYW0NCg0Kc2luZ2xlIHBsb3QNCg0KYGBge3J9DQojIEJhc2ljcw0KZ2dwbG90KGRhdGEsIGFlcyh4ID0gY29sdW1uX3gsICBjb2xvciA9IGNvbHVtbl9jb2wsIHNpemUgPSBjb2x1bW5fc2l6ZSkpICsgDQogIGdlb21faGlzdG9ncmFtKGJpbndpZHRoID0gaW50LCBiaW5zID0gaW50KQ0KYGBgDQoNCiMjIEJveHBsb3QNCg0Kc2luZ2xlIHBsb3QNCg0KYGBge3J9DQojIEJhc2ljcw0KZ2dwbG90KGRhdGEsIGFlcyh4ID0gY29sdW1uX3gsIHkgPSBjb2x1bW5feSwgY29sb3IgPSBjb2x1bW5fY29sLCBzaXplID0gY29sdW1uX3NpemUpKSArIA0KICBnZW9tX2JveHBsb3QoKQ0KYGBgDQo=</div>
 
 
 
@@ -2091,7 +1923,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Dyplr_Notebook.Rmd");
+  window.initializeSourceEmbed("Visualisation_Notebook.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

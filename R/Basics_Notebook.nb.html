@@ -1766,285 +1766,778 @@ conditions <code>%&gt;%</code></li>
 <div id="functions-overview" class="section level1">
 <h1>Functions overview</h1>
 <ul>
-<li><code>head</code> = …</li>
-<li><code>str</code> = …</li>
-<li><code>subset</code> = …</li>
-<li><code>order</code> = …</li>
-<li><code>select</code> = …</li>
-<li><code>filter</code> = …</li>
-<li><code>arrange</code> = Sort columns</li>
-<li><code>mutate</code> = Add new feature</li>
-<li><code>transmutate</code> = …</li>
-<li><code>count</code> = …</li>
-<li><code>group_by</code> = …</li>
-<li><code>ungroup</code> = …</li>
-<li><code>summarize</code> = mean, sum, median, min, max</li>
-<li><code>rename</code> = …</li>
-<li><code>glimpse</code> = …</li>
-<li><code>slice_max</code> = …</li>
-<li><code>slice_min</code> = …</li>
-<li><code>top_n</code> = …</li>
-<li><code>lag</code> = …</li>
+<li><code>c</code> = …</li>
+<li><code>list</code> = …</li>
+<li><code>matrix</code> = …</li>
+<li><code>class</code> = …</li>
+<li><code>sum</code> = …</li>
+<li><code>mean</code> = …</li>
+<li><code>colnames</code> = …</li>
+<li>`rownames`` = …</li>
+<li>`colSums`` = …</li>
+<li>`rowSums`` = …</li>
+<li><code>cbind</code> = …</li>
+<li>`rbind`` = …</li>
+<li><code>factors</code> = …</li>
+<li><code>levels</code> = …</li>
+<li><code>summary</code> = …</li>
+<li><code>is.numeric</code> = …</li>
+<li><code>identical</code> = …</li>
 </ul>
+</div>
+<div id="start" class="section level1">
+<h1>Start</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBJbnN0YWxsIHBhY2thZ2VzXG5pbnN0YWxsLnBhY2thZ2VzKFwiZ2FwbWluZGVyXCIpXG5gYGAifQ== -->
-<pre class="r"><code># Install packages
-install.packages(&quot;gapminder&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaW5zdGFsbC5wYWNrYWdlcyA6IFVwZGF0aW5nIGxvYWRlZCBwYWNrYWdlc1xuIn0= -->
-<pre><code>Error in install.packages : Updating loaded packages</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcInRpZHl2ZXJzZVwiKVxuYGBgIn0= -->
-<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5SZXN0YXJ0aW5nIFIgc2Vzc2lvbi4uLlxuIn0= -->
-<pre><code>
-Restarting R session...</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>The tidyverse package automatically loads in the packages ggplot2,
-dplyr, and readr.</p>
+</div>
+<div id="basics" class="section level1">
+<h1>Basics</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHZXQgZXhwbGFpbmF0aW9uIG9mIGEgZnVuY3Rpb25cbmdsaW1wc2UoZGF0YXNldClcbj9zZWxlY3RfaGVscGVyc1xuYGBgIn0= -->
-<pre class="r"><code># Get explaination of a function
-glimpse(dataset)
-?select_helpers</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBBZGRpdGlvblxuNSArIDUgXG5cbiMgU3VidHJhY3Rpb25cbjUgLSA1IFxuXG4jIE11bHRpcGxpY2F0aW9uXG4zICogNVxuXG4jIERpdmlzaW9uXG4oNSArIDUpIC8gMiBcblxuIyBFeHBvbmVudGlhdGlvblxuMl41XG5cbiMgTW9kdWxvXG4yOCAlJSA2XG5gYGAifQ== -->
+<pre class="r"><code># Addition
+5 + 5 
+
+# Subtraction
+5 - 5 
+
+# Multiplication
+3 * 5
+
+# Division
+(5 + 5) / 2 
+
+# Exponentiation
+2^5
+
+# Modulo
+28 %% 6</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="dataset" class="section level1">
-<h1>Dataset</h1>
-<div id="make-a-dataset" class="section level2">
-<h2>Make a dataset</h2>
+<div id="variables" class="section level1">
+<h1>Variables</h1>
+<p>Assign the value to a variable</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHaXZlICBoZWFkZXJzIGEgbmFtZVxubmFtZSA8LSBjKFwiTWVyY3VyeVwiLCBcIlZlbnVzXCIsIFwiRWFydGhcIiwgXCJNYXJzXCIsIFwiSnVwaXRlclwiLCBcIlNhdHVyblwiLCBcIlVyYW51c1wiLCBcIk5lcHR1bmVcIilcblxuIyBEYXRhIHRvIHN0b3JlXG50eXBlIDwtIGMoXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXG4gICAgICAgICAgXCJUZXJyZXN0cmlhbCBwbGFuZXRcIiwgXCJHYXMgZ2lhbnRcIiwgXCJHYXMgZ2lhbnRcIiwgXCJHYXMgZ2lhbnRcIiwgXCJHYXMgZ2lhbnRcIilcbmRpYW1ldGVyIDwtIGMoMC4zODIsIDAuOTQ5LCAxLCAwLjUzMiwgMS4yMDksIDkuNDQ5LCA0LjAwNywgMy44ODMpXG5yb3RhdGlvbiA8LSBjKDU4LjY0LCAtMjQzLjAyLCAxLCAxLjAzLCAwLjQxLCAwLjQzLCAtMC43MiwgMC42NylcbnJpbmdzIDwtIGMoRkFMU0UsIEZBTFNFLCBGQUxTRSwgRkFMU0UsIFRSVUUsIFRSVUUsIFRSVUUsIFRSVUUpXG5cbiMgQ3JlYXRlIGEgZGF0YSBmcmFtZSBmcm9tIHRoZSB2ZWN0b3JzXG5wbGFuZXRzX2RmIDwtIGRhdGEuZnJhbWUobmFtZSwgdHlwZSwgZGlhbWV0ZXIsIHJvdGF0aW9uLCByaW5ncylcbm1hcnMgPC0gcGxhbmV0c19kZls0LF1cbmBgYCJ9 -->
-<pre class="r"><code># Give  headers a name
-name &lt;- c(&quot;Mercury&quot;, &quot;Venus&quot;, &quot;Earth&quot;, &quot;Mars&quot;, &quot;Jupiter&quot;, &quot;Saturn&quot;, &quot;Uranus&quot;, &quot;Neptune&quot;)
-
-# Data to store
-type &lt;- c(&quot;Terrestrial planet&quot;, &quot;Terrestrial planet&quot;, &quot;Terrestrial planet&quot;, 
-          &quot;Terrestrial planet&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;, &quot;Gas giant&quot;)
-diameter &lt;- c(0.382, 0.949, 1, 0.532, 1.209, 9.449, 4.007, 3.883)
-rotation &lt;- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
-rings &lt;- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
-
-# Create a data frame from the vectors
-planets_df &lt;- data.frame(name, type, diameter, rotation, rings)
-mars &lt;- planets_df[4,]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBBc3NpZ25cbm15X251bWVyaWMgPC0gNDJcbm15X2NoYXJhY3RlciA8LSBcInVuaXZlcnNlXCJcbm15X2xvZ2ljYWwgPC0gRkFMU0VcbmBgYCJ9 -->
+<pre class="r"><code># Assign
+my_numeric &lt;- 42
+my_character &lt;- &quot;universe&quot;
+my_logical &lt;- FALSE</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Print out the value of the variable x</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBQcmludFxubXlfbnVtZXJpY1xubXlfY2hhcmFjdGVyXG5teV9sb2dpY2FsXG5gYGAifQ== -->
+<pre class="r"><code># Print
+my_numeric
+my_character
+my_logical</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Check the class/type of the variable</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDaGVjayBjbGFzc1xuY2xhc3MobXlfbnVtZXJpYylcbmNsYXNzKG15X2NoYXJhY3RlcilcbmNsYXNzKG15X2xvZ2ljYWwpXG5gYGAifQ== -->
+<pre class="r"><code># Check class
+class(my_numeric)
+class(my_character)
+class(my_logical)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="basic-information" class="section level2">
-<h2>Basic information</h2>
+<div id="vectors" class="section level1">
+<h1>Vectors</h1>
+<div id="construct-a-vector" class="section level2">
+<h2>Construct a vector</h2>
+<p>Filling a new vector</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBNYWtlIGdlbmVyYWwgbmFtZVxuZGF0YXNldCA8LSBwbGFuZXRzX2RmXG5gYGAifQ== -->
-<pre class="r"><code># Make general name
-dataset &lt;- planets_df</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWZWN0b3JzXG5udW1lcmljX3ZlY3RvciA8LSBjKDEsIDEwLCA0OSlcbmNoYXJhY3Rlcl92ZWN0b3IgPC0gYyhcImFcIiwgXCJiXCIsIFwiY1wiKVxuYm9vbGVhbl92ZWN0b3IgPC0gYyhUUlVFLCBGQUxTRSwgVFJVRSlcblxuIyBQcmludFxubnVtZXJpY192ZWN0b3JcbmBgYCJ9 -->
+<pre class="r"><code># Vectors
+numeric_vector &lt;- c(1, 10, 49)
+character_vector &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+boolean_vector &lt;- c(TRUE, FALSE, TRUE)
+
+# Print
+numeric_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxIDEwIDQ5XG4ifQ== -->
+<pre><code>[1]  1 10 49</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hhcmFjdGVyX3ZlY3RvclxuYGBgIn0= -->
+<pre class="r"><code>character_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYVwiIFwiYlwiIFwiY1wiXG4ifQ== -->
+<pre><code>[1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm9vbGVhbl92ZWN0b3JcbmBgYCJ9 -->
+<pre class="r"><code>boolean_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICBUUlVFIEZBTFNFICBUUlVFXG4ifQ== -->
+<pre><code>[1]  TRUE FALSE  TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Give the vector header names</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWZWN0b3IgbmFtZXNcbnBva2VyX3ZlY3RvciA8LSBjKDE0MCwgLTUwLCAyMCwgLTEyMCwgMjQwKVxubmFtZXMocG9rZXJfdmVjdG9yKSA8LSBjKFwiTW9uZGF5XCIsIFwiVHVlc2RheVwiLCBcIldlZG5lc2RheVwiLCBcIlRodXJzZGF5XCIsIFwiRnJpZGF5XCIpXG5cbiMgUHJpbnRcbnBva2VyX3ZlY3RvclxuYGBgIn0= -->
+<pre class="r"><code># Vector names
+poker_vector &lt;- c(140, -50, 20, -120, 240)
+names(poker_vector) &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
+
+# Print
+poker_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTW9uZGF5ICAgVHVlc2RheSBXZWRuZXNkYXkgIFRodXJzZGF5ICAgIEZyaWRheSBcbiAgICAgIDE0MCAgICAgICAtNTAgICAgICAgIDIwICAgICAgLTEyMCAgICAgICAyNDAgXG4ifQ== -->
+<pre><code>   Monday   Tuesday Wednesday  Thursday    Friday 
+      140       -50        20      -120       240 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="manipulating-a-vector" class="section level2">
+<h2>Manipulating a Vector</h2>
+<p>Summation with vectors</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWZWN0b3Igc3VtXG5BX3ZlY3RvciA8LSBjKDEsIDIsIDMpXG5CX3ZlY3RvciA8LSBjKDQsIDUsIDYpXG50b3RhbF92ZWN0b3IgPC0gQV92ZWN0b3IgKyBCX3ZlY3RvclxudG90YWxfc3VtIDwtIHN1bSh0b3RhbF92ZWN0b3IpXG5cbiMgUHJpbnRcbnRvdGFsX3ZlY3RvclxuYGBgIn0= -->
+<pre class="r"><code># Vector sum
+A_vector &lt;- c(1, 2, 3)
+B_vector &lt;- c(4, 5, 6)
+total_vector &lt;- A_vector + B_vector
+total_sum &lt;- sum(total_vector)
+
+# Print
+total_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUgNyA5XG4ifQ== -->
+<pre><code>[1] 5 7 9</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudG90YWxfc3VtXG5gYGAifQ== -->
+<pre class="r"><code>total_sum</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIxXG4ifQ== -->
+<pre><code>[1] 21</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Slicing a vector</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTbGljaW5nXG5wb2tlcl93ZWRuZXNkYXkgPC0gcG9rZXJfdmVjdG9yWzNdXG5wb2tlcl9taWR3ZWVrMSA8LSBwb2tlcl92ZWN0b3JbYygyLDMsNCldXG5wb2tlcl9taWR3ZWVrMiA8LSBwb2tlcl92ZWN0b3JbMjo0XVxucG9rZXJfc3RhcnQgPC0gcG9rZXJfdmVjdG9yW2MoXCJNb25kYXlcIixcIlR1ZXNkYXlcIixcIldlZG5lc2RheVwiKV1cblxuIyBQcmludFxucG9rZXJfd2VkbmVzZGF5XG5gYGAifQ== -->
+<pre class="r"><code># Slicing
+poker_wednesday &lt;- poker_vector[3]
+poker_midweek1 &lt;- poker_vector[c(2,3,4)]
+poker_midweek2 &lt;- poker_vector[2:4]
+poker_start &lt;- poker_vector[c(&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;)]
+
+# Print
+poker_wednesday</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2VkbmVzZGF5IFxuICAgICAgIDIwIFxuIn0= -->
+<pre><code>Wednesday 
+       20 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG9rZXJfbWlkd2VlazFcbmBgYCJ9 -->
+<pre class="r"><code>poker_midweek1</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBUdWVzZGF5IFdlZG5lc2RheSAgVGh1cnNkYXkgXG4gICAgICAtNTAgICAgICAgIDIwICAgICAgLTEyMCBcbiJ9 -->
+<pre><code>  Tuesday Wednesday  Thursday 
+      -50        20      -120 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG9rZXJfbWlkd2VlazJcbmBgYCJ9 -->
+<pre class="r"><code>poker_midweek2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBUdWVzZGF5IFdlZG5lc2RheSAgVGh1cnNkYXkgXG4gICAgICAtNTAgICAgICAgIDIwICAgICAgLTEyMCBcbiJ9 -->
+<pre><code>  Tuesday Wednesday  Thursday 
+      -50        20      -120 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG9rZXJfc3RhcnRcbmBgYCJ9 -->
+<pre class="r"><code>poker_start</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTW9uZGF5ICAgVHVlc2RheSBXZWRuZXNkYXkgXG4gICAgICAxNDAgICAgICAgLTUwICAgICAgICAyMCBcbiJ9 -->
+<pre><code>   Monday   Tuesday Wednesday 
+      140       -50        20 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Selection by condition</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZWxlY3Rpb25cbnNlbGVjdGlvbl92ZWN0b3IgPC0gcG9rZXJfdmVjdG9yID4gMFxucG9rZXJfd2lubmluZ19kYXlzIDwtIHBva2VyX3ZlY3RvcltzZWxlY3Rpb25fdmVjdG9yXVxuXG4jIFByaW50XG5zZWxlY3Rpb25fdmVjdG9yXG5gYGAifQ== -->
+<pre class="r"><code># Selection
+selection_vector &lt;- poker_vector &gt; 0
+poker_winning_days &lt;- poker_vector[selection_vector]
+
+# Print
+selection_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTW9uZGF5ICAgVHVlc2RheSBXZWRuZXNkYXkgIFRodXJzZGF5ICAgIEZyaWRheSBcbiAgICAgVFJVRSAgICAgRkFMU0UgICAgICBUUlVFICAgICBGQUxTRSAgICAgIFRSVUUgXG4ifQ== -->
+<pre><code>   Monday   Tuesday Wednesday  Thursday    Friday 
+     TRUE     FALSE      TRUE     FALSE      TRUE </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG9rZXJfd2lubmluZ19kYXlzXG5gYGAifQ== -->
+<pre class="r"><code>poker_winning_days</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTW9uZGF5IFdlZG5lc2RheSAgICBGcmlkYXkgXG4gICAgICAxNDAgICAgICAgIDIwICAgICAgIDI0MCBcbiJ9 -->
+<pre><code>   Monday Wednesday    Friday 
+      140        20       240 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="calculations" class="section level2">
+<h2>Calculations</h2>
+<p>Calculating the mean</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTdGF0c1xubWVhbihwb2tlcl9zdGFydClcbmBgYCJ9 -->
+<pre class="r"><code># Stats
+mean(poker_start)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="matrices" class="section level1">
+<h1>Matrices</h1>
+<div id="construct-a-matrix" class="section level2">
+<h2>Construct a Matrix</h2>
+<p>Template for filing a matrix</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25zdHJ1Y3QgYSBtYXRyaXggd2l0aCAzIHJvd3MgdGhhdCBjb250YWluIHRoZSBudW1iZXJzIDEgdXAgdG8gOVxubWF0cml4KDE6OSwgYnlyb3cgPSBUUlVFLCBucm93ID0gMylcbmBgYCJ9 -->
+<pre class="r"><code># Construct a matrix with 3 rows that contain the numbers 1 up to 9
+matrix(1:9, byrow = TRUE, nrow = 3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Define column values</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25zdHJ1Y3Qgc3Rhcl93YXJzX21hdHJpeFxubmV3X2hvcGUgPC0gYyg0NjAuOTk4LCAzMTQuNClcbmVtcGlyZV9zdHJpa2VzIDwtIGMoMjkwLjQ3NSwgMjQ3LjkwMClcbnJldHVybl9qZWRpIDwtIGMoMzA5LjMwNiwgMTY1LjgpXG5ib3hfb2ZmaWNlIDwtIGMobmV3X2hvcGUsIGVtcGlyZV9zdHJpa2VzLCByZXR1cm5famVkaSlcbmBgYCJ9 -->
+<pre class="r"><code># Construct star_wars_matrix
+new_hope &lt;- c(460.998, 314.4)
+empire_strikes &lt;- c(290.475, 247.900)
+return_jedi &lt;- c(309.306, 165.8)
+box_office &lt;- c(new_hope, empire_strikes, return_jedi)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Fill the matrix</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPcHRpb24gMTogQWRkaW5nIGNvbHVtbiBhbmQgcm93IG5hbWVzXG5zdGFyX3dhcnNfbWF0cml4XzEgPC0gbWF0cml4KGJveF9vZmZpY2UsIGJ5cm93ID0gVFJVRSwgbnJvdyA9IDMpXG5cbnJlZ2lvbiA8LSBjKFwiVVNcIiwgXCJub24tVVNcIilcbnRpdGxlcyA8LSBjKFwiQSBOZXcgSG9wZVwiLCBcIlRoZSBFbXBpcmUgU3RyaWtlcyBCYWNrXCIsIFwiUmV0dXJuIG9mIHRoZSBKZWRpXCIpXG5cbmNvbG5hbWVzKHN0YXJfd2Fyc19tYXRyaXhfMSkgPC0gcmVnaW9uXG5yb3duYW1lcyhzdGFyX3dhcnNfbWF0cml4XzEpIDwtIHRpdGxlc1xuXG5zdGFyX3dhcnNfbWF0cml4XzFcbmBgYCJ9 -->
+<pre class="r"><code># Option 1: Adding column and row names
+star_wars_matrix_1 &lt;- matrix(box_office, byrow = TRUE, nrow = 3)
+
+region &lt;- c(&quot;US&quot;, &quot;non-US&quot;)
+titles &lt;- c(&quot;A New Hope&quot;, &quot;The Empire Strikes Back&quot;, &quot;Return of the Jedi&quot;)
+
+colnames(star_wars_matrix_1) &lt;- region
+rownames(star_wars_matrix_1) &lt;- titles
+
+star_wars_matrix_1</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBoZWFkIGRhdGFzZXRcbmhlYWQoZGF0YXNldClcblxuYGBgIn0= -->
-<pre class="r"><code># head dataset
-head(dataset)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPcHRpb24gMjogQWRkaW5nIGNvbHVtbiBhbmQgcm93IG5hbWVzXG5zdGFyX3dhcnNfbWF0cml4XzIgPC0gbWF0cml4KGJveF9vZmZpY2VcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICwgYnlyb3cgPSBUUlVFXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAsIG5yb3cgPSAzXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAsIGRpbW5hbWVzID0gbGlzdCh0aXRsZXMsIHJlZ2lvbikpXG5cbnN0YXJfd2Fyc19tYXRyaXhfMlxuYGBgIn0= -->
+<pre class="r"><code># Option 2: Adding column and row names
+star_wars_matrix_2 &lt;- matrix(box_office
+                           , byrow = TRUE
+                           , nrow = 3
+                           , dimnames = list(titles, region))
+
+star_wars_matrix_2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="manipulating-the-matrix" class="section level2">
+<h2>Manipulating the matrix</h2>
+<p>Summation</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTdGF0c1xud29ybGR3aWRlX3ZlY3RvciA8LSByb3dTdW1zKHN0YXJfd2Fyc19tYXRyaXhfMSlcbndvcmxkd2lkZV92ZWN0b3JcbmBgYCJ9 -->
+<pre class="r"><code># Stats
+worldwide_vector &lt;- rowSums(star_wars_matrix_1)
+worldwide_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTdGF0c1xudG90YWxfcmV2ZW51ZV92ZWN0b3IgPC0gY29sU3VtcyhzdGFyX3dhcnNfbWF0cml4XzEpXG50b3RhbF9yZXZlbnVlX3ZlY3RvclxuYGBgIn0= -->
+<pre class="r"><code># Stats
+total_revenue_vector &lt;- colSums(star_wars_matrix_1)
+total_revenue_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Binding of columns and rows</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCaW5kIENPTFVNTlMgaW4gYSBzaW5nbGUgbWF0cml4XG5hbGxfd2Fyc19jbWF0cml4IDwtIGNiaW5kKHN0YXJfd2Fyc19tYXRyaXhfMSwgd29ybGR3aWRlX3ZlY3RvcilcbmFsbF93YXJzX2NtYXRyaXhcbmBgYCJ9 -->
+<pre class="r"><code># Bind COLUMNS in a single matrix
+all_wars_cmatrix &lt;- cbind(star_wars_matrix_1, worldwide_vector)
+all_wars_cmatrix</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCaW5kIFJPV1MgaW4gYSBzaW5nbGUgbWF0cml4XG5hbGxfd2Fyc19ybWF0cml4IDwtIHJiaW5kKHN0YXJfd2Fyc19tYXRyaXhfMSwgc3Rhcl93YXJzX21hdHJpeF8yKVxuYWxsX3dhcnNfcm1hdHJpeFxuYGBgIn0= -->
+<pre class="r"><code># Bind ROWS in a single matrix
+all_wars_rmatrix &lt;- rbind(star_wars_matrix_1, star_wars_matrix_2)
+all_wars_rmatrix</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Slicing and calculating the mean</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTbGljaW5nXG5ub25fdXNfYWxsIDwtIGFsbF93YXJzX3JtYXRyaXhbLDJdICMgU2Vjb25kIGNvbHVtblxubm9uX3VzX2FsbFxuYGBgIn0= -->
+<pre class="r"><code># Slicing
+non_us_all &lt;- all_wars_rmatrix[,2] # Second column
+non_us_all</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubm9uX3VzX3NvbWUgPC0gYWxsX3dhcnNfcm1hdHJpeFsxOjIsIDJdICMgRmlyc3QgdHdvIHJvd3MsIG9mIHRoZSBzZWNvbmQgY29sdW1uXG5ub25fdXNfc29tZVxuYGBgIn0= -->
+<pre class="r"><code>non_us_some &lt;- all_wars_rmatrix[1:2, 2] # First two rows, of the second column
+non_us_some</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTdGF0c1xubWVhbihub25fdXNfc29tZSlcbmBgYCJ9 -->
+<pre class="r"><code># Stats
+mean(non_us_some)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="calculations-1" class="section level2">
+<h2>Calculations</h2>
+<p>Matrix multiplication is usually done with: %*% (standard).</p>
+<p>Multiplication of every element by each relating element is done
+with: *</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBNYXRoZW1hdGljYWw6IE11bHRpcGxpY2F0aW9uXG50d2ljZV9ub25fdXNfc29tZSA8LSBub25fdXNfc29tZSAqMiBcbmBgYCJ9 -->
+<pre class="r"><code># Mathematical: Multiplication
+twice_non_us_some &lt;- non_us_some *2 </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Similarly is for applying a division</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBNYXRoZW1hdGljYWw6IERpdmlzaW9uIChhcyBleGFtcGxlKVxuaGFsZmVfbm9uX3VzX3NvbWUgPC0gbm9uX3VzX3NvbWUgLyAyIFxuYGBgIn0= -->
+<pre class="r"><code># Mathematical: Division (as example)
+halfe_non_us_some &lt;- non_us_some / 2 </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="factors" class="section level1">
+<h1>Factors</h1>
+<div id="construct-a-factor" class="section level2">
+<h2>Construct a Factor</h2>
+<p>A Factor defines the unique values in a list.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb252ZXJ0IHNleF92ZWN0b3IgdG8gYSBmYWN0b3JcbnNleF92ZWN0b3IgPC0gYyhcIk1hbGVcIiwgXCJGZW1hbGVcIiwgXCJGZW1hbGVcIiwgXCJNYWxlXCIsIFwiTWFsZVwiKVxuZmFjdG9yX3NleF92ZWN0b3IgPC0gZmFjdG9yKHNleF92ZWN0b3IpXG5mYWN0b3Jfc2V4X3ZlY3RvclxuYGBgIn0= -->
+<pre class="r"><code># Convert sex_vector to a factor
+sex_vector &lt;- c(&quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;)
+factor_sex_vector &lt;- factor(sex_vector)
+factor_sex_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIE1hbGUgICBGZW1hbGUgRmVtYWxlIE1hbGUgICBNYWxlICBcbkxldmVsczogRmVtYWxlIE1hbGVcbiJ9 -->
+<pre><code>[1] Male   Female Female Male   Male  
+Levels: Female Male</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="calculations-2" class="section level2">
+<h2>Calculations</h2>
+<p>Example with temperatures</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBQcmludFxuZmFjdG9yX3RlbXBlcmF0dXJlX3ZlY3RvclxuXG5gYGAifQ== -->
+<pre class="r"><code># Print
+factor_temperature_vector
 </code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEhpZ2ggICBMb3cgICAgSGlnaCAgIExvdyAgICBNZWRpdW1cbkxldmVsczogTG93IDwgTWVkaXVtIDwgSGlnaFxuIn0= -->
+<pre><code>[1] High   Low    High   Low    Medium
+Levels: Low &lt; Medium &lt; High</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>The names of the factors can be changed</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzdHJ1Y3R1cmUgZGF0YXNldFxuc3RyKGRhdGFzZXQpXG5gYGAifQ== -->
-<pre class="r"><code># structure dataset
-str(dataset)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb2RlIHRvIGJ1aWxkIGZhY3Rvcl9zdXJ2ZXlfdmVjdG9yXG5zdXJ2ZXlfdmVjdG9yIDwtIGMoXCJNXCIsIFwiRlwiLCBcIkZcIiwgXCJNXCIsIFwiTVwiKVxuZmFjdG9yX3N1cnZleV92ZWN0b3IgPC0gZmFjdG9yKHN1cnZleV92ZWN0b3IpXG5mYWN0b3Jfc3VydmV5X3ZlY3RvclxuYGBgIn0= -->
+<pre class="r"><code># Code to build factor_survey_vector
+survey_vector &lt;- c(&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;M&quot;)
+factor_survey_vector &lt;- factor(survey_vector)
+factor_survey_vector</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIE0gRiBGIE0gTVxuTGV2ZWxzOiBGIE1cbiJ9 -->
+<pre><code>[1] M F F M M
+Levels: F M</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>And other general notations to sort and to order a list</p>
+<p>Now, apply the change of the ‘F’ and ‘M’ levels of above code</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBFeGFtcGxlIDEgLSBudW1lcmljXG5hIDwtIGMoMTAwLCAxMCwgMTAwMClcbm9yZGVyKGEpXG5cbiMgRXhhbXBsZSAyIC0gc3RyaW5nc1xuYXogPC0gYygnYScsICdGJywgJ2YnLCAnQScsICd6Jylcbm9yZGVyKGF6KVxuYGBgIn0= -->
-<pre class="r"><code># Example 1 - numeric
-a &lt;- c(100, 10, 1000)
-order(a)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDaGFuZ2UgdmFyaWFibGUgbmFtZXMgb2YgdGhlIHdob2xlIHZlY3RvclxuIyBGIGJlY29tZXMgRmVtYWxlLCBNIGJlY29tZXMgXG5sZXZlbHMoZmFjdG9yX3N1cnZleV92ZWN0b3IpIDwtIGMoXCJGZW1hbGVcIiwgXCJNYWxlXCIpXG5cbiMgTWFsZVxuZmFjdG9yX3N1cnZleV92ZWN0b3JcbmBgYCJ9 -->
+<pre class="r"><code># Change variable names of the whole vector
+# F becomes Female, M becomes 
+levels(factor_survey_vector) &lt;- c(&quot;Female&quot;, &quot;Male&quot;)
 
-# Example 2 - strings
-az &lt;- c(&#39;a&#39;, &#39;F&#39;, &#39;f&#39;, &#39;A&#39;, &#39;z&#39;)
-order(az)</code></pre>
+# Male
+factor_survey_vector</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIE1hbGUgICBGZW1hbGUgRmVtYWxlIE1hbGUgICBNYWxlICBcbkxldmVsczogRmVtYWxlIE1hbGVcbiJ9 -->
+<pre><code>[1] Male   Female Female Male   Male  
+Levels: Female Male</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Generate a summary of a vector. This summary provides the length,
+class and mode of the vector.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBFeGFtcGxlIDMgLSBvcmRlciBiYXNlZCBvbiBhIGNvbHVtblxucG9zaXRpb25zIDwtIG9yZGVyKHBsYW5ldHNfZGYkZGlhbWV0ZXIpXG5wbGFuZXRzX2RmW3Bvc2l0aW9ucyxdXG5gYGAifQ== -->
-<pre class="r"><code># Example 3 - order based on a column
-positions &lt;- order(planets_df$diameter)
-planets_df[positions,]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHZW5lcmF0ZSBzdW1tYXJ5IG9mIGEgdmVjdG9yIC0+IGdpdmVzIGxlbmd0aCwgY2xhc3MgYW5kIG1vZGUuXG5zdW1tYXJ5KHN1cnZleV92ZWN0b3IpXG5gYGAifQ== -->
+<pre class="r"><code># Generate summary of a vector -&gt; gives length, class and mode.
+summary(survey_vector)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTGVuZ3RoICAgICBDbGFzcyAgICAgIE1vZGUgXG4gICAgICAgIDUgY2hhcmFjdGVyIGNoYXJhY3RlciBcbiJ9 -->
+<pre><code>   Length     Class      Mode 
+        5 character character </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Generate a summary of a factor. This summary provides a number of
+observations for each factor</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHZW5lcmF0ZSBzdW1tYXJ5IG9mIGEgZmFjdG9yIC0+IGdpdmVzIG51bWJlciBvZiBvYnNlcnZhdGlvbnMgZm9yIGVhY2ggZmFjdG9yXG5zdW1tYXJ5KGZhY3Rvcl9zdXJ2ZXlfdmVjdG9yKVxuYGBgIn0= -->
+<pre class="r"><code># Generate summary of a factor -&gt; gives number of observations for each factor
+summary(factor_survey_vector)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRmVtYWxlICAgTWFsZSBcbiAgICAgMiAgICAgIDMgXG4ifQ== -->
+<pre><code>Female   Male 
+     2      3 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="select-columns" class="section level2">
-<h2>Select columns</h2>
-<p>Selecting a column can be done by tree different notations</p>
+</div>
+<div id="list-of-vectors-and-matrices" class="section level1">
+<h1>List of vectors and matrices</h1>
+<div id="construct-a-list" class="section level2">
+<h2>Construct a list</h2>
+<p>Separated vectors and matrices defined:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jIE9wdGlvbiAxXG5kaWFtZXRlciA8LSBwbGFuZXRzX2RmWywzXVxuXG4jIE9wdGlvbiAyXG5kaWFtZXRlciA8LSBwbGFuZXRzX2RmWyxcImRpYW1ldGVyXCJdXG5cbiMgT3B0aW9uIDM6IHNob3J0LWN1dFxucGxhbmV0c19kZiRkaWFtZXRlciBcbmBgYCJ9 -->
-<pre class="r"><code>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBEZWZpbmUgdmVjdG9ycyBhbmQgbWF0cmljZXNcbm15X3ZlY3RvciA8LSAxOjEwIFxubXlfbWF0cml4IDwtIG1hdHJpeCgxOjksIG5jb2wgPSAzKVxubXlfZGYgPC0gbXRjYXJzWzE6MTAsXVxuYGBgIn0= -->
+<pre class="r"><code># Define vectors and matrices
+my_vector &lt;- 1:10 
+my_matrix &lt;- matrix(1:9, ncol = 3)
+my_df &lt;- mtcars[1:10,]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Constructing a list step by step:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBNYWtlIGxpc3Qgb2YgdmVjdG9yIGFuZCBtYXRpeFxubXlfbGlzdCA8LSBsaXN0KG15X3ZlY3RvciwgbXlfbWF0cml4LCBteV9kZikgIyBjcmVhdGUgbGlzdFxubmFtZXMobXlfbGlzdCkgPC0gYygndmVjJywnbWF0JywnbXlfZGYnKSAjIGdpdmUgbmFtZXMgdG8gbGlzdHMgaW4gbXlfbGlzdFxuXG5teV9saXN0XG5gYGAifQ== -->
+<pre class="r"><code># Make list of vector and matix
+my_list &lt;- list(my_vector, my_matrix, my_df) # create list
+names(my_list) &lt;- c(&#39;vec&#39;,&#39;mat&#39;,&#39;my_df&#39;) # give names to lists in my_list
+
+my_list</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJHZlY1xuIFsxXSAgMSAgMiAgMyAgNCAgNSAgNiAgNyAgOCAgOSAxMFxuXG4kbWF0XG4gICAgIFssMV0gWywyXSBbLDNdXG5bMSxdICAgIDEgICAgNCAgICA3XG5bMixdICAgIDIgICAgNSAgICA4XG5bMyxdICAgIDMgICAgNiAgICA5XG5cbiRteV9kZlxuIn0= -->
+<pre><code>$vec
+ [1]  1  2  3  4  5  6  7  8  9 10
+
+$mat
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+
+$my_df</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MTAsIm5jb2wiOjExLCJzdW1tYXJ5IjpbXX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJwMVVQV3pUUUJTKy9MaEpIUEtENkFCTDViRURDVzZjaGl5SUd5SmdBQ0VLTkJHdGtDNjJtMW80dG1zN0tYUmk2ZHk1aUFFSjVpNHNIU3RtbUZsaFlXRkJRakFXenI1M1Iyd0lTRHpwOUwzM3ZYZmZ2WHYrV2VzTk5Ia2dJNFJ5S0ovTm9aeEVYU1RkdjNldDBVV1VvVUVHNVZFcHdzZTA2QngxeW5SVjZaTHhLb3BOWU9kdFpPL3c2bFpzdVBWYWl3eTNMaHhTZTRZdkhqTHNRcDdYYTh5RTdublE0MWhQeGNxY3VQN25lcUZyQU05eEE5QmpBbmo2bEtHZGlvZnJyRjhDL1J0ZmsvMXVRQjNIUGs3RzVnZUdENEIzWGpDOERlZjNUeGcrUEVuMlcyTnpFVmlGZVJWZnZwZXZlSzl3Q2ZpRnhiMlAxNDhXY2Vrb2RuQmxmK240enVkOVhOdGMvdmJtWUpPajBNMUgwZkozWElEenN3ZHhBUzVGdTVhT2NSbjJsMEh2RE04RHo4K0ZPcUdyVHBqdWlzVHFXcy9aK1pvWE5id2orSGFYblhNSjlOdlFSK2NUdkRjMzQzdHlYWlN5cTErU21PYm4xYzNrWTkyLzVQL1gyQnpxTFBnTmkvL0FPZnZtNmFiN3hpZ1YxNU84UUtHYitNQWxoNHpOZ0RwUnVneGtidXlOdUtzL3NjSE5HMWJnZ1ovZDlnVHJrNUN6dTl6TDd3U216dGxwd0QweTV2bVJTWHp1NjhRZnB0b3ErZTV1YzdZMW1TZHVrVDJES0d1RE5oQVZRU2g5d3J1V2V5UU1KbzV5ZVVVRnBuckQ5UjB6Vk5wS3o3ZW1KckJuZ2IzcnVYNUlodTZFOTE5WUo3WkZuRkRvVFlMUTlCV3RvNG8rVEY5WFdtMjFCMFNSRVpxYWpMdHFldUM2VFFKK0swN0tCZ2xKYzh1bkY2YlJhV3BMd2ZWQ3kzWG9wbXowSzVaU216TitpcWhObkdoMFJrUGZuamlQR2hwaW4xTUdWZ1ZRbnZITDdNanNENUNTUUdyQmRFYVd3OGNsMldSbzh0ZWhTaDlSL0lTYW5tLzltaFJsZzJib2hvVFh5YnByY3lhK0d6cjlDVGU0ZkZHQkJnQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","_rn_":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280"}],"options":{"columns":{"min":{},"max":[10],"total":[11]},"rows":{"min":[10],"max":[10],"total":[10]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTkFcbiJ9 -->
+<pre><code>NA</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>All notations at once:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTaG9ydGN1dFxubXlfbGlzdDIgPC0gbGlzdCh2ZWMgPSBteV92ZWN0b3IsIG1hdCA9IG15X21hdHJpeCwgbXlfZGYgPSBteV9kZikgIyBhbGwgYXQgb25jZVxubXlfbGlzdDJcbmBgYCJ9 -->
+<pre class="r"><code># Shortcut
+my_list2 &lt;- list(vec = my_vector, mat = my_matrix, my_df = my_df) # all at once
+my_list2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJHZlY1xuIFsxXSAgMSAgMiAgMyAgNCAgNSAgNiAgNyAgOCAgOSAxMFxuXG4kbWF0XG4gICAgIFssMV0gWywyXSBbLDNdXG5bMSxdICAgIDEgICAgNCAgICA3XG5bMixdICAgIDIgICAgNSAgICA4XG5bMyxdICAgIDMgICAgNiAgICA5XG5cbiRteV9kZlxuIn0= -->
+<pre><code>$vec
+ [1]  1  2  3  4  5  6  7  8  9 10
+
+$mat
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+
+$my_df</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MTAsIm5jb2wiOjExLCJzdW1tYXJ5IjpbXX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJwMVVQV3pUUUJTKy9MaEpIUEtENkFCTDViRURDV21jaGl5SUd5SmdBQ0VLTkJHdGtDNk9tMW80dG50MlV1akUwcmx6RVFNU3pGMVlPbGJNTUxQQ3dzS0NoR0Fzbkgzdmp0Z1FrSGpTNlh2dmUrKytlL2Y4czlidDYycGZSUWhsVURhZFFSbUZ1VWk1Zis5YXJZTVl3NElVeXFKQ2lJOVowVG5tRk5rcXM2WGlWUlNaeFBiYjBON2gxYTNJY1BPMUhocHVYamhrOWd4ZlBPVFlnYnlvMTdsSjNmT2dKN0NhaUxVNWNmWFA5VkozQ0x6QURVQ1BDK0RwVTQ1MkloNnM4MzRKOUQvOEd1OTNBK29FOW5BOE5qOXdmQUM4ODRMamJUaS9kOEx4NFVtODN3cWZpOFF5ekN2LzhyMTZ4WHVGQzhBdkxPNTl2SDYwaUF0SGtZTkwrMHZIZHo3djQ4cm04cmMzQjVzQ3BXNDJqSmEvNHh5Y256NklDbkFoM0xWMGpJdXd2d2g2WjBRZWVIRXUxRW5keG9UcnJpaThydm1jbjY5N1ljTTdrbTkxK0RtWFFMOEZmYlEvd1h0ek03cW4wRVVKdS9vbGprbCtYdDFNUHRMOVMvNS9qYytoeW9QZk1QOFBuTE52bm02eWI0d1NjVFhPUzVTNnNROWNjY2pZOUprVHBvdEFac2JlU0xqR0V4dmM3TkR5UGZEVDI1NWtLUWtFdXl1ODdJNXZHb0tkK3NJalk1RWZtWVFLM3lCMGtHaXJRTjNkK214cnFramNJbnREb3EzMVcwQ1VKS0gxaU9oYTdaTEFuemphNVpVR01PVWJMblhNUUd0cFhXcE5UV0RQQW52WGMybEFCdTVFOUo5Yko3WkZuRURxVGZ6QXBKcmVic2crVEdwb3pWYWpDMFNlRTNvakhuY2F5WUViTnZIRnJRU3BEa2xBNmx1VVhaaEZwNGt0T2RjTExOZGhtOUxocjFoSmJFN1JCRkdaT09Ib2hqVmplK0k4cXJVUS81eFNzRXFBNm94ZjVFZW1mNENVQWxJTHBqT3lIREV1eFNZRFU3d09aZmFJb2lkVTk2ajFhMUtNOWV1Qkd4QlJweHF1TFpqb2J1ajBKNWhRbDZLQkJnQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","_rn_":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280"}],"options":{"columns":{"min":{},"max":[10],"total":[11]},"rows":{"min":[10],"max":[10],"total":[10]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTkFcbiJ9 -->
+<pre><code>NA</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="manipulating-a-list" class="section level2">
+<h2>Manipulating a list</h2>
+<p>Selecting a single object in the list can be done by multiple
+options</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZWxlY3Rpbmcgb25seSBteV92ZWN0b3JcblxuIyBPcHRpb24gMVxubXlfbGlzdFsxXVxuYGBgIn0= -->
+<pre class="r"><code># Selecting only my_vector
+
 # Option 1
-diameter &lt;- planets_df[,3]
-
-# Option 2
-diameter &lt;- planets_df[,&quot;diameter&quot;]
-
-# Option 3: short-cut
-planets_df$diameter </code></pre>
+my_list[1]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="filter-by-conditions" class="section level2">
-<h2>Filter by conditions</h2>
-<p>Selecting columns with condition can also be applied in different
-ways</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZWxlY3QgY29sdW1ucyB3aXRoIEZhbHNlLVRydWUgbGlzdFxucmluZ3NfdmVjdG9yIDwtIHBsYW5ldHNfZGYkcmluZ3NcblxuIyBTaG93ICduYW1lJyB3aXRoIFRydWUgcmluZ3NcbnBsYW5ldHNfZGZbcmluZ3NfdmVjdG9yLCBcIm5hbWVcIl1cblxuIyBTaG93IGFsbCBjb2x1bW5zIHdpdGggVHJ1ZSByaW5nc1xucGxhbmV0c19kZltyaW5nc192ZWN0b3IsIFRSVUVdXG5gYGAifQ== -->
-<pre class="r"><code># Select columns with False-True list
-rings_vector &lt;- planets_df$rings
-
-# Show &#39;name&#39; with True rings
-planets_df[rings_vector, &quot;name&quot;]
-
-# Show all columns with True rings
-planets_df[rings_vector, TRUE]</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiJHZlY1xuIFsxXSAgMSAgMiAgMyAgNCAgNSAgNiAgNyAgOCAgOSAxMFxuIn0= -->
+<pre><code>$vec
+ [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPcHRpb24gMlxubXlfbGlzdFsndmVjJ11cbmBgYCJ9 -->
+<pre class="r"><code># Option 2
+my_list[&#39;vec&#39;]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZXR0aW5nIGEgY29uZGl0aW9uXG5zdWJzZXQocGxhbmV0c19kZiwgc3Vic2V0ID0gKGRpYW1ldGVyIDwgMSkpXG5gYGAifQ== -->
-<pre class="r"><code># Setting a condition
-subset(planets_df, subset = (diameter &lt; 1))</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiJHZlY1xuIFsxXSAgMSAgMiAgMyAgNCAgNSAgNiAgNyAgOCAgOSAxMFxuIn0= -->
+<pre><code>$vec
+ [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPcHRpb24gMyAoc2hvcnRjdXQpXG5teV9saXN0JHZlY1xuYGBgIn0= -->
+<pre class="r"><code># Option 3 (shortcut)
+my_list$vec</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAgMSAgMiAgMyAgNCAgNSAgNiAgNyAgOCAgOSAxMFxuIn0= -->
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPcHRpb24gMyAoZWxhYm9yYXRlZCBmaWx0ZXIpXG5teV9saXN0JHZlY1syXVxuYGBgIn0= -->
+<pre class="r"><code># Option 3 (elaborated filter)
+my_list$vec[2]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
 </div>
-<div id="pipe-operations" class="section level1">
-<h1>Pipe operations</h1>
-<p>Below, different pipe operations are presented as general
-expression.</p>
-<div id="select" class="section level2">
-<h2>select</h2>
+<div id="boolean" class="section level1">
+<h1>Boolean</h1>
+<p>TRUE or FALSE?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgc2VsZWN0KGNvbHVtbjEsIGNvbHVtbjIsIGNvbHVtbjQ6Y29sdW1uNywgbmV3X25hbWUgPSBvbGRfbmFtZSlcblxuZGF0YXNldCAlPiVcbiAgc2VsZWN0KGNvbnRhaW5zKCd3b3JkJyksIHN0YXJ0c193aXRoKCdsZXR0ZXInKSwgZW5kc193aXRoKCdsZXR0ZXInKSwgbWF0Y2hlcygnbGV0dGVyJyksIGxhc3RfY29sKCkgKVxuXG5kYXRhc2V0ICU+JVxuICBzZWxlY3QoLWNvbHVtbl90b19yZW1vdmUpXG5gYGAifQ== -->
-<pre class="r"><code>dataset %&gt;%
-  select(column1, column2, column4:column7, new_name = old_name)
-
-dataset %&gt;%
-  select(contains(&#39;word&#39;), starts_with(&#39;letter&#39;), ends_with(&#39;letter&#39;), matches(&#39;letter&#39;), last_col() )
-
-dataset %&gt;%
-  select(-column_to_remove)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBCYXNpY3NcblRSVUUgPT0gVFJVRVxuYGBgIn0= -->
+<pre class="r"><code># Basics
+TRUE == TRUE</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuJ2hlbGxvJyAhPSAnZ29vZGJ5ZSdcbmBgYCJ9 -->
+<pre class="r"><code>&#39;hello&#39; != &#39;goodbye&#39;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMiAhPSAyMlxuYGBgIn0= -->
+<pre class="r"><code>2 != 22</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuNzAgPiA3XG5gYGAifQ== -->
+<pre class="r"><code>70 &gt; 7</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuNzAgPj0gN1xuYGBgIn0= -->
+<pre class="r"><code>70 &gt;= 7</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuJ2hlbGxvJyA+ICdnb29kYnllJyAjIEFscGhhYmV0aWNhbCBvcmRlclxuYGBgIn0= -->
+<pre class="r"><code>&#39;hello&#39; &gt; &#39;goodbye&#39; # Alphabetical order</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVFJVRSA+IEZBTFNFICMgMSA+IDBcbmBgYCJ9 -->
+<pre class="r"><code>TRUE &gt; FALSE # 1 &gt; 0</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="filter" class="section level2">
-<h2>filter</h2>
+<p>Comparisions</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgZmlsdGVyKGNvbHVtbjEgPT0gdmFsdWUxLCBjb2x1bW4yID0gdmFsdWUyKVxuXG5kYXRhc2V0ICU+JVxuICBmaWx0ZXIoY29sdW1uMSA9PSB2YWx1ZTEpICU+JVxuICBhcnJhbmdlKGRlc2ModmFsdWUyKSlcblxuZGF0YXNldCAlPiVcbiAgZmlsdGVyKHZhbHVlMSAlaW4lIGMoJ3ZhbHVlMScsICd2YWx1ZTInKSlcbmBgYCJ9 -->
-<pre class="r"><code>dataset %&gt;%
-  filter(column1 == value1, column2 = value2)
-
-dataset %&gt;%
-  filter(column1 == value1) %&gt;%
-  arrange(desc(value2))
-
-dataset %&gt;%
-  filter(value1 %in% c(&#39;value1&#39;, &#39;value2&#39;))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb21wYXJpc2lvbnNcbmxpbmsgPC0gYygxNiwxLDksNiwyLDE3LDE0KVxuY29tYmkgPC0gYyg3LDQsNSwxNCwyMSwyOCwzKVxubGluayA+IDdcbmBgYCJ9 -->
+<pre class="r"><code># Comparisions
+link &lt;- c(16,1,9,6,2,17,14)
+combi &lt;- c(7,4,5,14,21,28,3)
+link &gt; 7</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICBUUlVFIEZBTFNFICBUUlVFIEZBTFNFIEZBTFNFICBUUlVFICBUUlVFXG4ifQ== -->
+<pre><code>[1]  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGluayA8PSBjb21iaSAjIHZhbHVlIGNvbXBhcmlzb24gb25lIGJ5IG9uZVxuYGBgIn0= -->
+<pre class="r"><code>link &lt;= combi # value comparison one by one</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFICBUUlVFIEZBTFNFICBUUlVFICBUUlVFICBUUlVFIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWRlbnRpY2FsKGxpbmssIGNvbWJpKVxuYGBgIn0= -->
+<pre class="r"><code>identical(link, combi)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="group_by" class="section level2">
-<h2>group_by</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgZ3JvdXBfYnkoY29sdW1uMV90b19ncm91cCwgY29sdW1uMl90b19ncm91cCkgJT4lXG4gIHN1bW1hcml6ZShjb2x1bW5fbmFtZTEgPSBtZWFuKGNvbHVtbjEpLCBjb2x1bW5fbmFtZTIgPSBzdW0oY29sdW1uMikpXG4gIHVuZ3JvdXAoKSAjIE1ha2UgaXQgYWJsZSB0byBkbyBvdGhlciBhZ2dyZWdhdGlvbnMgb24gdGhlIHNhbWUgZGF0YXNldC4gXG5cbmRhdGFzZXQgJT4lXG4gIGdyb3VwX2J5KGNvbHVtbjFfdG9fZ3JvdXAsIGNvbHVtbjJfdG9fZ3JvdXApICU+JVxuICBzbGljZV9tYXgoY29sdW1uMSwgbiA9IGludClcbiAgc2xpY2VfbWluKGNvbHVtbjIsIG4gPSBpbnQpXG4gIFxuZGF0YXNldCAlPiVcbiAgZ3JvdXBfYnkoY29sdW1uMV90b19ncm91cCkgJT4lXG4gIG11dGF0ZShuZXdfY29sID0gc3VtKGNvbHVtbjIpKVxuYGBgIn0= -->
-<pre class="r"><code>dataset %&gt;%
-  group_by(column1_to_group, column2_to_group) %&gt;%
-  summarize(column_name1 = mean(column1), column_name2 = sum(column2))
-  ungroup() # Make it able to do other aggregations on the same dataset. 
-
-dataset %&gt;%
-  group_by(column1_to_group, column2_to_group) %&gt;%
-  slice_max(column1, n = int)
-  slice_min(column2, n = int)
-  
-dataset %&gt;%
-  group_by(column1_to_group) %&gt;%
-  mutate(new_col = sum(column2))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSYW5nZVxuY29tYmkgPiA1ICYgY29tYmkgPCAxNVxuYGBgIn0= -->
+<pre class="r"><code># Range
+combi &gt; 5 &amp; combi &lt; 15</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICBUUlVFIEZBTFNFIEZBTFNFICBUUlVFIEZBTFNFIEZBTFNFIEZBTFNFXG4ifQ== -->
+<pre><code>[1]  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29tYmkgPiAxNSB8IGNvbWJpIDwgNVxuYGBgIn0= -->
+<pre class="r"><code>combi &gt; 15 | combi &lt; 5</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFICBUUlVFIEZBTFNFIEZBTFNFICBUUlVFICBUUlVFICBUUlVFXG4ifQ== -->
+<pre><code>[1] FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="others" class="section level2">
-<h2>Others</h2>
+<p>Relations:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgcmVuYW1lKG5ld19uYW1lID0gb2xkX25hbWUpXG5cbmRhdGFzZXQgJT4lXG4gIGFycmFuZ2UoY29sdW1uMSwgZGVzYyhjb2x1bW4yKSkgIyBkZWZhdWx0IGlzIGFzY2VuZGluZ1xuXG5kYXRhc2V0ICU+JVxuICBtdXRhdGUoY29sdW1uMSA9IHZhbHVlMS8xMCkgIyBvdmVyd3JpdGUgY29sdW1uXG5cbmRhdGFzZXQgJT4lXG4gIG11dGF0ZShjb2x1bW5fbmFtZSA9IHZhbHVlMS8xMCkgIyBhZGQgY29sdW1uXG5cbmRhdGFzZXQgJT4lXG4gIHRyYW5zbXV0ZShjb2x1bW4xLCBjb2x1bW4yID0gY29sdW1uMi8xMCkgIyBzZWxlY3QgKyBtdXRhdGUgaW4gb25jZVxuXG52YXJpYWJsZV9uYW1lIDwtIGRhdGFzZXQgJT4lXG4gIGZpbHRlcihjb2x1bW4xID09IHZhbHVlMSlcblxuZGF0YXNldCAlPiVcbiAgc3VtbWFyaXplKGNvbHVtbl9uYW1lMSA9IG1lYW4oY29sdW1uMSksIGNvbHVtbl9uYW1lMiA9IHN1bShjb2x1bW4yKSlcblxuZGF0YXNldCAlPiVcbiAgY291bnQoY29sdW1uMSwgd3QgPSBjb2x1bW4yLCBzb3J0ID0gVFJVRSlcbmBgYCJ9 -->
-<pre class="r"><code>dataset %&gt;%
-  rename(new_name = old_name)
-
-dataset %&gt;%
-  arrange(column1, desc(column2)) # default is ascending
-
-dataset %&gt;%
-  mutate(column1 = value1/10) # overwrite column
-
-dataset %&gt;%
-  mutate(column_name = value1/10) # add column
-
-dataset %&gt;%
-  transmute(column1, column2 = column2/10) # select + mutate in once
-
-variable_name &lt;- dataset %&gt;%
-  filter(column1 == value1)
-
-dataset %&gt;%
-  summarize(column_name1 = mean(column1), column_name2 = sum(column2))
-
-dataset %&gt;%
-  count(column1, wt = column2, sort = TRUE)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWxhdGlvbnMgJ0FORCdcbmMoVFJVRSwgVFJVRSwgRkFMU0UpICYgYyhUUlVFLCBGQUxTRSwgRkFMU0UpXG5gYGAifQ== -->
+<pre class="r"><code># Relations &#39;AND&#39;
+c(TRUE, TRUE, FALSE) &amp; c(TRUE, FALSE, FALSE)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICBUUlVFIEZBTFNFIEZBTFNFXG4ifQ== -->
+<pre><code>[1]  TRUE FALSE FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYyhUUlVFLCBUUlVFLCBGQUxTRSkgJiYgYyhUUlVFLCBGQUxTRSwgRkFMU0UpXG5gYGAifQ== -->
+<pre class="r"><code>c(TRUE, TRUE, FALSE) &amp;&amp; c(TRUE, FALSE, FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogJ2xlbmd0aCh4KSA9IDMgPiAxJyBpbiBjb2VyY2lvbiB0byAnbG9naWNhbCgxKSdXYXJuaW5nOiAnbGVuZ3RoKHgpID0gMyA+IDEnIGluIGNvZXJjaW9uIHRvICdsb2dpY2FsKDEpJ1xuIn0= -->
+<pre><code>Warning: &#39;length(x) = 3 &gt; 1&#39; in coercion to &#39;logical(1)&#39;Warning: &#39;length(x) = 3 &gt; 1&#39; in coercion to &#39;logical(1)&#39;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="intermezzo-lag" class="section level2">
-<h2>Intermezzo: lag</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBjKDEsMyw2LDE0KVxuc3ViX3RoZV9wcmV2aW91cyA8LSBsYWcodilcbmRpZmZfY29uc2VjYXRpdmUgPC0gdiAtIGxhZyh2KVxuYGBgIn0= -->
-<pre class="r"><code>v &lt;- c(1,3,6,14)
-sub_the_previous &lt;- lag(v)
-diff_consecative &lt;- v - lag(v)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWxhdGlvbnMgJ09SJ1xuYyhUUlVFLCBUUlVFLCBGQUxTRSkgfCBjKFRSVUUsIEZBTFNFLCBGQUxTRSlcbmBgYCJ9 -->
+<pre class="r"><code># Relations &#39;OR&#39;
+c(TRUE, TRUE, FALSE) | c(TRUE, FALSE, FALSE)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICBUUlVFICBUUlVFIEZBTFNFXG4ifQ== -->
+<pre><code>[1]  TRUE  TRUE FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYyhUUlVFLCBUUlVFLCBGQUxTRSkgfHwgYyhUUlVFLCBGQUxTRSwgRkFMU0UpXG5gYGAifQ== -->
+<pre class="r"><code>c(TRUE, TRUE, FALSE) || c(TRUE, FALSE, FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogJ2xlbmd0aCh4KSA9IDMgPiAxJyBpbiBjb2VyY2lvbiB0byAnbG9naWNhbCgxKSdcbiJ9 -->
+<pre><code>Warning: &#39;length(x) = 3 &gt; 1&#39; in coercion to &#39;logical(1)&#39;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Is correct type?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBOdW1lcmljIGNoZWNrXG4hVFJVRVxuYGBgIn0= -->
+<pre class="r"><code># Numeric check
+!TRUE</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXMubnVtZXJpYyg1KSAjIFRSVUVcbmBgYCJ9 -->
+<pre class="r"><code>is.numeric(5) # TRUE</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIWlzLm51bWVyaWMoJ2hlbGxvJykgIyBUUlVFXG5gYGAifQ== -->
+<pre class="r"><code>!is.numeric(&#39;hello&#39;) # TRUE</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQotICAgKlJ1biBzZWN0aW9uKiBieSBwcmVzc2luZyAqQ3RybCtFbnRlciouDQotICAgKlJ1biBsaW5lKiBieSBwcmVzc2luZyAqU2hpZnQrRW50ZXIqLg0KLSAgICpJbnNlcnQgQ2h1bmsqIGJ5IHByZXNzaW5nICpDdHJsK2kqLg0KLSAgICpQaXBlIG9wZXJhdG9yKiBwcmVzcyAqQ3RybCtwKiB0byBmaWx0ZXIgb3Igc2VsZWN0IGNvbmRpdGlvbnMgYCU+JWANCi0gICAqQ29weSB0ZXh0KiBwcmVzcyAqQ3RybCtjKg0KLSAgICpvcGVuIGZpbGUqIHByZXNzICpDdHJsK28qDQotICAgKnNhdmUgZmlsZSogcHJlc3MgKkN0cmwrcyoNCi0gICAqcGFzdGUgYWxsKiBwcmVzcyAqQ3RybCthKg0KDQojIEZ1bmN0aW9ucyBvdmVydmlldw0KDQotICAgYGhlYWRgID0gLi4uDQotICAgYHN0cmAgPSAuLi4NCi0gICBgc3Vic2V0YCA9IC4uLg0KLSAgIGBvcmRlcmAgPSAuLi4NCi0gICBgc2VsZWN0YCA9IC4uLg0KLSAgIGBmaWx0ZXJgID0gLi4uDQotICAgYGFycmFuZ2VgID0gU29ydCBjb2x1bW5zDQotICAgYG11dGF0ZWAgPSBBZGQgbmV3IGZlYXR1cmUNCi0gICBgdHJhbnNtdXRhdGVgID0gLi4uDQotICAgYGNvdW50YCA9IC4uLg0KLSAgIGBncm91cF9ieWAgPSAuLi4NCi0gICBgdW5ncm91cGAgPSAuLi4NCi0gICBgc3VtbWFyaXplYCA9IG1lYW4sIHN1bSwgbWVkaWFuLCBtaW4sIG1heA0KLSAgIGByZW5hbWVgID0gLi4uDQotICAgYGdsaW1wc2VgID0gLi4uDQotICAgYHNsaWNlX21heGAgPSAuLi4NCi0gICBgc2xpY2VfbWluYCA9IC4uLg0KLSAgIGB0b3BfbmAgPSAuLi4NCi0gICBgbGFnYCA9IC4uLg0KDQpgYGB7cn0NCiMgSW5zdGFsbCBwYWNrYWdlcw0KaW5zdGFsbC5wYWNrYWdlcygiZ2FwbWluZGVyIikNCmluc3RhbGwucGFja2FnZXMoInRpZHl2ZXJzZSIpDQoNCiMgTG9hZCBwYWNrYWdlcw0KbGlicmFyeSgnZ2FwbWluZGVyJykNCmxpYnJhcnkoJ2RwbHlyJykNCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpgYGANCg0KVGhlIHRpZHl2ZXJzZSBwYWNrYWdlIGF1dG9tYXRpY2FsbHkgbG9hZHMgaW4gdGhlIHBhY2thZ2VzIGdncGxvdDIsIGRwbHlyLCBhbmQgcmVhZHIuDQoNCmBgYHtyfQ0KIyBHZXQgZXhwbGFpbmF0aW9uIG9mIGEgZnVuY3Rpb24NCmdsaW1wc2UoZGF0YXNldCkNCj9zZWxlY3RfaGVscGVycw0KYGBgDQoNCiMgRGF0YXNldA0KDQojIyBNYWtlIGEgZGF0YXNldA0KDQpgYGB7cn0NCiMgR2l2ZSAgaGVhZGVycyBhIG5hbWUNCm5hbWUgPC0gYygiTWVyY3VyeSIsICJWZW51cyIsICJFYXJ0aCIsICJNYXJzIiwgIkp1cGl0ZXIiLCAiU2F0dXJuIiwgIlVyYW51cyIsICJOZXB0dW5lIikNCg0KIyBEYXRhIHRvIHN0b3JlDQp0eXBlIDwtIGMoIlRlcnJlc3RyaWFsIHBsYW5ldCIsICJUZXJyZXN0cmlhbCBwbGFuZXQiLCAiVGVycmVzdHJpYWwgcGxhbmV0IiwgDQogICAgICAgICAgIlRlcnJlc3RyaWFsIHBsYW5ldCIsICJHYXMgZ2lhbnQiLCAiR2FzIGdpYW50IiwgIkdhcyBnaWFudCIsICJHYXMgZ2lhbnQiKQ0KZGlhbWV0ZXIgPC0gYygwLjM4MiwgMC45NDksIDEsIDAuNTMyLCAxLjIwOSwgOS40NDksIDQuMDA3LCAzLjg4MykNCnJvdGF0aW9uIDwtIGMoNTguNjQsIC0yNDMuMDIsIDEsIDEuMDMsIDAuNDEsIDAuNDMsIC0wLjcyLCAwLjY3KQ0KcmluZ3MgPC0gYyhGQUxTRSwgRkFMU0UsIEZBTFNFLCBGQUxTRSwgVFJVRSwgVFJVRSwgVFJVRSwgVFJVRSkNCg0KIyBDcmVhdGUgYSBkYXRhIGZyYW1lIGZyb20gdGhlIHZlY3RvcnMNCnBsYW5ldHNfZGYgPC0gZGF0YS5mcmFtZShuYW1lLCB0eXBlLCBkaWFtZXRlciwgcm90YXRpb24sIHJpbmdzKQ0KbWFycyA8LSBwbGFuZXRzX2RmWzQsXQ0KYGBgDQoNCiMjIEJhc2ljIGluZm9ybWF0aW9uDQoNCmBgYHtyfQ0KIyBNYWtlIGdlbmVyYWwgbmFtZQ0KZGF0YXNldCA8LSBwbGFuZXRzX2RmDQpgYGANCg0KYGBge3J9DQojIGhlYWQgZGF0YXNldA0KaGVhZChkYXRhc2V0KQ0KDQpgYGANCg0KYGBge3J9DQojIHN0cnVjdHVyZSBkYXRhc2V0DQpzdHIoZGF0YXNldCkNCmBgYA0KDQpBbmQgb3RoZXIgZ2VuZXJhbCBub3RhdGlvbnMgdG8gc29ydCBhbmQgdG8gb3JkZXIgYSBsaXN0DQoNCmBgYHtyfQ0KIyBFeGFtcGxlIDEgLSBudW1lcmljDQphIDwtIGMoMTAwLCAxMCwgMTAwMCkNCm9yZGVyKGEpDQoNCiMgRXhhbXBsZSAyIC0gc3RyaW5ncw0KYXogPC0gYygnYScsICdGJywgJ2YnLCAnQScsICd6JykNCm9yZGVyKGF6KQ0KYGBgDQoNCmBgYHtyfQ0KIyBFeGFtcGxlIDMgLSBvcmRlciBiYXNlZCBvbiBhIGNvbHVtbg0KcG9zaXRpb25zIDwtIG9yZGVyKHBsYW5ldHNfZGYkZGlhbWV0ZXIpDQpwbGFuZXRzX2RmW3Bvc2l0aW9ucyxdDQpgYGANCg0KIyMgU2VsZWN0IGNvbHVtbnMNCg0KU2VsZWN0aW5nIGEgY29sdW1uIGNhbiBiZSBkb25lIGJ5IHRyZWUgZGlmZmVyZW50IG5vdGF0aW9ucw0KDQpgYGB7cn0NCg0KIyBPcHRpb24gMQ0KZGlhbWV0ZXIgPC0gcGxhbmV0c19kZlssM10NCg0KIyBPcHRpb24gMg0KZGlhbWV0ZXIgPC0gcGxhbmV0c19kZlssImRpYW1ldGVyIl0NCg0KIyBPcHRpb24gMzogc2hvcnQtY3V0DQpwbGFuZXRzX2RmJGRpYW1ldGVyIA0KYGBgDQoNCiMjIEZpbHRlciBieSBjb25kaXRpb25zDQoNClNlbGVjdGluZyBjb2x1bW5zIHdpdGggY29uZGl0aW9uIGNhbiBhbHNvIGJlIGFwcGxpZWQgaW4gZGlmZmVyZW50IHdheXMNCg0KYGBge3J9DQojIFNlbGVjdCBjb2x1bW5zIHdpdGggRmFsc2UtVHJ1ZSBsaXN0DQpyaW5nc192ZWN0b3IgPC0gcGxhbmV0c19kZiRyaW5ncw0KDQojIFNob3cgJ25hbWUnIHdpdGggVHJ1ZSByaW5ncw0KcGxhbmV0c19kZltyaW5nc192ZWN0b3IsICJuYW1lIl0NCg0KIyBTaG93IGFsbCBjb2x1bW5zIHdpdGggVHJ1ZSByaW5ncw0KcGxhbmV0c19kZltyaW5nc192ZWN0b3IsIFRSVUVdDQpgYGANCg0KYGBge3J9DQojIFNldHRpbmcgYSBjb25kaXRpb24NCnN1YnNldChwbGFuZXRzX2RmLCBzdWJzZXQgPSAoZGlhbWV0ZXIgPCAxKSkNCmBgYA0KDQojIFBpcGUgb3BlcmF0aW9ucw0KDQpCZWxvdywgZGlmZmVyZW50IHBpcGUgb3BlcmF0aW9ucyBhcmUgcHJlc2VudGVkIGFzIGdlbmVyYWwgZXhwcmVzc2lvbi4NCg0KIyMgc2VsZWN0DQoNCmBgYHtyfQ0KZGF0YXNldCAlPiUNCiAgc2VsZWN0KGNvbHVtbjEsIGNvbHVtbjIsIGNvbHVtbjQ6Y29sdW1uNywgbmV3X25hbWUgPSBvbGRfbmFtZSkNCg0KZGF0YXNldCAlPiUNCiAgc2VsZWN0KGNvbnRhaW5zKCd3b3JkJyksIHN0YXJ0c193aXRoKCdsZXR0ZXInKSwgZW5kc193aXRoKCdsZXR0ZXInKSwgbWF0Y2hlcygnbGV0dGVyJyksIGxhc3RfY29sKCkgKQ0KDQpkYXRhc2V0ICU+JQ0KICBzZWxlY3QoLWNvbHVtbl90b19yZW1vdmUpDQpgYGANCg0KIyMgZmlsdGVyDQoNCmBgYHtyfQ0KZGF0YXNldCAlPiUNCiAgZmlsdGVyKGNvbHVtbjEgPT0gdmFsdWUxLCBjb2x1bW4yID0gdmFsdWUyKQ0KDQpkYXRhc2V0ICU+JQ0KICBmaWx0ZXIoY29sdW1uMSA9PSB2YWx1ZTEpICU+JQ0KICBhcnJhbmdlKGRlc2ModmFsdWUyKSkNCg0KZGF0YXNldCAlPiUNCiAgZmlsdGVyKHZhbHVlMSAlaW4lIGMoJ3ZhbHVlMScsICd2YWx1ZTInKSkNCmBgYA0KDQojIyBncm91cF9ieQ0KDQpgYGB7cn0NCmRhdGFzZXQgJT4lDQogIGdyb3VwX2J5KGNvbHVtbjFfdG9fZ3JvdXAsIGNvbHVtbjJfdG9fZ3JvdXApICU+JQ0KICBzdW1tYXJpemUoY29sdW1uX25hbWUxID0gbWVhbihjb2x1bW4xKSwgY29sdW1uX25hbWUyID0gc3VtKGNvbHVtbjIpKQ0KICB1bmdyb3VwKCkgIyBNYWtlIGl0IGFibGUgdG8gZG8gb3RoZXIgYWdncmVnYXRpb25zIG9uIHRoZSBzYW1lIGRhdGFzZXQuIA0KDQpkYXRhc2V0ICU+JQ0KICBncm91cF9ieShjb2x1bW4xX3RvX2dyb3VwLCBjb2x1bW4yX3RvX2dyb3VwKSAlPiUNCiAgc2xpY2VfbWF4KGNvbHVtbjEsIG4gPSBpbnQpDQogIHNsaWNlX21pbihjb2x1bW4yLCBuID0gaW50KQ0KICANCmRhdGFzZXQgJT4lDQogIGdyb3VwX2J5KGNvbHVtbjFfdG9fZ3JvdXApICU+JQ0KICBtdXRhdGUobmV3X2NvbCA9IHN1bShjb2x1bW4yKSkNCmBgYA0KDQojIyBPdGhlcnMNCg0KYGBge3J9DQpkYXRhc2V0ICU+JQ0KICByZW5hbWUobmV3X25hbWUgPSBvbGRfbmFtZSkNCg0KZGF0YXNldCAlPiUNCiAgYXJyYW5nZShjb2x1bW4xLCBkZXNjKGNvbHVtbjIpKSAjIGRlZmF1bHQgaXMgYXNjZW5kaW5nDQoNCmRhdGFzZXQgJT4lDQogIG11dGF0ZShjb2x1bW4xID0gdmFsdWUxLzEwKSAjIG92ZXJ3cml0ZSBjb2x1bW4NCg0KZGF0YXNldCAlPiUNCiAgbXV0YXRlKGNvbHVtbl9uYW1lID0gdmFsdWUxLzEwKSAjIGFkZCBjb2x1bW4NCg0KZGF0YXNldCAlPiUNCiAgdHJhbnNtdXRlKGNvbHVtbjEsIGNvbHVtbjIgPSBjb2x1bW4yLzEwKSAjIHNlbGVjdCArIG11dGF0ZSBpbiBvbmNlDQoNCnZhcmlhYmxlX25hbWUgPC0gZGF0YXNldCAlPiUNCiAgZmlsdGVyKGNvbHVtbjEgPT0gdmFsdWUxKQ0KDQpkYXRhc2V0ICU+JQ0KICBzdW1tYXJpemUoY29sdW1uX25hbWUxID0gbWVhbihjb2x1bW4xKSwgY29sdW1uX25hbWUyID0gc3VtKGNvbHVtbjIpKQ0KDQpkYXRhc2V0ICU+JQ0KICBjb3VudChjb2x1bW4xLCB3dCA9IGNvbHVtbjIsIHNvcnQgPSBUUlVFKQ0KYGBgDQoNCiMjIEludGVybWV6em86IGxhZw0KDQpgYGB7cn0NCnYgPC0gYygxLDMsNiwxNCkNCnN1Yl90aGVfcHJldmlvdXMgPC0gbGFnKHYpDQpkaWZmX2NvbnNlY2F0aXZlIDwtIHYgLSBsYWcodikNCmBgYA0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQotICAgKlJ1biBzZWN0aW9uKiBieSBwcmVzc2luZyAqQ3RybCtFbnRlciouDQotICAgKlJ1biBsaW5lKiBieSBwcmVzc2luZyAqU2hpZnQrRW50ZXIqLg0KLSAgICpJbnNlcnQgQ2h1bmsqIGJ5IHByZXNzaW5nICpDdHJsK2kqLg0KLSAgICpQaXBlIG9wZXJhdG9yKiBwcmVzcyAqQ3RybCtwKiB0byBmaWx0ZXIgb3Igc2VsZWN0IGNvbmRpdGlvbnMgYCU+JWANCi0gICAqQ29weSB0ZXh0KiBwcmVzcyAqQ3RybCtjKg0KLSAgICpvcGVuIGZpbGUqIHByZXNzICpDdHJsK28qDQotICAgKnNhdmUgZmlsZSogcHJlc3MgKkN0cmwrcyoNCi0gICAqcGFzdGUgYWxsKiBwcmVzcyAqQ3RybCthKg0KDQojIEZ1bmN0aW9ucyBvdmVydmlldw0KDQotICAgYGNgID0gLi4uDQotICAgYGxpc3RgID0gLi4uDQotICAgYG1hdHJpeGAgPSAuLi4NCi0gICBgY2xhc3NgID0gLi4uDQotICAgYHN1bWAgPSAuLi4NCi0gICBgbWVhbmAgPSAuLi4NCi0gICBgY29sbmFtZXNgID0gLi4uDQotICAgXGByb3duYW1lc1xgXGAgPSAuLi4NCi0gICBcYGNvbFN1bXNcYFxgID0gLi4uDQotICAgXGByb3dTdW1zXGBcYCA9IC4uLg0KLSAgIGBjYmluZGAgPSAuLi4NCi0gICBcYHJiaW5kXGBcYCA9IC4uLg0KLSAgIGBmYWN0b3JzYCA9IC4uLg0KLSAgIGBsZXZlbHNgID0gLi4uDQotICAgYHN1bW1hcnlgID0gLi4uDQotICAgYGlzLm51bWVyaWNgID0gLi4uDQotICAgYGlkZW50aWNhbGAgPSAuLi4NCg0KIyBTdGFydA0KDQpgYGB7cn0NCg0KYGBgDQoNCiMgQmFzaWNzDQoNCmBgYHtyfQ0KIyBBZGRpdGlvbg0KNSArIDUgDQoNCiMgU3VidHJhY3Rpb24NCjUgLSA1IA0KDQojIE11bHRpcGxpY2F0aW9uDQozICogNQ0KDQojIERpdmlzaW9uDQooNSArIDUpIC8gMiANCg0KIyBFeHBvbmVudGlhdGlvbg0KMl41DQoNCiMgTW9kdWxvDQoyOCAlJSA2DQpgYGANCg0KIyBWYXJpYWJsZXMNCg0KQXNzaWduIHRoZSB2YWx1ZSB0byBhIHZhcmlhYmxlDQoNCmBgYHtyfQ0KIyBBc3NpZ24NCm15X251bWVyaWMgPC0gNDINCm15X2NoYXJhY3RlciA8LSAidW5pdmVyc2UiDQpteV9sb2dpY2FsIDwtIEZBTFNFDQpgYGANCg0KUHJpbnQgb3V0IHRoZSB2YWx1ZSBvZiB0aGUgdmFyaWFibGUgeA0KDQpgYGB7cn0NCiMgUHJpbnQNCm15X251bWVyaWMNCm15X2NoYXJhY3Rlcg0KbXlfbG9naWNhbA0KYGBgDQoNCkNoZWNrIHRoZSBjbGFzcy90eXBlIG9mIHRoZSB2YXJpYWJsZQ0KDQpgYGB7cn0NCiMgQ2hlY2sgY2xhc3MNCmNsYXNzKG15X251bWVyaWMpDQpjbGFzcyhteV9jaGFyYWN0ZXIpDQpjbGFzcyhteV9sb2dpY2FsKQ0KYGBgDQoNCiMgVmVjdG9ycw0KDQojIyBDb25zdHJ1Y3QgYSB2ZWN0b3INCg0KRmlsbGluZyBhIG5ldyB2ZWN0b3INCg0KYGBge3J9DQojIFZlY3RvcnMNCm51bWVyaWNfdmVjdG9yIDwtIGMoMSwgMTAsIDQ5KQ0KY2hhcmFjdGVyX3ZlY3RvciA8LSBjKCJhIiwgImIiLCAiYyIpDQpib29sZWFuX3ZlY3RvciA8LSBjKFRSVUUsIEZBTFNFLCBUUlVFKQ0KDQojIFByaW50DQpudW1lcmljX3ZlY3Rvcg0KY2hhcmFjdGVyX3ZlY3Rvcg0KYm9vbGVhbl92ZWN0b3INCmBgYA0KDQpHaXZlIHRoZSB2ZWN0b3IgaGVhZGVyIG5hbWVzDQoNCmBgYHtyfQ0KIyBWZWN0b3IgbmFtZXMNCnBva2VyX3ZlY3RvciA8LSBjKDE0MCwgLTUwLCAyMCwgLTEyMCwgMjQwKQ0KbmFtZXMocG9rZXJfdmVjdG9yKSA8LSBjKCJNb25kYXkiLCAiVHVlc2RheSIsICJXZWRuZXNkYXkiLCAiVGh1cnNkYXkiLCAiRnJpZGF5IikNCg0KIyBQcmludA0KcG9rZXJfdmVjdG9yDQpgYGANCg0KIyMgTWFuaXB1bGF0aW5nIGEgVmVjdG9yDQoNClN1bW1hdGlvbiB3aXRoIHZlY3RvcnMNCg0KYGBge3J9DQojIFZlY3RvciBzdW0NCkFfdmVjdG9yIDwtIGMoMSwgMiwgMykNCkJfdmVjdG9yIDwtIGMoNCwgNSwgNikNCnRvdGFsX3ZlY3RvciA8LSBBX3ZlY3RvciArIEJfdmVjdG9yDQp0b3RhbF9zdW0gPC0gc3VtKHRvdGFsX3ZlY3RvcikNCg0KIyBQcmludA0KdG90YWxfdmVjdG9yDQp0b3RhbF9zdW0NCmBgYA0KDQpTbGljaW5nIGEgdmVjdG9yDQoNCmBgYHtyfQ0KIyBTbGljaW5nDQpwb2tlcl93ZWRuZXNkYXkgPC0gcG9rZXJfdmVjdG9yWzNdDQpwb2tlcl9taWR3ZWVrMSA8LSBwb2tlcl92ZWN0b3JbYygyLDMsNCldDQpwb2tlcl9taWR3ZWVrMiA8LSBwb2tlcl92ZWN0b3JbMjo0XQ0KcG9rZXJfc3RhcnQgPC0gcG9rZXJfdmVjdG9yW2MoIk1vbmRheSIsIlR1ZXNkYXkiLCJXZWRuZXNkYXkiKV0NCg0KIyBQcmludA0KcG9rZXJfd2VkbmVzZGF5DQpwb2tlcl9taWR3ZWVrMQ0KcG9rZXJfbWlkd2VlazINCnBva2VyX3N0YXJ0DQpgYGANCg0KU2VsZWN0aW9uIGJ5IGNvbmRpdGlvbg0KDQpgYGB7cn0NCiMgU2VsZWN0aW9uDQpzZWxlY3Rpb25fdmVjdG9yIDwtIHBva2VyX3ZlY3RvciA+IDANCnBva2VyX3dpbm5pbmdfZGF5cyA8LSBwb2tlcl92ZWN0b3Jbc2VsZWN0aW9uX3ZlY3Rvcl0NCg0KIyBQcmludA0Kc2VsZWN0aW9uX3ZlY3Rvcg0KcG9rZXJfd2lubmluZ19kYXlzDQpgYGANCg0KIyMgQ2FsY3VsYXRpb25zDQoNCkNhbGN1bGF0aW5nIHRoZSBtZWFuDQoNCmBgYHtyfQ0KIyBTdGF0cw0KbWVhbihwb2tlcl9zdGFydCkNCmBgYA0KDQojIE1hdHJpY2VzDQoNCiMjIENvbnN0cnVjdCBhIE1hdHJpeA0KDQpUZW1wbGF0ZSBmb3IgZmlsaW5nIGEgbWF0cml4DQoNCmBgYHtyfQ0KIyBDb25zdHJ1Y3QgYSBtYXRyaXggd2l0aCAzIHJvd3MgdGhhdCBjb250YWluIHRoZSBudW1iZXJzIDEgdXAgdG8gOQ0KbWF0cml4KDE6OSwgYnlyb3cgPSBUUlVFLCBucm93ID0gMykNCmBgYA0KDQpEZWZpbmUgY29sdW1uIHZhbHVlcw0KDQpgYGB7cn0NCiMgQ29uc3RydWN0IHN0YXJfd2Fyc19tYXRyaXgNCm5ld19ob3BlIDwtIGMoNDYwLjk5OCwgMzE0LjQpDQplbXBpcmVfc3RyaWtlcyA8LSBjKDI5MC40NzUsIDI0Ny45MDApDQpyZXR1cm5famVkaSA8LSBjKDMwOS4zMDYsIDE2NS44KQ0KYm94X29mZmljZSA8LSBjKG5ld19ob3BlLCBlbXBpcmVfc3RyaWtlcywgcmV0dXJuX2plZGkpDQpgYGANCg0KRmlsbCB0aGUgbWF0cml4DQoNCmBgYHtyfQ0KIyBPcHRpb24gMTogQWRkaW5nIGNvbHVtbiBhbmQgcm93IG5hbWVzDQpzdGFyX3dhcnNfbWF0cml4XzEgPC0gbWF0cml4KGJveF9vZmZpY2UsIGJ5cm93ID0gVFJVRSwgbnJvdyA9IDMpDQoNCnJlZ2lvbiA8LSBjKCJVUyIsICJub24tVVMiKQ0KdGl0bGVzIDwtIGMoIkEgTmV3IEhvcGUiLCAiVGhlIEVtcGlyZSBTdHJpa2VzIEJhY2siLCAiUmV0dXJuIG9mIHRoZSBKZWRpIikNCg0KY29sbmFtZXMoc3Rhcl93YXJzX21hdHJpeF8xKSA8LSByZWdpb24NCnJvd25hbWVzKHN0YXJfd2Fyc19tYXRyaXhfMSkgPC0gdGl0bGVzDQoNCnN0YXJfd2Fyc19tYXRyaXhfMQ0KYGBgDQoNCmBgYHtyfQ0KIyBPcHRpb24gMjogQWRkaW5nIGNvbHVtbiBhbmQgcm93IG5hbWVzDQpzdGFyX3dhcnNfbWF0cml4XzIgPC0gbWF0cml4KGJveF9vZmZpY2UNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICwgYnlyb3cgPSBUUlVFDQogICAgICAgICAgICAgICAgICAgICAgICAgICAsIG5yb3cgPSAzDQogICAgICAgICAgICAgICAgICAgICAgICAgICAsIGRpbW5hbWVzID0gbGlzdCh0aXRsZXMsIHJlZ2lvbikpDQoNCnN0YXJfd2Fyc19tYXRyaXhfMg0KYGBgDQoNCiMjIE1hbmlwdWxhdGluZyB0aGUgbWF0cml4DQoNClN1bW1hdGlvbg0KDQpgYGB7cn0NCiMgU3RhdHMNCndvcmxkd2lkZV92ZWN0b3IgPC0gcm93U3VtcyhzdGFyX3dhcnNfbWF0cml4XzEpDQp3b3JsZHdpZGVfdmVjdG9yDQpgYGANCg0KYGBge3J9DQojIFN0YXRzDQp0b3RhbF9yZXZlbnVlX3ZlY3RvciA8LSBjb2xTdW1zKHN0YXJfd2Fyc19tYXRyaXhfMSkNCnRvdGFsX3JldmVudWVfdmVjdG9yDQpgYGANCg0KQmluZGluZyBvZiBjb2x1bW5zIGFuZCByb3dzDQoNCmBgYHtyfQ0KIyBCaW5kIENPTFVNTlMgaW4gYSBzaW5nbGUgbWF0cml4DQphbGxfd2Fyc19jbWF0cml4IDwtIGNiaW5kKHN0YXJfd2Fyc19tYXRyaXhfMSwgd29ybGR3aWRlX3ZlY3RvcikNCmFsbF93YXJzX2NtYXRyaXgNCmBgYA0KDQpgYGB7cn0NCiMgQmluZCBST1dTIGluIGEgc2luZ2xlIG1hdHJpeA0KYWxsX3dhcnNfcm1hdHJpeCA8LSByYmluZChzdGFyX3dhcnNfbWF0cml4XzEsIHN0YXJfd2Fyc19tYXRyaXhfMikNCmFsbF93YXJzX3JtYXRyaXgNCmBgYA0KDQpTbGljaW5nIGFuZCBjYWxjdWxhdGluZyB0aGUgbWVhbg0KDQpgYGB7cn0NCiMgU2xpY2luZw0Kbm9uX3VzX2FsbCA8LSBhbGxfd2Fyc19ybWF0cml4WywyXSAjIFNlY29uZCBjb2x1bW4NCm5vbl91c19hbGwNCmBgYA0KDQpgYGB7cn0NCm5vbl91c19zb21lIDwtIGFsbF93YXJzX3JtYXRyaXhbMToyLCAyXSAjIEZpcnN0IHR3byByb3dzLCBvZiB0aGUgc2Vjb25kIGNvbHVtbg0Kbm9uX3VzX3NvbWUNCmBgYA0KDQpgYGB7cn0NCiMgU3RhdHMNCm1lYW4obm9uX3VzX3NvbWUpDQpgYGANCg0KIyMgQ2FsY3VsYXRpb25zDQoNCk1hdHJpeCBtdWx0aXBsaWNhdGlvbiBpcyB1c3VhbGx5IGRvbmUgd2l0aDogJVwqJSAoc3RhbmRhcmQpLg0KDQpNdWx0aXBsaWNhdGlvbiBvZiBldmVyeSBlbGVtZW50IGJ5IGVhY2ggcmVsYXRpbmcgZWxlbWVudCBpcyBkb25lIHdpdGg6IFwqDQoNCmBgYHtyfQ0KIyBNYXRoZW1hdGljYWw6IE11bHRpcGxpY2F0aW9uDQp0d2ljZV9ub25fdXNfc29tZSA8LSBub25fdXNfc29tZSAqMiANCmBgYA0KDQpTaW1pbGFybHkgaXMgZm9yIGFwcGx5aW5nIGEgZGl2aXNpb24NCg0KYGBge3J9DQojIE1hdGhlbWF0aWNhbDogRGl2aXNpb24gKGFzIGV4YW1wbGUpDQpoYWxmZV9ub25fdXNfc29tZSA8LSBub25fdXNfc29tZSAvIDIgDQpgYGANCg0KIyBGYWN0b3JzDQoNCiMjIENvbnN0cnVjdCBhIEZhY3Rvcg0KDQpBIEZhY3RvciBkZWZpbmVzIHRoZSB1bmlxdWUgdmFsdWVzIGluIGEgbGlzdC4NCg0KYGBge3J9DQojIENvbnZlcnQgc2V4X3ZlY3RvciB0byBhIGZhY3Rvcg0Kc2V4X3ZlY3RvciA8LSBjKCJNYWxlIiwgIkZlbWFsZSIsICJGZW1hbGUiLCAiTWFsZSIsICJNYWxlIikNCmZhY3Rvcl9zZXhfdmVjdG9yIDwtIGZhY3RvcihzZXhfdmVjdG9yKQ0KZmFjdG9yX3NleF92ZWN0b3INCmBgYA0KDQojIyBDYWxjdWxhdGlvbnMNCg0KRXhhbXBsZSB3aXRoIHRlbXBlcmF0dXJlcw0KDQpgYGB7cn0NCiMgVGVtcGVyYXR1cmUgKGluZGljYXRlIHZlY3RvciBpcyBvZiBPUkRJTkFMIHR5cGUsIGxldmVscyBnaXZlIHlvdSB0aGUgdmFsdWVzIGluIHRoZSBjb3JyZWN0IG9yZGVyKQ0KdGVtcGVyYXR1cmVfdmVjdG9yIDwtIGMoIkhpZ2giLCAiTG93IiwgIkhpZ2giLCJMb3ciLCAiTWVkaXVtIikNCmZhY3Rvcl90ZW1wZXJhdHVyZV92ZWN0b3IgPC0gZmFjdG9yKHRlbXBlcmF0dXJlX3ZlY3Rvciwgb3JkZXIgPSBUUlVFLCBsZXZlbHMgPSBjKCJMb3ciLCAiTWVkaXVtIiwgIkhpZ2giKSkNCg0KIyBQcmludA0KZmFjdG9yX3RlbXBlcmF0dXJlX3ZlY3Rvcg0KDQojIENhbGN1bGF0aW9uDQp0ZW1wX2RheTEgPSBmYWN0b3JfdGVtcGVyYXR1cmVfdmVjdG9yWzFdICMgSGlnaA0KdGVtcF9kYXk0ID0gZmFjdG9yX3RlbXBlcmF0dXJlX3ZlY3Rvcls0XSAjIExvdw0KdGVtcF9kYXkxID4gdGVtcF9kYXk0ICMgV2FzIGRheSAxIHdhcm1lciB0aGFuIGRheSA0PyAtPiBUUlVFDQpgYGANCg0KVGhlIG5hbWVzIG9mIHRoZSBmYWN0b3JzIGNhbiBiZSBjaGFuZ2VkDQoNCmBgYHtyfQ0KIyBDb2RlIHRvIGJ1aWxkIGZhY3Rvcl9zdXJ2ZXlfdmVjdG9yDQpzdXJ2ZXlfdmVjdG9yIDwtIGMoIk0iLCAiRiIsICJGIiwgIk0iLCAiTSIpDQpmYWN0b3Jfc3VydmV5X3ZlY3RvciA8LSBmYWN0b3Ioc3VydmV5X3ZlY3RvcikNCmZhY3Rvcl9zdXJ2ZXlfdmVjdG9yDQpgYGANCg0KTm93LCBhcHBseSB0aGUgY2hhbmdlIG9mIHRoZSAnRicgYW5kICdNJyBsZXZlbHMgb2YgYWJvdmUgY29kZQ0KDQpgYGB7cn0NCiMgQ2hhbmdlIHZhcmlhYmxlIG5hbWVzIG9mIHRoZSB3aG9sZSB2ZWN0b3INCiMgRiBiZWNvbWVzIEZlbWFsZSwgTSBiZWNvbWVzIA0KbGV2ZWxzKGZhY3Rvcl9zdXJ2ZXlfdmVjdG9yKSA8LSBjKCJGZW1hbGUiLCAiTWFsZSIpDQoNCiMgTWFsZQ0KZmFjdG9yX3N1cnZleV92ZWN0b3INCmBgYA0KDQpHZW5lcmF0ZSBhIHN1bW1hcnkgb2YgYSB2ZWN0b3IuIFRoaXMgc3VtbWFyeSBwcm92aWRlcyB0aGUgbGVuZ3RoLCBjbGFzcyBhbmQgbW9kZSBvZiB0aGUgdmVjdG9yLg0KDQpgYGB7cn0NCiMgU3VtbXJpemUgdGhlIHZlY3Rvcg0Kc3VtbWFyeShzdXJ2ZXlfdmVjdG9yKQ0KYGBgDQoNCkdlbmVyYXRlIGEgc3VtbWFyeSBvZiBhIGZhY3Rvci4gVGhpcyBzdW1tYXJ5IHByb3ZpZGVzIGEgbnVtYmVyIG9mIG9ic2VydmF0aW9ucyBmb3IgZWFjaCBmYWN0b3INCg0KYGBge3J9DQojIFN1bW1yaXplIHRoZSBmYWN0b3JzDQpzdW1tYXJ5KGZhY3Rvcl9zdXJ2ZXlfdmVjdG9yKQ0KYGBgDQoNCiMgTGlzdCBvZiB2ZWN0b3JzIGFuZCBtYXRyaWNlcw0KDQojIyBDb25zdHJ1Y3QgYSBsaXN0DQoNClNlcGFyYXRlZCB2ZWN0b3JzIGFuZCBtYXRyaWNlcyBkZWZpbmVkOg0KDQpgYGB7cn0NCiMgRGVmaW5lIHZlY3RvcnMgYW5kIG1hdHJpY2VzDQpteV92ZWN0b3IgPC0gMToxMCANCm15X21hdHJpeCA8LSBtYXRyaXgoMTo5LCBuY29sID0gMykNCm15X2RmIDwtIG10Y2Fyc1sxOjEwLF0NCmBgYA0KDQpDb25zdHJ1Y3RpbmcgYSBsaXN0IHN0ZXAgYnkgc3RlcDoNCg0KYGBge3J9DQojIE1ha2UgbGlzdCBvZiB2ZWN0b3IgYW5kIG1hdGl4DQpteV9saXN0IDwtIGxpc3QobXlfdmVjdG9yLCBteV9tYXRyaXgsIG15X2RmKSAjIGNyZWF0ZSBsaXN0DQpuYW1lcyhteV9saXN0KSA8LSBjKCd2ZWMnLCdtYXQnLCdteV9kZicpICMgZ2l2ZSBuYW1lcyB0byBsaXN0cyBpbiBteV9saXN0DQoNCm15X2xpc3QNCmBgYA0KDQpBbGwgbm90YXRpb25zIGF0IG9uY2U6DQoNCmBgYHtyfQ0KIyBTaG9ydGN1dA0KbXlfbGlzdDIgPC0gbGlzdCh2ZWMgPSBteV92ZWN0b3IsIG1hdCA9IG15X21hdHJpeCwgbXlfZGYgPSBteV9kZikgIyBhbGwgYXQgb25jZQ0KbXlfbGlzdDINCmBgYA0KDQojIyBNYW5pcHVsYXRpbmcgYSBsaXN0DQoNClNlbGVjdGluZyBhIHNpbmdsZSBvYmplY3QgaW4gdGhlIGxpc3QgY2FuIGJlIGRvbmUgYnkgbXVsdGlwbGUgb3B0aW9ucw0KDQpgYGB7cn0NCiMgU2VsZWN0aW5nIG9ubHkgbXlfdmVjdG9yDQoNCiMgT3B0aW9uIDENCm15X2xpc3RbMV0NCg0KIyBPcHRpb24gMg0KbXlfbGlzdFsndmVjJ10NCg0KIyBPcHRpb24gMyAoc2hvcnRjdXQpDQpteV9saXN0JHZlYw0KDQojIE9wdGlvbiAzIChlbGFib3JhdGVkIGZpbHRlcikNCm15X2xpc3QkdmVjWzJdDQpgYGANCg0KIyBCb29sZWFuDQoNClRSVUUgb3IgRkFMU0U/DQoNCmBgYHtyfQ0KIyBCYXNpY3MNClRSVUUgPT0gVFJVRQ0KJ2hlbGxvJyAhPSAnZ29vZGJ5ZScNCjIgIT0gMjINCjcwID4gNw0KNzAgPj0gNw0KJ2hlbGxvJyA+ICdnb29kYnllJyAjIEFscGhhYmV0aWNhbCBvcmRlcg0KVFJVRSA+IEZBTFNFICMgMSA+IDANCmBgYA0KDQpDb21wYXJpc2lvbnMNCg0KYGBge3J9DQojIHZlY3RvcnMNCmxpbmsgPC0gYygxNiwxLDksNiwyLDE3LDE0KQ0KY29tYmkgPC0gYyg3LDQsNSwxNCwyMSwyOCwzKQ0KDQojIENhbGN1bGF0aW9ucw0KbGluayA+IDcNCmxpbmsgPD0gY29tYmkgIyB2YWx1ZSBjb21wYXJpc29uIG9uZSBieSBvbmUNCmlkZW50aWNhbChsaW5rLCBjb21iaSkNCmBgYA0KDQpgYGB7cn0NCmNvbWJpIDwtIGMoNyw0LDUsMTQsMjEsMjgsMykNCg0KIyBSYW5nZSBjYWxjdWxhdGlvbnMNCmNvbWJpID4gNSAmIGNvbWJpIDwgMTUNCmNvbWJpID4gMTUgfCBjb21iaSA8IDUNCmBgYA0KDQpSZWxhdGlvbnM6DQoNCmBgYHtyfQ0KIyBSZWxhdGlvbnMgJ0FORCcNCmMoVFJVRSwgVFJVRSwgRkFMU0UpICYgYyhUUlVFLCBGQUxTRSwgRkFMU0UpICMgZWxlbWVudHdpc2UNCmMoVFJVRSwgVFJVRSwgRkFMU0UpICYmIGMoVFJVRSwgRkFMU0UsIEZBTFNFKSAjIGFsbA0KYGBgDQoNCmBgYHtyfQ0KIyBSZWxhdGlvbnMgJ09SJw0KYyhUUlVFLCBUUlVFLCBGQUxTRSkgfCBjKFRSVUUsIEZBTFNFLCBGQUxTRSkgIyBlbGVtZW50d2lzZQ0KYyhUUlVFLCBUUlVFLCBGQUxTRSkgfHwgYyhUUlVFLCBGQUxTRSwgRkFMU0UpICMgYWxsDQpgYGANCg0KSXMgY29ycmVjdCB0eXBlPw0KDQpgYGB7cn0NCiMgTnVtZXJpYyBjaGVjaw0KIVRSVUUNCmlzLm51bWVyaWMoNSkgIyBUUlVFDQohaXMubnVtZXJpYygnaGVsbG8nKSAjIFRSVUUNCmBgYA0K</div>
 
 
 
@@ -2091,7 +2584,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Dyplr_Notebook.Rmd");
+  window.initializeSourceEmbed("Basics_Notebook.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
